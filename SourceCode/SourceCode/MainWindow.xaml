@@ -46,21 +46,21 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    <Button Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"
                             Style="{StaticResource MaterialDesignRaisedButton}"
                             Width="100"
                             ToolTip="Resource name: MaterialDesignRaisedButton"
-                            Content="Đăng nhập"
+                            Content="Đăng nhập" Click="Button_Click" Margin="0,12,5,13"
                            
                             >
-                            
+
                     </Button>
                     <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
                             Background="Orange"
                             Style="{StaticResource MaterialDesignRaisedAccentButton}"
                             Width="100"
                             ToolTip="Resource name: MaterialDesignRaisedAccentButton"
-                            Content="Thoát"
+                            Content="Thoát" Click="Button_Click_1"
                             
                             >
                     </Button>
