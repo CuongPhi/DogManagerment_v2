@@ -1,0 +1,60 @@
+﻿<Window x:Class="SourceCode.managerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:uc_sliderBar="clr-namespace:MilcanxWpf_SliderMenu"
+        Title="managerWindow" Height="500" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+        WindowState="Maximized"
+        ResizeMode="CanMinimize"
+         TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid Background="#F5F5F5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition >
+            <RowDefinition></RowDefinition >
+        </Grid.RowDefinitions>
+        <materialDesign:ColorZone Grid.Row="0" Mode="PrimaryDark"  MaxHeight="300" Padding="16"
+                                   CornerRadius="3"
+                                   materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                   Margin="0">
+            <StackPanel Orientation="Horizontal">
+            <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="Grid">
+                            <Setter Property="Margin" Value="10 0 0 0"></Setter>
+                        </Style>
+                    </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions> 
+                <ToggleButton Grid.Column="0" Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                
+                </Grid>
+            </StackPanel>
+        </materialDesign:ColorZone>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition  Width="70"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="2">
+                    <uc_sliderBar:SliderBar Loaded="SliderBar_Loaded"></uc_sliderBar:SliderBar>
+            </Grid>
+            
+        </Grid>
+        
+    </Grid>
+</Window>

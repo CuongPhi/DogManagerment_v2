@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SourceCode
+namespace MilcanxWpf_SliderMenu
 {
     /// <summary>
-    /// Interaction logic for managerWindow.xaml
+    /// Interaction logic for SliderBar.xaml
     /// </summary>
-    public partial class managerWindow : Window
+    public partial class SliderBar : UserControl
     {
-        public managerWindow()
+        public SliderBar()
         {
             InitializeComponent();
         }
