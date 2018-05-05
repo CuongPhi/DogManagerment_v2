@@ -38,7 +38,7 @@ namespace SourceCode
                     uC_MainWindow = new Accountant_Handover();
                     break;
                 case TypeUserControl.Accountant_Statistic_ThisDay:
-                    uC_MainWindow = new SliderBar();
+                    uC_MainWindow = new NhanVien();
                     break;
                 case TypeUserControl.Staff_List:
                     uC_MainWindow = new NhanVien();

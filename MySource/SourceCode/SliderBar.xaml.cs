@@ -94,7 +94,7 @@ namespace MilcanxWpf_SliderMenu
     {
         Accountant_Handover = 0,
         Accountant_Statistic_ThisDay = 1,
-        Staff_List =2
+        Staff_List =2,
     }
 
 }
