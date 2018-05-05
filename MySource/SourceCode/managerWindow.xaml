@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        xmlns:uc_sliderBar="clr-namespace:MilcanxWpf_SliderMenu"
         Title="managerWindow" Height="500" Width="800"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -15,7 +14,7 @@
          TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
-     FontFamily="{DynamicResource MaterialDesignFont}">
+     FontFamily="{DynamicResource MaterialDesignFont}" Loaded="Window_Loaded">
     <Grid Background="#F5F5F5">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition >
@@ -37,21 +36,45 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions> 
-                <ToggleButton Grid.Column="0" Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                </Grid.ColumnDefinitions>
+
+                    <Menu Background="#512DA8"  Grid.Column="0" IsMainMenu="True " Foreground="AliceBlue">
+                        <MenuItem   Header="_File">
+                            <MenuItem Click="MenuItem_Click" Header="Thoát">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="CloseOctagon" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                        
+                        <MenuItem    Header="Trợ giúp">                         
+                        </MenuItem>
+                        <MenuItem    Header="Bản quyền">
+                        </MenuItem>
+                        <MenuItem    Header="Liên lạc">
+
+                        </MenuItem>
+                        <MenuItem  Name="Menu_UserName"  Header="Cường">
+
+                        </MenuItem>
+                    </Menu>
+                    <!--<ToggleButton Grid.Column="0"  Width="100"  Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />-->
+
                 
                 </Grid>
             </StackPanel>
         </materialDesign:ColorZone>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Loaded="Grid_Loaded">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition ></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition  Width="70"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="2">
-                    <uc_sliderBar:SliderBar Loaded="SliderBar_Loaded"></uc_sliderBar:SliderBar>
+
+            <Grid Name="UserControl_MainWindow" Grid.Column="0" ></Grid>
+            
+            
+            <Grid Name="Menu_SliderBar" Grid.Column="1">
             </Grid>
             
         </Grid>

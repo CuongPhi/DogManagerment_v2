@@ -5,49 +5,287 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MilcanxWpf_SliderMenu"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="500" d:DesignWidth="300">
     <Grid x:Name="UserContrl_SliderBar">
         <StackPanel Panel.ZIndex="2" Style="{StaticResource spSlideLeft}" x:Name="spLeft" Background="#2D3446" Width="220" Margin="0,0,0,0">
-
+            <!--Quản lý-->
             <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" Height="50">
-                <Image Width="25" Stretch="Fill" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,10,10">
-                    <Image.Source>
-                        <BitmapImage UriSource="/DogManage;component/SourceCode/images/icons/home.png"/>
-                    </Image.Source>
-                </Image>
-                       
-                       
-                       
+                <Image Width="25" Stretch="Fill" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,10,10" Source="pack://application:,,,/SourceCode;component/Image/Icon/home.png"/>
+                <Label Style="{DynamicResource MenuLabel}" Width="140" Content="Quản lý" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" />
+            </DockPanel>
+            <TreeView Name="treeView_0" MouseLeave="treeView_0_MouseLeave" MouseEnter="TreeView_MouseEnter" MinWidth="180" MaxHeight="200" Background="White">
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <Setter Property="IsExpanded" Value="False"/>
+                    </Style>
+                </TreeView.ItemContainerStyle>
+                <TreeViewItem  Padding="45 10 10 10" Header="Tài chính">                    
+                    <TreeViewItem>                        
+                        <TreeViewItem.Header>                            
+                            <StackPanel
+                                            Orientation="Horizontal">                                
+                                <Viewbox
+                                    Width="16"  
+                                    Height="16">                                    
+                                    <Canvas
+                                        Width="24"
+                                        Height="24">
+                                        <Path
+                                            Data="M20,10C22,13 17,22 15,22C13,22 13,21 12,21C11,21 11,22 9,22C7,22 2,13 4,10C6,7 9,7 11,8V5C5.38,8.07 4.11,3.78 4.11,3.78C4.11,3.78 6.77,0.19 11,5V3H13V8C15,7 18,7 20,10Z"
+                                            Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Foreground}" />
+                                        
+                                    </Canvas>                                    
+                                </Viewbox>            
+                                <TextBlock Text="Doanh thu"
+                                           Margin="8 0 0 0"> 
+                                    
+                                </TextBlock>                                
+                            </StackPanel>                           
+                        </TreeViewItem.Header>                        
+                    </TreeViewItem>                    
+                    <TreeViewItem>                        
+                        <TreeViewItem.Header>                            
+                          <StackPanel
+                              Orientation="Horizontal">
+                              
+                                <Viewbox
+                                    Width="16"   
+                                    Height="16">                                    
+                                    <Canvas
+                                        Width="24"
+                                        Height="24">                                        
+                                        <Path
+                                            Data="M20,10C22,13 17,22 15,22C13,22 13,21 12,21C11,21 11,22 9,22C7,22 2,13 4,10C6,7 9,7 11,8V5C5.38,8.07 4.11,3.78 4.11,3.78C4.11,3.78 6.77,0.19 11,5V3H13V8C15,7 18,7 20,10Z"
+                                                       Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Foreground}" />
+                                       
+                                    </Canvas>                                    
+                                </Viewbox>
+                                <TextBlock Text="Lợi nhuận"
+                                           Margin="8 0 0 0">
+                                </TextBlock>                              
+                            </StackPanel>                            
+                        </TreeViewItem.Header>                        
+                    </TreeViewItem>
+
+                    <TreeViewItem>
+                        <TreeViewItem.Header>
+                            <StackPanel
+                              Orientation="Horizontal">
+
+                                <Viewbox
+                                    Width="16"   
+                                    Height="16">
+                                    <Canvas
+                                        Width="24"
+                                        Height="24">
+                                        <Path
+                                            Data="M20,10C22,13 17,22 15,22C13,22 13,21 12,21C11,21 11,22 9,22C7,22 2,13 4,10C6,7 9,7 11,8V5C5.38,8.07 4.11,3.78 4.11,3.78C4.11,3.78 6.77,0.19 11,5V3H13V8C15,7 18,7 20,10Z"
+                                                       Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Foreground}" />
+
+                                    </Canvas>
+                                </Viewbox>
+                                <TextBlock Text="Sổ quỹ"
+                                           Margin="8 0 0 0">
+                                </TextBlock>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                    </TreeViewItem>
+                </TreeViewItem>
                 
-                <Label Style="{DynamicResource MenuLabel}" Width="140" Content="Anasayfa" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" />
+            </TreeView>
+            <TreeView Name="treeView1" MouseEnter="treeView1_MouseEnter" MouseLeave="treeView1_MouseLeave" MinWidth="180" MaxHeight="200" Background="White">
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <Setter Property="IsExpanded" Value="False"/>
+                    </Style>
+                </TreeView.ItemContainerStyle>
+                <TreeViewItem  Padding="45 10 10 10" Header="Doanh số">
+                    <TreeViewItem>
+                        <TreeViewItem.Header>
+                            <StackPanel
+                                            Orientation="Horizontal">
+                                <Viewbox
+                                    Width="16"  
+                                    Height="16">
+                                    <Canvas
+                                        Width="24"
+                                        Height="24">
+                                        <Path
+                                            Data="M20,10C22,13 17,22 15,22C13,22 13,21 12,21C11,21 11,22 9,22C7,22 2,13 4,10C6,7 9,7 11,8V5C5.38,8.07 4.11,3.78 4.11,3.78C4.11,3.78 6.77,0.19 11,5V3H13V8C15,7 18,7 20,10Z"
+                                            Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Foreground}" />
 
+                                    </Canvas>
+                                </Viewbox>
+                                <TextBlock Text="Hóa đơn nhập"
+                                           Margin="8 0 0 0">
+
+                                </TextBlock>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                    </TreeViewItem>
+                    <TreeViewItem>
+                        <TreeViewItem.Header>
+                            <StackPanel
+                              Orientation="Horizontal">
+
+                                <Viewbox
+                                    Width="16"   
+                                    Height="16">
+                                    <Canvas
+                                        Width="24"
+                                        Height="24">
+                                        <Path
+                                            Data="M20,10C22,13 17,22 15,22C13,22 13,21 12,21C11,21 11,22 9,22C7,22 2,13 4,10C6,7 9,7 11,8V5C5.38,8.07 4.11,3.78 4.11,3.78C4.11,3.78 6.77,0.19 11,5V3H13V8C15,7 18,7 20,10Z"
+                                                       Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Foreground}" />
+
+                                    </Canvas>
+                                </Viewbox>
+                                <TextBlock Text="Hóa đơn xuất"
+                                           Margin="8 0 0 0">
+                                </TextBlock>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                    </TreeViewItem>
+
+
+                </TreeViewItem>
+
+            </TreeView>
+
+            <!--nhân viên--> 
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" Height="50">
+                <Image Width="25" Stretch="Fill" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,10,10" Source="pack://application:,,,/SourceCode;component/Image/Icon/home.png"/>
+                <Label Style="{DynamicResource MenuLabel}" Width="140" Content="Nhân viên" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" />
             </DockPanel>
+            <TreeView MinWidth="180" MaxHeight="200" Background="White">
+                <TreeViewItem  Padding="45 10 10 10" Header="Nhập xuất">
+                    <TreeViewItem>
+                        <TreeViewItem.Header>
+                            <StackPanel
+                                            Orientation="Horizontal">
+                                <Viewbox
+                                    Width="16"  
+                                    Height="16">
+                                    <Canvas
+                                        Width="24"
+                                        Height="24">
+                                        <Path
+                                            Data="M20,10C22,13 17,22 15,22C13,22 13,21 12,21C11,21 11,22 9,22C7,22 2,13 4,10C6,7 9,7 11,8V5C5.38,8.07 4.11,3.78 4.11,3.78C4.11,3.78 6.77,0.19 11,5V3H13V8C15,7 18,7 20,10Z"
+                                            Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Foreground}" />
 
-            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
-                <Image Source="SourceCode/images/icons/document.png" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,10,10" />
-                <Label Style="{DynamicResource MenuLabel}" Content="Veri Kayıt" Width="140" VerticalAlignment="Center" FontFamily="Source Sans Pro"/>
+                                    </Canvas>
+                                </Viewbox>
+                                <TextBlock Text="Trả chó"
+                                           Margin="8 0 0 0">
 
+                                </TextBlock>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                    </TreeViewItem>
+                    <TreeViewItem>
+                        <TreeViewItem.Header>
+                            <StackPanel
+                              Orientation="Horizontal">
+
+                                <Viewbox
+                                    Width="16"   
+                                    Height="16">
+                                    <Canvas
+                                        Width="24"
+                                        Height="24">
+                                        <Path
+                                            Data="M20,10C22,13 17,22 15,22C13,22 13,21 12,21C11,21 11,22 9,22C7,22 2,13 4,10C6,7 9,7 11,8V5C5.38,8.07 4.11,3.78 4.11,3.78C4.11,3.78 6.77,0.19 11,5V3H13V8C15,7 18,7 20,10Z"
+                                                       Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Foreground}" />
+
+                                    </Canvas>
+                                </Viewbox>
+                                <TextBlock Text="Nhận chó"
+                                           Margin="8 0 0 0">
+                                </TextBlock>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                    </TreeViewItem>
+
+
+                </TreeViewItem>
+
+            </TreeView>
+            
+            <!--Ke toan-->            
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" Height="50">
+                <Image Width="25" Stretch="Fill" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,10,10" Source="pack://application:,,,/SourceCode;component/Image/Icon/home.png"/>
+                <Label Style="{DynamicResource MenuLabel}" Width="140" Content="Kế toán" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" />
             </DockPanel>
-            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
-                <Image Source="SourceCode/images/icons/progress.png" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,10,10" />
+            <TreeView MinWidth="180" MaxHeight="200" Background="White">
+                <TreeViewItem  Padding="45 10 10 10" Header="Xuất chó">
+                    <TreeViewItem MouseLeftButtonUp="TreeViewItem_MouseLeftButtonUp">
+                        <TreeViewItem.Header>
+                            <StackPanel
+                                            Orientation="Horizontal">
+                                <Viewbox
+                                    Width="16"  
+                                    Height="16">
+                                    <Canvas
+                                        Width="24"
+                                        Height="24">
+                                        <Path
+                                            Data="M20,10C22,13 17,22 15,22C13,22 13,21 12,21C11,21 11,22 9,22C7,22 2,13 4,10C6,7 9,7 11,8V5C5.38,8.07 4.11,3.78 4.11,3.78C4.11,3.78 6.77,0.19 11,5V3H13V8C15,7 18,7 20,10Z"
+                                            Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Foreground}" />
 
-                <Label Style="{DynamicResource MenuLabel}" Content="İstatistik" Width="140" VerticalAlignment="Center" FontFamily="Source Sans Pro"/>
+                                    </Canvas>
+                                </Viewbox>
+                                <TextBlock Text="Trả chó"
+                                           Margin="8 0 0 0">
 
-            </DockPanel>
-            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
-                <Image Source="SourceCode/images/icons/file.png" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,10,10" />
+                                </TextBlock>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                    </TreeViewItem>               
 
-                <StackPanel>
-                    <Label Style="{DynamicResource MenuLabel}" Content="Email" Width="140" VerticalAlignment="Center" FontFamily="Source Sans Pro"/>
-                    <Label Style="{DynamicResource MenuDecLabel}" Content="Posta Kutun Boş" FontSize="12" Width="140" VerticalAlignment="Center" FontFamily="Source Sans Pro" FontStyle="Italic"/>
-                </StackPanel>
-            </DockPanel>
-            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
-                <Image Source="SourceCode/images/icons/settings.png" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,10,10" />
+                </TreeViewItem>
 
-                <Label Style="{DynamicResource MenuLabel}" Content="Ayarlar" Width="140" VerticalAlignment="Center" FontFamily="Source Sans Pro"/>
+            </TreeView>
+            <TreeView MinWidth="180" MaxHeight="200" Background="White">
+                <TreeViewItem  Padding="45 10 10 10" Header="Thống kê">
+                    <TreeViewItem MouseLeftButtonUp="TreeViewItem_MouseLeftButtonUp_1" >
+                        <TreeViewItem.Header>
+                            <StackPanel  Orientation="Horizontal">
+                                <Viewbox
+                                    Width="16"  
+                                    Height="16">
+                                    <Canvas   Width="24"    Height="24">
+                                        <Path
+                                            Data="M20,10C22,13 17,22 15,22C13,22 13,21 12,21C11,21 11,22 9,22C7,22 2,13 4,10C6,7 9,7 11,8V5C5.38,8.07 4.11,3.78 4.11,3.78C4.11,3.78 6.77,0.19 11,5V3H13V8C15,7 18,7 20,10Z"
+                                            Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Foreground}" />
 
-            </DockPanel>
+                                    </Canvas>
+                                </Viewbox>
+                                <TextBlock Text="Cuối ngày"   Margin="8 0 0 0">   </TextBlock>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                    </TreeViewItem>
+                    <TreeViewItem >
+                        <TreeViewItem.Header>
+                            <StackPanel  Orientation="Horizontal">
+                                <Viewbox
+                                    Width="16"  
+                                    Height="16">
+                                    <Canvas   Width="24"    Height="24">
+                                        <Path
+                                            Data="M20,10C22,13 17,22 15,22C13,22 13,21 12,21C11,21 11,22 9,22C7,22 2,13 4,10C6,7 9,7 11,8V5C5.38,8.07 4.11,3.78 4.11,3.78C4.11,3.78 6.77,0.19 11,5V3H13V8C15,7 18,7 20,10Z"
+                                            Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Foreground}" />
+
+                                    </Canvas>
+                                </Viewbox>
+                                <TextBlock Text="Lịch sử thu chi"   Margin="8 0 0 0"></TextBlock>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                    </TreeViewItem>
+
+                </TreeViewItem>
+
+            </TreeView>
+
         </StackPanel>
 
     </Grid>

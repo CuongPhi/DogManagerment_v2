@@ -13,5 +13,9 @@ namespace SourceCode
     /// </summary>
     public partial class App : Application
     {
+        private void ThicknessAnimation_Collapsed(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

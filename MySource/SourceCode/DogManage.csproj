@@ -60,9 +60,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Accountant_Handover.xaml.cs">
+      <DependentUpon>Accountant_Handover.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SliderBar.xaml.cs">
       <DependentUpon>SliderBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UIProcess.cs" />
+    <Page Include="Accountant_Handover.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -120,6 +128,32 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Icon\logo.png" />
+    <Resource Include="Image\Icon\analysis.png" />
+    <Resource Include="Image\Icon\close.png" />
+    <Resource Include="Image\Icon\coming_document.png" />
+    <Resource Include="Image\Icon\document.png" />
+    <Content Include="Image\Icon\document.svg" />
+    <Resource Include="Image\Icon\documentx32.png" />
+    <Resource Include="Image\Icon\exam.png" />
+    <Resource Include="Image\Icon\examx24.png" />
+    <Resource Include="Image\Icon\excel.png" />
+    <Resource Include="Image\Icon\file.png" />
+    <Resource Include="Image\Icon\file2.png" />
+    <Resource Include="Image\Icon\home.png" />
+    <Resource Include="Image\Icon\iem_Logo.png" />
+    <Resource Include="Image\Icon\info.png" />
+    <Resource Include="Image\Icon\menu_button.png" />
+    <Resource Include="Image\Icon\pencil.png" />
+    <Resource Include="Image\Icon\pencil_over.png" />
+    <Resource Include="Image\Icon\progress.png" />
+    <Resource Include="Image\Icon\research.png" />
+    <Resource Include="Image\Icon\search.png" />
+    <Resource Include="Image\Icon\settings.png" />
+    <Resource Include="Image\Icon\statistics.png" />
+    <Resource Include="Image\Icon\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
