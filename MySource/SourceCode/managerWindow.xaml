@@ -8,7 +8,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
          TextElement.FontWeight="Regular"
-     TextElement.FontSize="13"
+        TextElement.FontSize="13"
         WindowState="Maximized"
         ResizeMode="CanMinimize"
          TextOptions.TextFormattingMode="Ideal"
@@ -17,10 +17,10 @@
      FontFamily="{DynamicResource MaterialDesignFont}" Loaded="Window_Loaded">
     <Grid Background="#F5F5F5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"></RowDefinition >
+            <RowDefinition Height="48"></RowDefinition >
             <RowDefinition></RowDefinition >
         </Grid.RowDefinitions>
-        <materialDesign:ColorZone Grid.Row="0" Mode="PrimaryDark"  MaxHeight="300" Padding="16"
+        <materialDesign:ColorZone Grid.Row="0" Mode="PrimaryDark"  MaxHeight="300" Padding="0"
                                    CornerRadius="3"
                                    materialDesign:ShadowAssist.ShadowDepth="Depth3"
                                    Margin="0">
@@ -68,7 +68,7 @@
         <Grid Grid.Row="1" Loaded="Grid_Loaded">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition  Width="70"></ColumnDefinition>
+                <ColumnDefinition  Width="62"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
             <Grid Name="UserControl_MainWindow" Grid.Column="0" ></Grid>
