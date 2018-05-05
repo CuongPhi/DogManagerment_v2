@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="SourceCode.NhanVien"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="438" d:DesignWidth="738">
+
+    <Grid x:Name="UCNhanVien" Background="Aqua">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Grid.Row="0" Margin="5">
+            <WrapPanel>
+                <TextBox Text="{Binding WEIGHT}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Cân nặng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding TYPE}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Loại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding FOODPRICE}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tiền thức ăn" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding IDDOGHOUSE}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Chuồng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding STREET}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Đường" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding WARD}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Phường" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding DISTRICT}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Quận" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <DatePicker VerticalAlignment="Center" SelectedDate="{Binding DAYIN}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Ngày vào" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                <materialDesign:TimePicker VerticalAlignment="Center" SelectedTime="{Binding TIME}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Giờ bắt" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" />
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="1" Margin="5">
+            <WrapPanel>
+                <TextBox Text="{Binding ID}" Margin="15 5 15 5" materialDesign:HintAssist.Hint="Mã cần tìm" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="2" Margin="5">
+            <WrapPanel>
+                <Button Command="{Binding AddCommand}" Content="Thêm" Margin="150 5 15 5" Width="120"></Button>
+                <Button Command="{Binding EditCommand}" Content="Cập nhật" Margin="5 5 15 5" Width="120"></Button>
+                <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5 5 15 5" Width="120"></Button>
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="3" Margin="5">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
+                            <GridViewColumn Header="Chuồng" DisplayMemberBinding="{Binding IDDOGHOUSE}"></GridViewColumn>
+                            <GridViewColumn Header="Cân nặng" DisplayMemberBinding="{Binding WEIGHT}"></GridViewColumn>
+                            <GridViewColumn Header="Loại" DisplayMemberBinding="{Binding TYPE}"></GridViewColumn>
+                            <GridViewColumn Header="Ngày vào" DisplayMemberBinding="{Binding DAYIN}"></GridViewColumn>
+                            <GridViewColumn Header="Giờ bắt" DisplayMemberBinding="{Binding TIME}"></GridViewColumn>
+                            <GridViewColumn Header="Đường" DisplayMemberBinding="{Binding STREET}"></GridViewColumn>
+                            <GridViewColumn Header="Phường" DisplayMemberBinding="{Binding WARD}"></GridViewColumn>
+                            <GridViewColumn Header="Quận" DisplayMemberBinding="{Binding DISTRICT}"></GridViewColumn>
+
+                            <GridViewColumn Header="Giá thức ăn" DisplayMemberBinding="{Binding FOODPRICE}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

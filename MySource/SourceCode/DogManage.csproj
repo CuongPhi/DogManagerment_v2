@@ -63,6 +63,9 @@
     <Compile Include="Accountant_Handover.xaml.cs">
       <DependentUpon>Accountant_Handover.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NhanVien.xaml.cs">
+      <DependentUpon>NhanVien.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SliderBar.xaml.cs">
       <DependentUpon>SliderBar.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="managerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NhanVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

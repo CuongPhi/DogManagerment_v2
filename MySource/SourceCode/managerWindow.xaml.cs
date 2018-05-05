@@ -40,6 +40,9 @@ namespace SourceCode
                 case TypeUserControl.Accountant_Statistic_ThisDay:
                     uC_MainWindow = new SliderBar();
                     break;
+                case TypeUserControl.Staff_List:
+                    uC_MainWindow = new NhanVien();
+                    break;
             }
             UserControl_MainWindow.Children.Add(uC_MainWindow as UIElement);
 

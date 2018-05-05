@@ -82,12 +82,19 @@ namespace MilcanxWpf_SliderMenu
             TypeUC = TypeUserControl.Accountant_Statistic_ThisDay;
 
         }
+
+        private void TreeViewItem_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
+        {
+            TypeUC = TypeUserControl.Staff_List;
+
+        }
     }
 
     public enum TypeUserControl
     {
         Accountant_Handover = 0,
         Accountant_Statistic_ThisDay = 1,
+        Staff_List =2
     }
 
 }
