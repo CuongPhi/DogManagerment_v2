@@ -68,7 +68,7 @@
         <Grid Grid.Row="1" Loaded="Grid_Loaded">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition  Width="62"></ColumnDefinition>
+                <ColumnDefinition  Width="55"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
             <Grid Name="UserControl_MainWindow" Grid.Column="0" ></Grid>

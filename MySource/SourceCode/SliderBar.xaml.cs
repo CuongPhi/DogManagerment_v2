@@ -88,6 +88,31 @@ namespace MilcanxWpf_SliderMenu
             TypeUC = TypeUserControl.Staff_List;
 
         }
+
+        private void TreeViewItem_MouseLeftButtonUp_3(object sender, MouseButtonEventArgs e)
+        {
+            TypeUC = TypeUserControl.Manager_ListStaff;
+        }
+
+        private void treeview_Staff_MouseEnter(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void treeview_Staff_MouseEnter_1(object sender, MouseEventArgs e)
+        {
+            UIProcess.Inst.ExpanAllNodesOf(treeview_Staff, true);
+        }
+
+        private void accountant_Bill_Out_MouseEnter(object sender, MouseEventArgs e)
+        {
+            UIProcess.Inst.ExpanAllNodesOf(accountant_Bill_Out, true);
+        }
+
+        private void accoutant_satistic_MouseEnter(object sender, MouseEventArgs e)
+        {
+            UIProcess.Inst.ExpanAllNodesOf(accoutant_satistic, true);
+        }
     }
 
     public enum TypeUserControl
@@ -95,6 +120,7 @@ namespace MilcanxWpf_SliderMenu
         Accountant_Handover = 0,
         Accountant_Statistic_ThisDay = 1,
         Staff_List =2,
+        Manager_ListStaff = 11,
     }
 
 }
