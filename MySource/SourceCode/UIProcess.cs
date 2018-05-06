@@ -13,7 +13,7 @@ namespace SourceCode
 
         public static UIProcess Inst
         {
-            get { if (inst == null) inst = new UIProcess(); return inst; }
+            get { return inst==null ? new UIProcess() : inst;}
         }
 
         private void ExpandAllNodes(TreeViewItem treeItem, bool b)
@@ -30,7 +30,6 @@ namespace SourceCode
             for (int i = gr.Children.Count-1; i >= 0 ; i--)
             {
                 gr.Children.RemoveAt(i);
-
             } 
             return true;
         }
