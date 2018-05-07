@@ -57,7 +57,7 @@ namespace MilcanxWpf_SliderMenu
 
         private void treeView_0_MouseLeave(object sender, MouseEventArgs e)
         {
-            //ExpanAllNodesOf(treeView_0, false);
+            UIProcess.Inst.ExpanAllNodesOf(treeView_0, false);
         }
 
         private void treeView1_MouseEnter(object sender, MouseEventArgs e)
@@ -68,7 +68,7 @@ namespace MilcanxWpf_SliderMenu
 
         private void treeView1_MouseLeave(object sender, MouseEventArgs e)
         {
-          //  ExpanAllNodesOf(treeView1, false);
+            UIProcess.Inst.ExpanAllNodesOf(treeView1, false);
 
         }
 

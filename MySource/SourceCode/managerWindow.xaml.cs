@@ -88,5 +88,52 @@ namespace SourceCode
         {
             Menu_SliderBar.Children.Add(sliderBar);
         }
+
+        private void ColorZone_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnClose.Background = Brushes.Orange;
+        }
+
+        private void btnClose_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnClose.Background = Brushes.OrangeRed;
+
+        }
+
+        private void btnMinimize_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnMinimize.Background = Brushes.LightGreen;
+
+        }
+
+        private void btnMinimize_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnMinimize.Background = Brushes.ForestGreen;
+        }
     }
 }
