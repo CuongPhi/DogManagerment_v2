@@ -85,9 +85,10 @@
                     
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition Width="712"></ColumnDefinition>
+                    <ColumnDefinition Name="someName" Width="638"></ColumnDefinition>
                     <ColumnDefinition Width="60"></ColumnDefinition>
-                    <ColumnDefinition Width="60" ></ColumnDefinition>
+                     <ColumnDefinition Width="60" ></ColumnDefinition>
+                     <ColumnDefinition Width="60" ></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
                     <Menu Background="#512DA8"  Grid.Column="0" IsMainMenu="True " Foreground="AliceBlue">
@@ -98,19 +99,19 @@
                                 </MenuItem.Icon>
                             </MenuItem>
                         </MenuItem>
-                        
-                        <MenuItem    Header="Trợ giúp">                         
+
+                        <MenuItem Header="Trợ giúp">
                         </MenuItem>
                         <MenuItem    Header="Bản quyền">
                         </MenuItem>
                         <MenuItem    Header="Liên lạc">
 
                         </MenuItem>
-                        <MenuItem Template="{DynamicResource MenuItemControlTemplate}" Name="Menu_UserName" Header="Cường">
+                        <MenuItem  Template="{DynamicResource MenuItemControlTemplate}" Name="Menu_UserName" Header="Cường ...">
                             
                             <MenuItem  Padding="15 0 15 0" Header="Tài khoản">
                                 <MenuItem.Icon >
-                                    <materialDesign:PackIcon Margin="-10 0 0 0" Kind="AccountCircle" />
+                                    <materialDesign:PackIcon Margin="-10 0 0 0" Kind="HelpBox" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Padding="15 0 15 0" Header="Mật khẩu">
@@ -124,18 +125,25 @@
                                     <materialDesign:PackIcon Margin="-10 0 0 0" Kind="LogoutVariant"  />
                                 </MenuItem.Icon>
                             </MenuItem>
+                            
                         </MenuItem>
                        
                     </Menu>
 
-                    <Button Name="btnMinimize" ToolTip="Thu nhỏ" Grid.Column="2" Margin="5"
+                    <Button Name="btnMinimize" ToolTip="Ẩn đi" Grid.Column="2" Margin="5"
                             Click="Button_Click_2" Height="35"  
                              Background="ForestGreen" MouseEnter="btnMinimize_MouseEnter" MouseLeave="btnMinimize_MouseLeave" >
                         <materialDesign:PackIcon Kind="WindowMinimize"/>
                         <!--<TextBlock Text="__" Padding="10 0 5 5" Margin="-6" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="40" FontSize="30"></TextBlock>-->
                         </Button>
-                    
-                    <Button Name="btnClose" Grid.Column="3"  ToolTip="Đóng" 
+                    <Button Name="btnMaximize" ToolTip="Maximize" Grid.Column="3" Margin="5"
+                            Click="btnMaximize_Click" Height="35"  
+                             Background="ForestGreen" MouseEnter="btnMaximize_MouseEnter" MouseLeave="btnMaximize_MouseLeave">
+                         <materialDesign:PackIcon Name="iconMaximize" Kind="WindowMaximize" />
+                    </Button>
+                    <!--<TextBlock Text="__" Padding="10 0 5 5" Margin="-6" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="40" FontSize="30"></TextBlock>-->
+
+                    <Button Name="btnClose" Grid.Column="4"  ToolTip="Đóng" 
                             Click="Button_Click_1" Height="35" Margin="5"
                             Background="OrangeRed" MouseEnter="Button_MouseEnter" MouseLeave="btnClose_MouseLeave" >
                             <materialDesign:PackIcon Kind="WindowClose"/>

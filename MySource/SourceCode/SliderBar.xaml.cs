@@ -96,7 +96,8 @@ namespace MilcanxWpf_SliderMenu
 
         private void treeview_Staff_MouseEnter(object sender, MouseEventArgs e)
         {
-            
+           // UIProcess.Inst.ExpanAllNodesOf(treeview_Staff, true);
+
         }
 
         private void treeview_Staff_MouseEnter_1(object sender, MouseEventArgs e)
@@ -112,6 +113,40 @@ namespace MilcanxWpf_SliderMenu
         private void accoutant_satistic_MouseEnter(object sender, MouseEventArgs e)
         {
             UIProcess.Inst.ExpanAllNodesOf(accoutant_satistic, true);
+        }
+
+        private void treeview2_Staff_MouseEnter(object sender, MouseEventArgs e)
+        {
+            UIProcess.Inst.ExpanAllNodesOf(treeview2_Staff, true);
+        }
+
+        private void treeview2_Staff_MouseLeave(object sender, MouseEventArgs e)
+        {
+            UIProcess.Inst.ExpanAllNodesOf(treeview2_Staff, false);
+
+        }
+
+        private void treeview_Staff_MouseLeave(object sender, MouseEventArgs e)
+        {
+            UIProcess.Inst.ExpanAllNodesOf(treeview_Staff, false);
+
+        }
+
+        private void accountant_Bill_Out_MouseLeave(object sender, MouseEventArgs e)
+        {
+            UIProcess.Inst.ExpanAllNodesOf(accountant_Bill_Out, false);
+
+        }
+
+        private void accountant_Bill_Out_MouseLeave_1(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void accoutant_satistic_MouseLeave(object sender, MouseEventArgs e)
+        {
+            UIProcess.Inst.ExpanAllNodesOf(accoutant_satistic, false);
+
         }
     }
 

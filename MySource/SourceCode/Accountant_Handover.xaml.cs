@@ -14,20 +14,19 @@ namespace SourceCode
             InitializeComponent();
             this.TvBox.ItemsSource = new MovieData[]
         {
-            new MovieData{Title="Movie 1", ImageData=LoadImage("image.jpg")},
-            new MovieData{Title="Movie 2", ImageData=LoadImage("image.jpg")},
-            new MovieData{Title="Movie 3", ImageData=LoadImage("image.jpg")},
-            new MovieData{Title="Movie 4", ImageData=LoadImage("image.jpg")},
-            new MovieData{Title="Movie 5", ImageData=LoadImage("image.jpg")},
-            new MovieData{Title="Movie 6", ImageData=LoadImage("image.jpg")}
+            new MovieData{Title="Movie 1", ImageData=LoadImage("home.png")},
+            new MovieData{Title="Movie 2", ImageData=LoadImage("close.png")},
+            new MovieData{Title="Movie 3", ImageData=LoadImage("file.png")},
+            new MovieData{Title="Movie 4", ImageData=LoadImage("info.png")},
+            new MovieData{Title="Movie 5", ImageData=LoadImage("logo.png")},
+            new MovieData{Title="Movie 6", ImageData=LoadImage("excel.png")}
         };
         }
 
         // for this code image needs to be a project resource
         private BitmapImage LoadImage(string filename)
         {
-            return null;
-               // new BitmapImage(new Uri("pack://application:,,,/" + filename));
+            return  new BitmapImage(new Uri("pack://application:,,,/SourceCode;component/Image/Icon/" + filename));
         }
 
     }

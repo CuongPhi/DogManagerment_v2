@@ -73,7 +73,7 @@ namespace SourceCode
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Bạn muốn thoát chhương trình ???", "", MessageBoxButton.OKCancel) != MessageBoxResult.OK)
+            if (MessageBox.Show("Bạn muốn thoát chương trình ?", "Cảnh báo !", MessageBoxButton.OKCancel,MessageBoxImage.Warning) != MessageBoxResult.OK)
                 return;
             this.Close();
         }
@@ -106,7 +106,7 @@ namespace SourceCode
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            MenuItem_Click(sender, e);
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -134,6 +134,38 @@ namespace SourceCode
         private void btnMinimize_MouseLeave(object sender, MouseEventArgs e)
         {
             btnMinimize.Background = Brushes.ForestGreen;
+        }
+
+        private void btnMaximize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState wds = this.WindowState;
+            //this.WindowState = this.WindowState == WindowState.Normal ?  WindowState.Maximized : WindowState.Normal;
+            if(wds == WindowState.Normal)
+            {
+                iconMaximize.Kind = MaterialDesignThemes.Wpf.PackIconKind.WindowRestore;
+                this.WindowState = WindowState.Maximized;
+                btnMaximize.ToolTip = "Thu nhỏ";
+                someName.Width = new GridLength(728);
+
+                return;
+            }
+            iconMaximize.Kind = MaterialDesignThemes.Wpf.PackIconKind.WindowMaximize;
+            this.WindowState = WindowState.Normal;
+            btnMaximize.ToolTip = "Phóng to";
+            someName.Width = new GridLength(638);
+
+        }
+
+        private void btnMaximize_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnMaximize.Background = Brushes.LightGreen;
+
+        }
+
+        private void btnMaximize_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnMaximize.Background = Brushes.ForestGreen;
+
         }
     }
 }

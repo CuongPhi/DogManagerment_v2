@@ -5,17 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SourceCode"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+            
+             d:DesignHeight="450" d:DesignWidth="770"
           xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
           TextElement.Foreground="{DynamicResource MaterialDesignBody}"
           TextElement.FontWeight="Regular"
                  TextElement.FontSize="13"
              TextOptions.TextFormattingMode="Ideal"
                 TextOptions.TextRenderingMode="Auto"
-             Width="1300"
+             Width="auto"
             Background="{DynamicResource MaterialDesignPaper}"
           FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid>
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -97,8 +98,8 @@
                                 <materialDesign:Card Margin="0 0 0 0" Grid.Row="0" >
                                     <WrapPanel>
                                         <TextBox Text="{Binding WEIGHT}" Margin="50 10 35 5" materialDesign:HintAssist.Hint="ID Chó" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox Text="{Binding WEIGHT}" Margin="50 10 20 5" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                         <TextBox Text="{Binding WEIGHT}" Margin="50 10 32 5" materialDesign:HintAssist.Hint="Loại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Text="{Binding WEIGHT}" Margin="50 10 30 5" materialDesign:HintAssist.Hint="Thức Ăn" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                         <TextBox Text="{Binding WEIGHT}" Margin="50 10 20 5" materialDesign:HintAssist.Hint="ID Chuồng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
                                     </WrapPanel>
@@ -107,9 +108,11 @@
                                 <materialDesign:Card Grid.Row="1" >
                                     <WrapPanel>
                                         <TextBox Text="{Binding WEIGHT}" Margin="50 10 20 5" materialDesign:HintAssist.Hint="Ngày bắt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Text="{Binding WEIGHT}" Margin="50 10 20 5" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                         <TextBox Text="{Binding WEIGHT}" Margin="50 10 20 5" materialDesign:HintAssist.Hint="Thức ăn" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        
                                         <TextBox Text="{Binding WEIGHT}" Margin="60 10 30 5" materialDesign:HintAssist.Hint="Tiền phạt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox Text="{Binding WEIGHT}" Margin="50 10 30 5" materialDesign:HintAssist.Hint="Tổng tiền" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
                                     </WrapPanel>
 
                                 </materialDesign:Card>
@@ -143,7 +146,7 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                                        <Image Source="{Binding ImageData}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" />
+                                        <Image Source="{Binding ImageData}" HorizontalAlignment="Stretch" Width="100" Height="100" VerticalAlignment="Top" Stretch="UniformToFill" />
                                         <TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
                                     </StackPanel>
                                 </DataTemplate>
