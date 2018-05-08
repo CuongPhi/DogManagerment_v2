@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="300">
     <Grid x:Name="UserContrl_SliderBar">
-        <StackPanel Panel.ZIndex="2" Style="{StaticResource spSlideLeft}" x:Name="spLeft" Background="#2D3446" Width="220" Margin="0,0,0,0">
+        <StackPanel Panel.ZIndex="2" Style="{StaticResource spSlideLeft}" x:Name="spLeft" Background="#5970a8" Width="220" Margin="0,0,0,0">
             <!--Quản lý-->
             <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" Height="50">
                 <Image Width="25" Stretch="Fill" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,10,10" Source="pack://application:,,,/SourceCode;component/Image/Icon/home.png"/>

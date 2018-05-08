@@ -120,7 +120,7 @@
                                 </MenuItem.Icon>
                             </MenuItem>
                             <Separator/>
-                            <MenuItem Padding="15 0 15 0" Header="Đăng xuất">
+                            <MenuItem Click="MenuItem_Click_2" Padding="15 0 15 0" Header="Đăng xuất">
                                 <MenuItem.Icon >
                                     <materialDesign:PackIcon Margin="-10 0 0 0" Kind="LogoutVariant"  />
                                 </MenuItem.Icon>
@@ -138,7 +138,7 @@
                         </Button>
                     <Button Name="btnMaximize" ToolTip="Maximize" Grid.Column="3" Margin="5"
                             Click="btnMaximize_Click" Height="35"  
-                             Background="ForestGreen" MouseEnter="btnMaximize_MouseEnter" MouseLeave="btnMaximize_MouseLeave">
+                             Background="Orange" MouseEnter="btnMaximize_MouseEnter" MouseLeave="btnMaximize_MouseLeave">
                          <materialDesign:PackIcon Name="iconMaximize" Kind="WindowMaximize" />
                     </Button>
                     <!--<TextBlock Text="__" Padding="10 0 5 5" Margin="-6" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="40" FontSize="30"></TextBlock>-->

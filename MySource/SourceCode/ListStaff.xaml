@@ -34,10 +34,7 @@
                 <DatePicker VerticalAlignment="Center" SelectedDate="{Binding DAYIN}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Ngày vào" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                 <materialDesign:TimePicker VerticalAlignment="Center" SelectedTime="{Binding TIME}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Giờ bắt" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" />
             </WrapPanel>
-        </materialDesign:Card>
-        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="8 0 0 0" Panel.ZIndex="0">
-            <materialDesign:PackIcon Kind="Send" />
-        </Button>
+        </materialDesign:Card>      
         <materialDesign:Card Grid.Row="2" Margin="5">
             <WrapPanel>
                 <materialDesign:ColorZone  Mode="Standard" Padding="8 4 8 6" CornerRadius="2" Panel.ZIndex="1"

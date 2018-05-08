@@ -158,14 +158,20 @@ namespace SourceCode
 
         private void btnMaximize_MouseEnter(object sender, MouseEventArgs e)
         {
-            btnMaximize.Background = Brushes.LightGreen;
+            btnMaximize.Background = Brushes.Yellow;
 
         }
 
         private void btnMaximize_MouseLeave(object sender, MouseEventArgs e)
         {
-            btnMaximize.Background = Brushes.ForestGreen;
+            btnMaximize.Background = Brushes.Orange;
 
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            new MainWindow().Show();
+            this.Close();
         }
     }
 }
