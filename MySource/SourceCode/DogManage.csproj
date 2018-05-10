@@ -137,8 +137,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAL\" />
-    <Folder Include="DTO\" />
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{c5013cde-3c93-4962-b399-4958d9cbd23b}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{1a65a37a-20ef-4b28-98b3-adb4c01f0654}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="document.png" />

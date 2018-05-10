@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="27cc2975860f4ed69af3c5ba2cce9352" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="DMModel.ACCOUNT" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.ACTIVITY_LOG" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.ADDRESS" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.BILL_IN" Width="1.5" PointX="8.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.BILL_OUT" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.CASHBOOK" Width="1.5" PointX="5.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.CUSTOMER" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.DOG" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.DOG_DESTROY" Width="1.5" PointX="8.25" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.DOG_INFOR" Width="1.5" PointX="8.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.DOGHOUSE" Width="1.5" PointX="3.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.PAYMENT_RECEIPT_VOUCHER" Width="1.5" PointX="5.25" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.PERSON" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.PERSONINFOR" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DMModel.USERAPP" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <AssociationConnector Association="DMModel.FK__ACCOUNT__ID_USER__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__ACTIVITY___ID_US__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__ADDRESS__IDPERSO__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__BILL_IN__ID_USER__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__BILL_IN__IDDOG__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__BILL_OUT__ID_CUS__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__BILL_OUT__ID_USE__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__BILL_OUT__IDDOG__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__CASHBOOK__ID_USE__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__CUSTOMER__IDPERS__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__DOG__IDDOGHOUSE__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__DOG_DESTR__IDDOG__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__DOG_INFOR__IDDOG__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__DOG_DESTR__ID_US__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__PAYMENT_R__ID_US__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__PERSONINFOR__ID__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="DMModel.FK__USERAPP__IDPERSO__35BCFE0A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
