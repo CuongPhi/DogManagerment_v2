@@ -25,15 +25,7 @@ namespace SourceCode
         public NhanVien()
         {
             InitializeComponent();
-            LoadListStaff();
         }
-        void LoadListStaff()
-        {
-            UserBUS.GetAll();
-        }
-        bool InsertUserApp(USERAPP obj)
-        {
-            return UserBUS.Insert(obj) != null;
-        }
+  
     }
 }

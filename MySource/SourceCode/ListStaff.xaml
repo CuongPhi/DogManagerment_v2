@@ -8,8 +8,9 @@
              mc:Ignorable="d" 
              Width="auto"
              d:DesignHeight="450" d:DesignWidth="800">
-   
-    <Grid x:Name="UCNhanVien" Background="LightBlue">
+    
+    <Grid x:Name="UCNhanVien" Background="LightBlue" Loaded="UCNhanVien_Loaded">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
@@ -18,28 +19,38 @@
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
+            
             <TextBlock Padding="5" Margin="220 0 0 0" Style="{StaticResource MaterialDesignDisplay1TextBlock}">
                     QUẢN LÝ NHÂN VIÊN
             </TextBlock>
         </Grid>
         <materialDesign:Card Grid.Row="1" Margin="5">
-            <WrapPanel>
-                <TextBox Text="{Binding WEIGHT}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã NV" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding TYPE}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <CheckBox Content="Giói tính"  Margin="5 0 15 0"></CheckBox>
-                <TextBox Text="{Binding FOODPRICE}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="CMND" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding IDDOGHOUSE}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Lương" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding STREET}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Vào Cty" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding WARD}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="BHYT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding DISTRICT}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="TKNH" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding DISTRICT}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding DISTRICT}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="SĐT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <DatePicker VerticalAlignment="Center" SelectedDate="{Binding DAYIN}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Ngày sinh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+            
+            <WrapPanel  HorizontalAlignment="Center" VerticalAlignment="Center"  Height="auto" Name="SelectedItemWraPnel">
+                <TextBox FontSize="14"  Text="{Binding IDPERSON, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Mã NV" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox FontSize="14" Text="{Binding NAME, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox FontSize="14" Text="{Binding USERNAME, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tài khoản" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <CheckBox FontSize="14" Content="Nữ"   Margin="5 0 5 -10"></CheckBox>
+                <TextBox FontSize="14" Text="{Binding ID, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="CMND" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox FontSize="14" Text="{Binding SALARY, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Lương" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox FontSize="14" Text="{Binding ID_MEDICAL, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="BHYT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox FontSize="14"  Text="{Binding ID_BANK, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="TKNH" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox FontSize="14"  Text="{Binding EMAIL, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox FontSize="14" Text="{Binding PHONE, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="SĐT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <DatePicker VerticalAlignment="Center" SelectedDate="{Binding BIRHDAY, Mode=OneWay}" Width="100" Margin="5 5 5 -5" materialDesign:HintAssist.Hint="Ngày sinh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                <DatePicker VerticalAlignment="Center" SelectedDate="{Binding DAYJOIN, Mode=OneWay}" Width="100" Margin="5 5 5 -5" materialDesign:HintAssist.Hint="Vào C.Ty" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+
             </WrapPanel>
         </materialDesign:Card>      
-        <materialDesign:Card Grid.Row="2" Margin="5">
+        <materialDesign:Card Height="50" Grid.Row="2" Margin="5,6,5,0">
             <WrapPanel>
-                <materialDesign:ColorZone  Mode="Standard" Padding="8 4 8 6" CornerRadius="2" Panel.ZIndex="1"
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="350"></ColumnDefinition>
+                        <ColumnDefinition Width="420"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                <materialDesign:ColorZone Grid.Column="1" Mode="Standard" Padding="8 4 8 8" CornerRadius="2" Panel.ZIndex="1"
                                    Margin="0 0 16 0"
                                    materialDesign:ShadowAssist.ShadowDepth="Depth1">
                     <Grid>
@@ -51,36 +62,44 @@
                         <Button Style="{DynamicResource MaterialDesignToolButton}">
                             <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
                         </Button>
-                        <TextBox Width="200" Grid.Column="1" Margin="8 0 0 0" materialDesign:HintAssist.Hint="Build a search bar" 
+                        <TextBox Width="auto" Grid.Column="1" Margin="8 0 0 0" materialDesign:HintAssist.Hint="Tìm kiếm.." 
                                      materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0"
                                      MinWidth="200" VerticalAlignment="Center" />
-                        <Button Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="2">
+                        <Button Click="Button_Click" Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="2">
                             <materialDesign:PackIcon Kind="Microphone" Opacity=".56" Margin="8 0 0 0" />
                         </Button>
                     </Grid>
                 </materialDesign:ColorZone>
-
-                <Button Command="{Binding AddCommand}" Content="Thêm" Margin="15 5 5 5" Width="100"></Button>
-                <Button Command="{Binding EditCommand}" Content="Cập nhật" Margin="15 5 5 5" Width="100"></Button>
-                <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="15 5 5 5" Width="100"></Button>
+                <ProgressBar Name="prgb" Grid.Column="2" IsIndeterminate="True" Width="270" Height="30"/>
+                    <Label Name="lbprgrb" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Đang tải..."></Label>
+                    <Grid Grid.Column="0" Margin="20 0 10 0">
+                        <DockPanel>
+                            <Button Command="{Binding AddCommand}" Content="Thêm" Margin="0 0 5 0" Width="100"></Button>
+                            <Button Command="{Binding EditCommand}" Content="Cập nhật" Margin="0 0 5 0" Width="100"></Button>
+                            <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="0 0 5 0" Width="100"></Button>
+                        </DockPanel>
+                     </Grid>
+                </Grid>
             </WrapPanel>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="3" Margin="5">
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                <ListView SelectionChanged="lvListStaff_SelectionChanged" Name="lvListStaff" >
                     <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Mã NV" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
-                            <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding IDDOGHOUSE}"></GridViewColumn>
-                            <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding FOODPRICE}"></GridViewColumn>
-                            <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding WEIGHT}"></GridViewColumn>
-                            <GridViewColumn Header="Lương" DisplayMemberBinding="{Binding TYPE}"></GridViewColumn>
-                            <GridViewColumn Header="Vào Cty" DisplayMemberBinding="{Binding DAYIN}"></GridViewColumn>
-                            <GridViewColumn Header="BHYT" DisplayMemberBinding="{Binding TIME}"></GridViewColumn>
-                            <GridViewColumn Header="TKNH" DisplayMemberBinding="{Binding STREET}"></GridViewColumn>
-                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding WARD}"></GridViewColumn>
-                            <GridViewColumn Header="SĐT" DisplayMemberBinding="{Binding DISTRICT}"></GridViewColumn>
-                            <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding FOODPRICE}"></GridViewColumn>
+                        <GridView AutomationProperties.IsColumnHeader="True">
+                            <GridViewColumn Header="Mã NV" DisplayMemberBinding="{Binding IDPERSON}"></GridViewColumn>
+                            <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding NAME}"></GridViewColumn>
+                            <GridViewColumn Header="Tên TK" DisplayMemberBinding="{Binding USERNAME}"></GridViewColumn>
+
+                            <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding gender}" ></GridViewColumn>
+                            <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
+                            <GridViewColumn Header="Lương" DisplayMemberBinding="{Binding SALARY}"></GridViewColumn>
+                            <GridViewColumn Header="Vào Cty" DisplayMemberBinding="{Binding DAYJOIN}"></GridViewColumn>
+                            <GridViewColumn Header="BHYT" DisplayMemberBinding="{Binding ID_MEDICAL}"></GridViewColumn>
+                            <GridViewColumn Header="TKNH" DisplayMemberBinding="{Binding ID_BANK}"></GridViewColumn>
+                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding EMAIL}" ></GridViewColumn>
+                            <GridViewColumn Header="SĐT" DisplayMemberBinding="{Binding PHONE}"></GridViewColumn>
+                            <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding BIRHDAY}"></GridViewColumn>
 
                         </GridView>
                     </ListView.View>

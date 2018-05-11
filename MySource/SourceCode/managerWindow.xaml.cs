@@ -20,7 +20,8 @@ namespace SourceCode
     /// </summary>
     public partial class managerWindow : Window
     {
-        public SliderBar sliderBar = new SliderBar();
+        private SliderBar sliderBar = new SliderBar();
+        private ProgressBar progessbar = new ProgressBar();
         private object uC_MainWindow = null;
         public managerWindow()
         {

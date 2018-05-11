@@ -8,7 +8,7 @@ namespace DAL
 {
     public interface IUserRepository
     {
-        List<USERAPP> GetAll();
+        List< Object> GetAll();
         USERAPP Insert(USERAPP obj);
     }
 }

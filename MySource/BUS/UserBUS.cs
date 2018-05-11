@@ -14,7 +14,7 @@ namespace BUS
         {
             reps = new UserRepository();
         }
-        public static List<USERAPP> GetAll()
+        public static List< Object> GetAll()
         {
             return reps.GetAll();
         }
