@@ -7,7 +7,7 @@ using DTO;
 
 namespace DAL
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : IRepository<USERAPP>
     {
         public List< Object> GetAll()
         {

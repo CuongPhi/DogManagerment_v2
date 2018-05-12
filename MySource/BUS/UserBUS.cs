@@ -9,7 +9,7 @@ namespace BUS
 {
     public static class UserBUS
     {
-        static IUserRepository reps;
+        static IRepository<USERAPP> reps;
         static UserBUS()
         {
             reps = new UserRepository();

@@ -24,8 +24,7 @@
                     QUẢN LÝ NHÂN VIÊN
             </TextBlock>
         </Grid>
-        <materialDesign:Card Grid.Row="1" Margin="5">
-            
+        <materialDesign:Card Grid.Row="1" Margin="5">            
             <WrapPanel  HorizontalAlignment="Center" VerticalAlignment="Center"  Height="auto" Name="SelectedItemWraPnel">
                 <TextBox FontSize="14"  Text="{Binding IDPERSON, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Mã NV" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox FontSize="14" Text="{Binding NAME, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
@@ -87,19 +86,19 @@
                 <ListView SelectionChanged="lvListStaff_SelectionChanged" Name="lvListStaff" >
                     <ListView.View>
                         <GridView AutomationProperties.IsColumnHeader="True">
-                            <GridViewColumn Header="Mã NV" DisplayMemberBinding="{Binding IDPERSON}"></GridViewColumn>
+                            <GridViewColumn Header="Mã" DisplayMemberBinding="{Binding IDPERSON}"></GridViewColumn>
                             <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding NAME}"></GridViewColumn>
                             <GridViewColumn Header="Tên TK" DisplayMemberBinding="{Binding USERNAME}"></GridViewColumn>
 
                             <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding gender}" ></GridViewColumn>
                             <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
                             <GridViewColumn Header="Lương" DisplayMemberBinding="{Binding SALARY}"></GridViewColumn>
-                            <GridViewColumn Header="Vào Cty" DisplayMemberBinding="{Binding DAYJOIN}"></GridViewColumn>
+                            <GridViewColumn Header="Vào Cty" DisplayMemberBinding="{Binding DAYJOIN,StringFormat='{}{0:dd/MM/yyyy}'}"></GridViewColumn>
                             <GridViewColumn Header="BHYT" DisplayMemberBinding="{Binding ID_MEDICAL}"></GridViewColumn>
                             <GridViewColumn Header="TKNH" DisplayMemberBinding="{Binding ID_BANK}"></GridViewColumn>
                             <GridViewColumn Header="Email" DisplayMemberBinding="{Binding EMAIL}" ></GridViewColumn>
                             <GridViewColumn Header="SĐT" DisplayMemberBinding="{Binding PHONE}"></GridViewColumn>
-                            <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding BIRHDAY}"></GridViewColumn>
+                            <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding BIRHDAY, StringFormat='{}{0:dd/MM/yyyy}'}"></GridViewColumn>
 
                         </GridView>
                     </ListView.View>

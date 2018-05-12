@@ -23,7 +23,7 @@ namespace SourceCode
         public MainWindow()
         {
             InitializeComponent();
-           UIProcess.Inst.LoadConfigFile();
+           // UIProcess.Inst.LoadConfigFile();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

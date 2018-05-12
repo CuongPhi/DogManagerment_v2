@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ACCOUNT">
           <Key>
             <PropertyRef Name="USERNAME" />
@@ -82,7 +82,7 @@
           </Key>
           <Property Name="WEIGHT" Type="float" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TYPE" Type="int" />
+          <Property Name="TYPE" Type="varchar" MaxLength="10" />
           <Property Name="DAYIN" Type="date" />
           <Property Name="FOODPRICE" Type="bigint" />
           <Property Name="IDDOGHOUSE" Type="nvarchar" MaxLength="10" />
@@ -114,7 +114,14 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="DESTRIPTION" Type="varchar" MaxLength="100" />
+          <Property Name="DESTRIPTION" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DOGTYPE">
+          <Key>
+            <PropertyRef Name="ID_TYPE" />
+          </Key>
+          <Property Name="ID_TYPE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="NAME_TYPE" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="PAYMENT_RECEIPT_VOUCHER">
           <Key>
@@ -144,17 +151,7 @@
           <Property Name="EMAIL" Type="nvarchar" MaxLength="100" />
           <Property Name="PHONE" Type="varchar" MaxLength="20" />
           <Property Name="BIRHDAY" Type="date" />
-          <Property Name="gender" Type="bit" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
+          <Property Name="gender" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="USERAPP">
           <Key>
@@ -168,7 +165,7 @@
           <Property Name="ID_MEDICAL" Type="varchar" MaxLength="20" />
           <Property Name="IMAGES" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK__ACCOUNT__ID_USER__3B75D760">
+        <Association Name="FK__ACCOUNT__ID_USER__3D5E1FD2">
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
           <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
           <ReferentialConstraint>
@@ -180,7 +177,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ACTIVITY___ID_US__48CFD27E">
+        <Association Name="FK__ACTIVITY___ID_US__4AB81AF0">
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
           <End Role="ACTIVITY_LOG" Type="Self.ACTIVITY_LOG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -204,7 +201,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BILL_IN__ID_USER__44FF419A">
+        <Association Name="FK__BILL_IN__ID_USER__46E78A0C">
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
           <End Role="BILL_IN" Type="Self.BILL_IN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -216,7 +213,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BILL_IN__IDDOG__45F365D3">
+        <Association Name="FK__BILL_IN__IDDOG__47DBAE45">
           <End Role="DOG" Type="Self.DOG" Multiplicity="0..1" />
           <End Role="BILL_IN" Type="Self.BILL_IN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -228,7 +225,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BILL_OUT__ID_CUS__412EB0B6">
+        <Association Name="FK__BILL_OUT__ID_CUS__4316F928">
           <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
           <End Role="BILL_OUT" Type="Self.BILL_OUT" Multiplicity="*" />
           <ReferentialConstraint>
@@ -240,7 +237,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BILL_OUT__ID_USE__403A8C7D">
+        <Association Name="FK__BILL_OUT__ID_USE__4222D4EF">
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
           <End Role="BILL_OUT" Type="Self.BILL_OUT" Multiplicity="*" />
           <ReferentialConstraint>
@@ -252,7 +249,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BILL_OUT__IDDOG__4222D4EF">
+        <Association Name="FK__BILL_OUT__IDDOG__440B1D61">
           <End Role="DOG" Type="Self.DOG" Multiplicity="0..1" />
           <End Role="BILL_OUT" Type="Self.BILL_OUT" Multiplicity="*" />
           <ReferentialConstraint>
@@ -264,7 +261,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CASHBOOK__ID_USE__534D60F1">
+        <Association Name="FK__CASHBOOK__ID_USE__5535A963">
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
           <End Role="CASHBOOK" Type="Self.CASHBOOK" Multiplicity="*" />
           <ReferentialConstraint>
@@ -276,7 +273,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CUSTOMER__IDPERS__38996AB5">
+        <Association Name="FK__CUSTOMER__IDPERS__3A81B327">
           <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
           <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
           <ReferentialConstraint>
@@ -288,7 +285,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DOG__IDDOGHOUSE__2F10007B">
+        <Association Name="FK__DOG__IDDOGHOUSE__30F848ED">
           <End Role="DOGHOUSE" Type="Self.DOGHOUSE" Multiplicity="0..1" />
           <End Role="DOG" Type="Self.DOG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -300,7 +297,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DOG_DESTR__ID_US__4CA06362">
+        <Association Name="FK__DOG__TYPE__300424B4">
+          <End Role="DOGTYPE" Type="Self.DOGTYPE" Multiplicity="0..1" />
+          <End Role="DOG" Type="Self.DOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOGTYPE">
+              <PropertyRef Name="ID_TYPE" />
+            </Principal>
+            <Dependent Role="DOG">
+              <PropertyRef Name="TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DOG_DESTR__ID_US__4E88ABD4">
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
           <End Role="DOG_DESTROY" Type="Self.DOG_DESTROY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -312,7 +321,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DOG_DESTR__IDDOG__4BAC3F29">
+        <Association Name="FK__DOG_DESTR__IDDOG__4D94879B">
           <End Role="DOG" Type="Self.DOG" Multiplicity="0..1" />
           <End Role="DOG_DESTROY" Type="Self.DOG_DESTROY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -324,7 +333,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DOG_INFOR__IDDOG__32E0915F">
+        <Association Name="FK__DOG_INFOR__IDDOG__34C8D9D1">
           <End Role="DOG" Type="Self.DOG" Multiplicity="0..1" />
           <End Role="DOG_INFOR" Type="Self.DOG_INFOR" Multiplicity="*" />
           <ReferentialConstraint>
@@ -336,7 +345,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PAYMENT_R__ID_US__5070F446">
+        <Association Name="FK__PAYMENT_R__ID_US__52593CB8">
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
           <End Role="PAYMENT_RECEIPT_VOUCHER" Type="Self.PAYMENT_RECEIPT_VOUCHER" Multiplicity="*" />
           <ReferentialConstraint>
@@ -360,7 +369,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__USERAPP__IDPERSO__35BCFE0A">
+        <Association Name="FK__USERAPP__IDPERSO__37A5467C">
           <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="*" />
           <ReferentialConstraint>
@@ -384,16 +393,16 @@
           <EntitySet Name="DOG_DESTROY" EntityType="Self.DOG_DESTROY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DOG_INFOR" EntityType="Self.DOG_INFOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DOGHOUSE" EntityType="Self.DOGHOUSE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOGTYPE" EntityType="Self.DOGTYPE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PAYMENT_RECEIPT_VOUCHER" EntityType="Self.PAYMENT_RECEIPT_VOUCHER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PERSON" EntityType="Self.PERSON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PERSONINFOR" EntityType="Self.PERSONINFOR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USERAPP" EntityType="Self.USERAPP" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__ACCOUNT__ID_USER__3B75D760" Association="Self.FK__ACCOUNT__ID_USER__3B75D760">
+          <AssociationSet Name="FK__ACCOUNT__ID_USER__3D5E1FD2" Association="Self.FK__ACCOUNT__ID_USER__3D5E1FD2">
             <End Role="USERAPP" EntitySet="USERAPP" />
             <End Role="ACCOUNT" EntitySet="ACCOUNT" />
           </AssociationSet>
-          <AssociationSet Name="FK__ACTIVITY___ID_US__48CFD27E" Association="Self.FK__ACTIVITY___ID_US__48CFD27E">
+          <AssociationSet Name="FK__ACTIVITY___ID_US__4AB81AF0" Association="Self.FK__ACTIVITY___ID_US__4AB81AF0">
             <End Role="USERAPP" EntitySet="USERAPP" />
             <End Role="ACTIVITY_LOG" EntitySet="ACTIVITY_LOG" />
           </AssociationSet>
@@ -401,51 +410,55 @@
             <End Role="PERSONINFOR" EntitySet="PERSONINFOR" />
             <End Role="ADDRESS" EntitySet="ADDRESS" />
           </AssociationSet>
-          <AssociationSet Name="FK__BILL_IN__ID_USER__44FF419A" Association="Self.FK__BILL_IN__ID_USER__44FF419A">
+          <AssociationSet Name="FK__BILL_IN__ID_USER__46E78A0C" Association="Self.FK__BILL_IN__ID_USER__46E78A0C">
             <End Role="USERAPP" EntitySet="USERAPP" />
             <End Role="BILL_IN" EntitySet="BILL_IN" />
           </AssociationSet>
-          <AssociationSet Name="FK__BILL_IN__IDDOG__45F365D3" Association="Self.FK__BILL_IN__IDDOG__45F365D3">
+          <AssociationSet Name="FK__BILL_IN__IDDOG__47DBAE45" Association="Self.FK__BILL_IN__IDDOG__47DBAE45">
             <End Role="DOG" EntitySet="DOG" />
             <End Role="BILL_IN" EntitySet="BILL_IN" />
           </AssociationSet>
-          <AssociationSet Name="FK__BILL_OUT__ID_CUS__412EB0B6" Association="Self.FK__BILL_OUT__ID_CUS__412EB0B6">
+          <AssociationSet Name="FK__BILL_OUT__ID_CUS__4316F928" Association="Self.FK__BILL_OUT__ID_CUS__4316F928">
             <End Role="CUSTOMER" EntitySet="CUSTOMER" />
             <End Role="BILL_OUT" EntitySet="BILL_OUT" />
           </AssociationSet>
-          <AssociationSet Name="FK__BILL_OUT__ID_USE__403A8C7D" Association="Self.FK__BILL_OUT__ID_USE__403A8C7D">
+          <AssociationSet Name="FK__BILL_OUT__ID_USE__4222D4EF" Association="Self.FK__BILL_OUT__ID_USE__4222D4EF">
             <End Role="USERAPP" EntitySet="USERAPP" />
             <End Role="BILL_OUT" EntitySet="BILL_OUT" />
           </AssociationSet>
-          <AssociationSet Name="FK__BILL_OUT__IDDOG__4222D4EF" Association="Self.FK__BILL_OUT__IDDOG__4222D4EF">
+          <AssociationSet Name="FK__BILL_OUT__IDDOG__440B1D61" Association="Self.FK__BILL_OUT__IDDOG__440B1D61">
             <End Role="DOG" EntitySet="DOG" />
             <End Role="BILL_OUT" EntitySet="BILL_OUT" />
           </AssociationSet>
-          <AssociationSet Name="FK__CASHBOOK__ID_USE__534D60F1" Association="Self.FK__CASHBOOK__ID_USE__534D60F1">
+          <AssociationSet Name="FK__CASHBOOK__ID_USE__5535A963" Association="Self.FK__CASHBOOK__ID_USE__5535A963">
             <End Role="USERAPP" EntitySet="USERAPP" />
             <End Role="CASHBOOK" EntitySet="CASHBOOK" />
           </AssociationSet>
-          <AssociationSet Name="FK__CUSTOMER__IDPERS__38996AB5" Association="Self.FK__CUSTOMER__IDPERS__38996AB5">
+          <AssociationSet Name="FK__CUSTOMER__IDPERS__3A81B327" Association="Self.FK__CUSTOMER__IDPERS__3A81B327">
             <End Role="PERSON" EntitySet="PERSON" />
             <End Role="CUSTOMER" EntitySet="CUSTOMER" />
           </AssociationSet>
-          <AssociationSet Name="FK__DOG__IDDOGHOUSE__2F10007B" Association="Self.FK__DOG__IDDOGHOUSE__2F10007B">
+          <AssociationSet Name="FK__DOG__IDDOGHOUSE__30F848ED" Association="Self.FK__DOG__IDDOGHOUSE__30F848ED">
             <End Role="DOGHOUSE" EntitySet="DOGHOUSE" />
             <End Role="DOG" EntitySet="DOG" />
           </AssociationSet>
-          <AssociationSet Name="FK__DOG_DESTR__ID_US__4CA06362" Association="Self.FK__DOG_DESTR__ID_US__4CA06362">
+          <AssociationSet Name="FK__DOG__TYPE__300424B4" Association="Self.FK__DOG__TYPE__300424B4">
+            <End Role="DOGTYPE" EntitySet="DOGTYPE" />
+            <End Role="DOG" EntitySet="DOG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOG_DESTR__ID_US__4E88ABD4" Association="Self.FK__DOG_DESTR__ID_US__4E88ABD4">
             <End Role="USERAPP" EntitySet="USERAPP" />
             <End Role="DOG_DESTROY" EntitySet="DOG_DESTROY" />
           </AssociationSet>
-          <AssociationSet Name="FK__DOG_DESTR__IDDOG__4BAC3F29" Association="Self.FK__DOG_DESTR__IDDOG__4BAC3F29">
+          <AssociationSet Name="FK__DOG_DESTR__IDDOG__4D94879B" Association="Self.FK__DOG_DESTR__IDDOG__4D94879B">
             <End Role="DOG" EntitySet="DOG" />
             <End Role="DOG_DESTROY" EntitySet="DOG_DESTROY" />
           </AssociationSet>
-          <AssociationSet Name="FK__DOG_INFOR__IDDOG__32E0915F" Association="Self.FK__DOG_INFOR__IDDOG__32E0915F">
+          <AssociationSet Name="FK__DOG_INFOR__IDDOG__34C8D9D1" Association="Self.FK__DOG_INFOR__IDDOG__34C8D9D1">
             <End Role="DOG" EntitySet="DOG" />
             <End Role="DOG_INFOR" EntitySet="DOG_INFOR" />
           </AssociationSet>
-          <AssociationSet Name="FK__PAYMENT_R__ID_US__5070F446" Association="Self.FK__PAYMENT_R__ID_US__5070F446">
+          <AssociationSet Name="FK__PAYMENT_R__ID_US__52593CB8" Association="Self.FK__PAYMENT_R__ID_US__52593CB8">
             <End Role="USERAPP" EntitySet="USERAPP" />
             <End Role="PAYMENT_RECEIPT_VOUCHER" EntitySet="PAYMENT_RECEIPT_VOUCHER" />
           </AssociationSet>
@@ -453,13 +466,12 @@
             <End Role="PERSON" EntitySet="PERSON" />
             <End Role="PERSONINFOR" EntitySet="PERSONINFOR" />
           </AssociationSet>
-          <AssociationSet Name="FK__USERAPP__IDPERSO__35BCFE0A" Association="Self.FK__USERAPP__IDPERSO__35BCFE0A">
+          <AssociationSet Name="FK__USERAPP__IDPERSO__37A5467C" Association="Self.FK__USERAPP__IDPERSO__37A5467C">
             <End Role="PERSON" EntitySet="PERSON" />
             <End Role="USERAPP" EntitySet="USERAPP" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -473,7 +485,7 @@
           <Property Name="PASSWORD2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="TYPE" Type="Int32" />
           <Property Name="ISBAN" Type="Boolean" />
-          <NavigationProperty Name="USERAPP" Relationship="Self.FK__ACCOUNT__ID_USER__3B75D760" FromRole="ACCOUNT" ToRole="USERAPP" />
+          <NavigationProperty Name="USERAPP" Relationship="Self.FK__ACCOUNT__ID_USER__3D5E1FD2" FromRole="ACCOUNT" ToRole="USERAPP" />
         </EntityType>
         <EntityType Name="ACTIVITY_LOG">
           <Key>
@@ -484,7 +496,7 @@
           <Property Name="ACTIVITY_TYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DETAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DATE_ACTIVITY" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="USERAPP" Relationship="Self.FK__ACTIVITY___ID_US__48CFD27E" FromRole="ACTIVITY_LOG" ToRole="USERAPP" />
+          <NavigationProperty Name="USERAPP" Relationship="Self.FK__ACTIVITY___ID_US__4AB81AF0" FromRole="ACTIVITY_LOG" ToRole="USERAPP" />
         </EntityType>
         <EntityType Name="ADDRESS">
           <Key>
@@ -507,8 +519,8 @@
           <Property Name="IDDOG" Type="Int32" />
           <Property Name="DAY_BILL" Type="DateTime" Precision="0" />
           <Property Name="FINE" Type="Int64" />
-          <NavigationProperty Name="USERAPP" Relationship="Self.FK__BILL_IN__ID_USER__44FF419A" FromRole="BILL_IN" ToRole="USERAPP" />
-          <NavigationProperty Name="DOG" Relationship="Self.FK__BILL_IN__IDDOG__45F365D3" FromRole="BILL_IN" ToRole="DOG" />
+          <NavigationProperty Name="USERAPP" Relationship="Self.FK__BILL_IN__ID_USER__46E78A0C" FromRole="BILL_IN" ToRole="USERAPP" />
+          <NavigationProperty Name="DOG" Relationship="Self.FK__BILL_IN__IDDOG__47DBAE45" FromRole="BILL_IN" ToRole="DOG" />
         </EntityType>
         <EntityType Name="BILL_OUT">
           <Key>
@@ -521,9 +533,9 @@
           <Property Name="DAY_BILL" Type="DateTime" Precision="0" />
           <Property Name="FINE" Type="Int64" />
           <Property Name="TOTALPRICE" Type="Int64" />
-          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK__BILL_OUT__ID_CUS__412EB0B6" FromRole="BILL_OUT" ToRole="CUSTOMER" />
-          <NavigationProperty Name="USERAPP" Relationship="Self.FK__BILL_OUT__ID_USE__403A8C7D" FromRole="BILL_OUT" ToRole="USERAPP" />
-          <NavigationProperty Name="DOG" Relationship="Self.FK__BILL_OUT__IDDOG__4222D4EF" FromRole="BILL_OUT" ToRole="DOG" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK__BILL_OUT__ID_CUS__4316F928" FromRole="BILL_OUT" ToRole="CUSTOMER" />
+          <NavigationProperty Name="USERAPP" Relationship="Self.FK__BILL_OUT__ID_USE__4222D4EF" FromRole="BILL_OUT" ToRole="USERAPP" />
+          <NavigationProperty Name="DOG" Relationship="Self.FK__BILL_OUT__IDDOG__440B1D61" FromRole="BILL_OUT" ToRole="DOG" />
         </EntityType>
         <EntityType Name="CASHBOOK">
           <Key>
@@ -534,7 +546,7 @@
           <Property Name="DATE" Type="DateTime" Precision="0" />
           <Property Name="ID_USER" Type="Int32" />
           <Property Name="DESTRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="USERAPP" Relationship="Self.FK__CASHBOOK__ID_USE__534D60F1" FromRole="CASHBOOK" ToRole="USERAPP" />
+          <NavigationProperty Name="USERAPP" Relationship="Self.FK__CASHBOOK__ID_USE__5535A963" FromRole="CASHBOOK" ToRole="USERAPP" />
         </EntityType>
         <EntityType Name="CUSTOMER">
           <Key>
@@ -542,8 +554,8 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDPERSON" Type="Int32" />
-          <NavigationProperty Name="BILL_OUT" Relationship="Self.FK__BILL_OUT__ID_CUS__412EB0B6" FromRole="CUSTOMER" ToRole="BILL_OUT" />
-          <NavigationProperty Name="PERSON" Relationship="Self.FK__CUSTOMER__IDPERS__38996AB5" FromRole="CUSTOMER" ToRole="PERSON" />
+          <NavigationProperty Name="BILL_OUT" Relationship="Self.FK__BILL_OUT__ID_CUS__4316F928" FromRole="CUSTOMER" ToRole="BILL_OUT" />
+          <NavigationProperty Name="PERSON" Relationship="Self.FK__CUSTOMER__IDPERS__3A81B327" FromRole="CUSTOMER" ToRole="PERSON" />
         </EntityType>
         <EntityType Name="DOG">
           <Key>
@@ -551,17 +563,18 @@
           </Key>
           <Property Name="WEIGHT" Type="Double" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TYPE" Type="Int32" />
+          <Property Name="TYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="DAYIN" Type="DateTime" Precision="0" />
           <Property Name="FOODPRICE" Type="Int64" />
           <Property Name="IDDOGHOUSE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="DETROYED" Type="Boolean" />
           <Property Name="IMAGES" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="BILL_IN" Relationship="Self.FK__BILL_IN__IDDOG__45F365D3" FromRole="DOG" ToRole="BILL_IN" />
-          <NavigationProperty Name="BILL_OUT" Relationship="Self.FK__BILL_OUT__IDDOG__4222D4EF" FromRole="DOG" ToRole="BILL_OUT" />
-          <NavigationProperty Name="DOGHOUSE" Relationship="Self.FK__DOG__IDDOGHOUSE__2F10007B" FromRole="DOG" ToRole="DOGHOUSE" />
-          <NavigationProperty Name="DOG_DESTROY" Relationship="Self.FK__DOG_DESTR__IDDOG__4BAC3F29" FromRole="DOG" ToRole="DOG_DESTROY" />
-          <NavigationProperty Name="DOG_INFOR" Relationship="Self.FK__DOG_INFOR__IDDOG__32E0915F" FromRole="DOG" ToRole="DOG_INFOR" />
+          <NavigationProperty Name="BILL_IN" Relationship="Self.FK__BILL_IN__IDDOG__47DBAE45" FromRole="DOG" ToRole="BILL_IN" />
+          <NavigationProperty Name="BILL_OUT" Relationship="Self.FK__BILL_OUT__IDDOG__440B1D61" FromRole="DOG" ToRole="BILL_OUT" />
+          <NavigationProperty Name="DOGHOUSE" Relationship="Self.FK__DOG__IDDOGHOUSE__30F848ED" FromRole="DOG" ToRole="DOGHOUSE" />
+          <NavigationProperty Name="DOGTYPE" Relationship="Self.FK__DOG__TYPE__300424B4" FromRole="DOG" ToRole="DOGTYPE" />
+          <NavigationProperty Name="DOG_DESTROY" Relationship="Self.FK__DOG_DESTR__IDDOG__4D94879B" FromRole="DOG" ToRole="DOG_DESTROY" />
+          <NavigationProperty Name="DOG_INFOR" Relationship="Self.FK__DOG_INFOR__IDDOG__34C8D9D1" FromRole="DOG" ToRole="DOG_INFOR" />
         </EntityType>
         <EntityType Name="DOG_DESTROY">
           <Key>
@@ -571,8 +584,8 @@
           <Property Name="IDDOG" Type="Int32" />
           <Property Name="ID_USER" Type="Int32" />
           <Property Name="DATE_DESTROY" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="DOG" Relationship="Self.FK__DOG_DESTR__IDDOG__4BAC3F29" FromRole="DOG_DESTROY" ToRole="DOG" />
-          <NavigationProperty Name="USERAPP" Relationship="Self.FK__DOG_DESTR__ID_US__4CA06362" FromRole="DOG_DESTROY" ToRole="USERAPP" />
+          <NavigationProperty Name="DOG" Relationship="Self.FK__DOG_DESTR__IDDOG__4D94879B" FromRole="DOG_DESTROY" ToRole="DOG" />
+          <NavigationProperty Name="USERAPP" Relationship="Self.FK__DOG_DESTR__ID_US__4E88ABD4" FromRole="DOG_DESTROY" ToRole="USERAPP" />
         </EntityType>
         <EntityType Name="DOG_INFOR">
           <Key>
@@ -584,15 +597,23 @@
           <Property Name="DISTRICT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TIME" Type="Time" Precision="7" />
           <Property Name="IDDOG" Type="Int32" />
-          <NavigationProperty Name="DOG" Relationship="Self.FK__DOG_INFOR__IDDOG__32E0915F" FromRole="DOG_INFOR" ToRole="DOG" />
+          <NavigationProperty Name="DOG" Relationship="Self.FK__DOG_INFOR__IDDOG__34C8D9D1" FromRole="DOG_INFOR" ToRole="DOG" />
         </EntityType>
         <EntityType Name="DOGHOUSE">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DESTRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="DOGs" Relationship="Self.FK__DOG__IDDOGHOUSE__2F10007B" FromRole="DOGHOUSE" ToRole="DOG" />
+          <Property Name="DESTRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DOGs" Relationship="Self.FK__DOG__IDDOGHOUSE__30F848ED" FromRole="DOGHOUSE" ToRole="DOG" />
+        </EntityType>
+        <EntityType Name="DOGTYPE">
+          <Key>
+            <PropertyRef Name="ID_TYPE" />
+          </Key>
+          <Property Name="ID_TYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DOGs" Relationship="Self.FK__DOG__TYPE__300424B4" FromRole="DOGTYPE" ToRole="DOG" />
         </EntityType>
         <EntityType Name="PAYMENT_RECEIPT_VOUCHER">
           <Key>
@@ -604,7 +625,7 @@
           <Property Name="VALUE" Type="Int64" />
           <Property Name="DESTRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_USER" Type="Int32" />
-          <NavigationProperty Name="USERAPP" Relationship="Self.FK__PAYMENT_R__ID_US__5070F446" FromRole="PAYMENT_RECEIPT_VOUCHER" ToRole="USERAPP" />
+          <NavigationProperty Name="USERAPP" Relationship="Self.FK__PAYMENT_R__ID_US__52593CB8" FromRole="PAYMENT_RECEIPT_VOUCHER" ToRole="USERAPP" />
         </EntityType>
         <EntityType Name="PERSON">
           <Key>
@@ -612,9 +633,9 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="NOTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CUSTOMERs" Relationship="Self.FK__CUSTOMER__IDPERS__38996AB5" FromRole="PERSON" ToRole="CUSTOMER" />
+          <NavigationProperty Name="CUSTOMERs" Relationship="Self.FK__CUSTOMER__IDPERS__3A81B327" FromRole="PERSON" ToRole="CUSTOMER" />
           <NavigationProperty Name="PERSONINFORs" Relationship="Self.FK__PERSONINFOR__ID__276EDEB3" FromRole="PERSON" ToRole="PERSONINFOR" />
-          <NavigationProperty Name="USERAPPs" Relationship="Self.FK__USERAPP__IDPERSO__35BCFE0A" FromRole="PERSON" ToRole="USERAPP" />
+          <NavigationProperty Name="USERAPPs" Relationship="Self.FK__USERAPP__IDPERSO__37A5467C" FromRole="PERSON" ToRole="USERAPP" />
         </EntityType>
         <EntityType Name="PERSONINFOR">
           <Key>
@@ -626,19 +647,9 @@
           <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="BIRHDAY" Type="DateTime" Precision="0" />
-          <Property Name="gender" Type="Boolean" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ADDRESSes" Relationship="Self.FK__ADDRESS__IDPERSO__2B3F6F97" FromRole="PERSONINFOR" ToRole="ADDRESS" />
           <NavigationProperty Name="PERSON" Relationship="Self.FK__PERSONINFOR__ID__276EDEB3" FromRole="PERSONINFOR" ToRole="PERSON" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="USERAPP">
           <Key>
@@ -651,16 +662,16 @@
           <Property Name="ID_BANK" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="ID_MEDICAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IMAGES" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="ACCOUNTs" Relationship="Self.FK__ACCOUNT__ID_USER__3B75D760" FromRole="USERAPP" ToRole="ACCOUNT" />
-          <NavigationProperty Name="ACTIVITY_LOG" Relationship="Self.FK__ACTIVITY___ID_US__48CFD27E" FromRole="USERAPP" ToRole="ACTIVITY_LOG" />
-          <NavigationProperty Name="BILL_IN" Relationship="Self.FK__BILL_IN__ID_USER__44FF419A" FromRole="USERAPP" ToRole="BILL_IN" />
-          <NavigationProperty Name="BILL_OUT" Relationship="Self.FK__BILL_OUT__ID_USE__403A8C7D" FromRole="USERAPP" ToRole="BILL_OUT" />
-          <NavigationProperty Name="CASHBOOKs" Relationship="Self.FK__CASHBOOK__ID_USE__534D60F1" FromRole="USERAPP" ToRole="CASHBOOK" />
-          <NavigationProperty Name="DOG_DESTROY" Relationship="Self.FK__DOG_DESTR__ID_US__4CA06362" FromRole="USERAPP" ToRole="DOG_DESTROY" />
-          <NavigationProperty Name="PAYMENT_RECEIPT_VOUCHER" Relationship="Self.FK__PAYMENT_R__ID_US__5070F446" FromRole="USERAPP" ToRole="PAYMENT_RECEIPT_VOUCHER" />
-          <NavigationProperty Name="PERSON" Relationship="Self.FK__USERAPP__IDPERSO__35BCFE0A" FromRole="USERAPP" ToRole="PERSON" />
+          <NavigationProperty Name="ACCOUNTs" Relationship="Self.FK__ACCOUNT__ID_USER__3D5E1FD2" FromRole="USERAPP" ToRole="ACCOUNT" />
+          <NavigationProperty Name="ACTIVITY_LOG" Relationship="Self.FK__ACTIVITY___ID_US__4AB81AF0" FromRole="USERAPP" ToRole="ACTIVITY_LOG" />
+          <NavigationProperty Name="BILL_IN" Relationship="Self.FK__BILL_IN__ID_USER__46E78A0C" FromRole="USERAPP" ToRole="BILL_IN" />
+          <NavigationProperty Name="BILL_OUT" Relationship="Self.FK__BILL_OUT__ID_USE__4222D4EF" FromRole="USERAPP" ToRole="BILL_OUT" />
+          <NavigationProperty Name="CASHBOOKs" Relationship="Self.FK__CASHBOOK__ID_USE__5535A963" FromRole="USERAPP" ToRole="CASHBOOK" />
+          <NavigationProperty Name="DOG_DESTROY" Relationship="Self.FK__DOG_DESTR__ID_US__4E88ABD4" FromRole="USERAPP" ToRole="DOG_DESTROY" />
+          <NavigationProperty Name="PAYMENT_RECEIPT_VOUCHER" Relationship="Self.FK__PAYMENT_R__ID_US__52593CB8" FromRole="USERAPP" ToRole="PAYMENT_RECEIPT_VOUCHER" />
+          <NavigationProperty Name="PERSON" Relationship="Self.FK__USERAPP__IDPERSO__37A5467C" FromRole="USERAPP" ToRole="PERSON" />
         </EntityType>
-        <Association Name="FK__ACCOUNT__ID_USER__3B75D760">
+        <Association Name="FK__ACCOUNT__ID_USER__3D5E1FD2">
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
           <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
           <ReferentialConstraint>
@@ -672,7 +683,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ACTIVITY___ID_US__48CFD27E">
+        <Association Name="FK__ACTIVITY___ID_US__4AB81AF0">
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
           <End Role="ACTIVITY_LOG" Type="Self.ACTIVITY_LOG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -696,7 +707,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BILL_IN__ID_USER__44FF419A">
+        <Association Name="FK__BILL_IN__ID_USER__46E78A0C">
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
           <End Role="BILL_IN" Type="Self.BILL_IN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -708,7 +719,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BILL_IN__IDDOG__45F365D3">
+        <Association Name="FK__BILL_IN__IDDOG__47DBAE45">
           <End Role="DOG" Type="Self.DOG" Multiplicity="0..1" />
           <End Role="BILL_IN" Type="Self.BILL_IN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -720,7 +731,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BILL_OUT__ID_CUS__412EB0B6">
+        <Association Name="FK__BILL_OUT__ID_CUS__4316F928">
           <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
           <End Role="BILL_OUT" Type="Self.BILL_OUT" Multiplicity="*" />
           <ReferentialConstraint>
@@ -732,7 +743,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BILL_OUT__ID_USE__403A8C7D">
+        <Association Name="FK__BILL_OUT__ID_USE__4222D4EF">
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
           <End Role="BILL_OUT" Type="Self.BILL_OUT" Multiplicity="*" />
           <ReferentialConstraint>
@@ -744,7 +755,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BILL_OUT__IDDOG__4222D4EF">
+        <Association Name="FK__BILL_OUT__IDDOG__440B1D61">
           <End Role="DOG" Type="Self.DOG" Multiplicity="0..1" />
           <End Role="BILL_OUT" Type="Self.BILL_OUT" Multiplicity="*" />
           <ReferentialConstraint>
@@ -756,7 +767,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CASHBOOK__ID_USE__534D60F1">
+        <Association Name="FK__CASHBOOK__ID_USE__5535A963">
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
           <End Role="CASHBOOK" Type="Self.CASHBOOK" Multiplicity="*" />
           <ReferentialConstraint>
@@ -768,7 +779,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CUSTOMER__IDPERS__38996AB5">
+        <Association Name="FK__CUSTOMER__IDPERS__3A81B327">
           <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
           <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
           <ReferentialConstraint>
@@ -780,7 +791,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DOG__IDDOGHOUSE__2F10007B">
+        <Association Name="FK__DOG__IDDOGHOUSE__30F848ED">
           <End Role="DOGHOUSE" Type="Self.DOGHOUSE" Multiplicity="0..1" />
           <End Role="DOG" Type="Self.DOG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -792,7 +803,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DOG_DESTR__IDDOG__4BAC3F29">
+        <Association Name="FK__DOG__TYPE__300424B4">
+          <End Role="DOGTYPE" Type="Self.DOGTYPE" Multiplicity="0..1" />
+          <End Role="DOG" Type="Self.DOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOGTYPE">
+              <PropertyRef Name="ID_TYPE" />
+            </Principal>
+            <Dependent Role="DOG">
+              <PropertyRef Name="TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DOG_DESTR__IDDOG__4D94879B">
           <End Role="DOG" Type="Self.DOG" Multiplicity="0..1" />
           <End Role="DOG_DESTROY" Type="Self.DOG_DESTROY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -804,7 +827,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DOG_INFOR__IDDOG__32E0915F">
+        <Association Name="FK__DOG_INFOR__IDDOG__34C8D9D1">
           <End Role="DOG" Type="Self.DOG" Multiplicity="0..1" />
           <End Role="DOG_INFOR" Type="Self.DOG_INFOR" Multiplicity="*" />
           <ReferentialConstraint>
@@ -816,7 +839,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DOG_DESTR__ID_US__4CA06362">
+        <Association Name="FK__DOG_DESTR__ID_US__4E88ABD4">
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
           <End Role="DOG_DESTROY" Type="Self.DOG_DESTROY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -828,7 +851,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PAYMENT_R__ID_US__5070F446">
+        <Association Name="FK__PAYMENT_R__ID_US__52593CB8">
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
           <End Role="PAYMENT_RECEIPT_VOUCHER" Type="Self.PAYMENT_RECEIPT_VOUCHER" Multiplicity="*" />
           <ReferentialConstraint>
@@ -852,7 +875,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__USERAPP__IDPERSO__35BCFE0A">
+        <Association Name="FK__USERAPP__IDPERSO__37A5467C">
           <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
           <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="*" />
           <ReferentialConstraint>
@@ -876,16 +899,16 @@
           <EntitySet Name="DOG_DESTROY" EntityType="Self.DOG_DESTROY" />
           <EntitySet Name="DOG_INFOR" EntityType="Self.DOG_INFOR" />
           <EntitySet Name="DOGHOUSEs" EntityType="Self.DOGHOUSE" />
+          <EntitySet Name="DOGTYPEs" EntityType="Self.DOGTYPE" />
           <EntitySet Name="PAYMENT_RECEIPT_VOUCHER" EntityType="Self.PAYMENT_RECEIPT_VOUCHER" />
           <EntitySet Name="People" EntityType="Self.PERSON" />
           <EntitySet Name="PERSONINFORs" EntityType="Self.PERSONINFOR" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="USERAPPs" EntityType="Self.USERAPP" />
-          <AssociationSet Name="FK__ACCOUNT__ID_USER__3B75D760" Association="Self.FK__ACCOUNT__ID_USER__3B75D760">
+          <AssociationSet Name="FK__ACCOUNT__ID_USER__3D5E1FD2" Association="Self.FK__ACCOUNT__ID_USER__3D5E1FD2">
             <End Role="USERAPP" EntitySet="USERAPPs" />
             <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
           </AssociationSet>
-          <AssociationSet Name="FK__ACTIVITY___ID_US__48CFD27E" Association="Self.FK__ACTIVITY___ID_US__48CFD27E">
+          <AssociationSet Name="FK__ACTIVITY___ID_US__4AB81AF0" Association="Self.FK__ACTIVITY___ID_US__4AB81AF0">
             <End Role="USERAPP" EntitySet="USERAPPs" />
             <End Role="ACTIVITY_LOG" EntitySet="ACTIVITY_LOG" />
           </AssociationSet>
@@ -893,51 +916,55 @@
             <End Role="PERSONINFOR" EntitySet="PERSONINFORs" />
             <End Role="ADDRESS" EntitySet="ADDRESSes" />
           </AssociationSet>
-          <AssociationSet Name="FK__BILL_IN__ID_USER__44FF419A" Association="Self.FK__BILL_IN__ID_USER__44FF419A">
+          <AssociationSet Name="FK__BILL_IN__ID_USER__46E78A0C" Association="Self.FK__BILL_IN__ID_USER__46E78A0C">
             <End Role="USERAPP" EntitySet="USERAPPs" />
             <End Role="BILL_IN" EntitySet="BILL_IN" />
           </AssociationSet>
-          <AssociationSet Name="FK__BILL_IN__IDDOG__45F365D3" Association="Self.FK__BILL_IN__IDDOG__45F365D3">
+          <AssociationSet Name="FK__BILL_IN__IDDOG__47DBAE45" Association="Self.FK__BILL_IN__IDDOG__47DBAE45">
             <End Role="DOG" EntitySet="DOGs" />
             <End Role="BILL_IN" EntitySet="BILL_IN" />
           </AssociationSet>
-          <AssociationSet Name="FK__BILL_OUT__ID_CUS__412EB0B6" Association="Self.FK__BILL_OUT__ID_CUS__412EB0B6">
+          <AssociationSet Name="FK__BILL_OUT__ID_CUS__4316F928" Association="Self.FK__BILL_OUT__ID_CUS__4316F928">
             <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
             <End Role="BILL_OUT" EntitySet="BILL_OUT" />
           </AssociationSet>
-          <AssociationSet Name="FK__BILL_OUT__ID_USE__403A8C7D" Association="Self.FK__BILL_OUT__ID_USE__403A8C7D">
+          <AssociationSet Name="FK__BILL_OUT__ID_USE__4222D4EF" Association="Self.FK__BILL_OUT__ID_USE__4222D4EF">
             <End Role="USERAPP" EntitySet="USERAPPs" />
             <End Role="BILL_OUT" EntitySet="BILL_OUT" />
           </AssociationSet>
-          <AssociationSet Name="FK__BILL_OUT__IDDOG__4222D4EF" Association="Self.FK__BILL_OUT__IDDOG__4222D4EF">
+          <AssociationSet Name="FK__BILL_OUT__IDDOG__440B1D61" Association="Self.FK__BILL_OUT__IDDOG__440B1D61">
             <End Role="DOG" EntitySet="DOGs" />
             <End Role="BILL_OUT" EntitySet="BILL_OUT" />
           </AssociationSet>
-          <AssociationSet Name="FK__CASHBOOK__ID_USE__534D60F1" Association="Self.FK__CASHBOOK__ID_USE__534D60F1">
+          <AssociationSet Name="FK__CASHBOOK__ID_USE__5535A963" Association="Self.FK__CASHBOOK__ID_USE__5535A963">
             <End Role="USERAPP" EntitySet="USERAPPs" />
             <End Role="CASHBOOK" EntitySet="CASHBOOKs" />
           </AssociationSet>
-          <AssociationSet Name="FK__CUSTOMER__IDPERS__38996AB5" Association="Self.FK__CUSTOMER__IDPERS__38996AB5">
+          <AssociationSet Name="FK__CUSTOMER__IDPERS__3A81B327" Association="Self.FK__CUSTOMER__IDPERS__3A81B327">
             <End Role="PERSON" EntitySet="People" />
             <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
           </AssociationSet>
-          <AssociationSet Name="FK__DOG__IDDOGHOUSE__2F10007B" Association="Self.FK__DOG__IDDOGHOUSE__2F10007B">
+          <AssociationSet Name="FK__DOG__IDDOGHOUSE__30F848ED" Association="Self.FK__DOG__IDDOGHOUSE__30F848ED">
             <End Role="DOGHOUSE" EntitySet="DOGHOUSEs" />
             <End Role="DOG" EntitySet="DOGs" />
           </AssociationSet>
-          <AssociationSet Name="FK__DOG_DESTR__IDDOG__4BAC3F29" Association="Self.FK__DOG_DESTR__IDDOG__4BAC3F29">
+          <AssociationSet Name="FK__DOG__TYPE__300424B4" Association="Self.FK__DOG__TYPE__300424B4">
+            <End Role="DOGTYPE" EntitySet="DOGTYPEs" />
+            <End Role="DOG" EntitySet="DOGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOG_DESTR__IDDOG__4D94879B" Association="Self.FK__DOG_DESTR__IDDOG__4D94879B">
             <End Role="DOG" EntitySet="DOGs" />
             <End Role="DOG_DESTROY" EntitySet="DOG_DESTROY" />
           </AssociationSet>
-          <AssociationSet Name="FK__DOG_INFOR__IDDOG__32E0915F" Association="Self.FK__DOG_INFOR__IDDOG__32E0915F">
+          <AssociationSet Name="FK__DOG_INFOR__IDDOG__34C8D9D1" Association="Self.FK__DOG_INFOR__IDDOG__34C8D9D1">
             <End Role="DOG" EntitySet="DOGs" />
             <End Role="DOG_INFOR" EntitySet="DOG_INFOR" />
           </AssociationSet>
-          <AssociationSet Name="FK__DOG_DESTR__ID_US__4CA06362" Association="Self.FK__DOG_DESTR__ID_US__4CA06362">
+          <AssociationSet Name="FK__DOG_DESTR__ID_US__4E88ABD4" Association="Self.FK__DOG_DESTR__ID_US__4E88ABD4">
             <End Role="USERAPP" EntitySet="USERAPPs" />
             <End Role="DOG_DESTROY" EntitySet="DOG_DESTROY" />
           </AssociationSet>
-          <AssociationSet Name="FK__PAYMENT_R__ID_US__5070F446" Association="Self.FK__PAYMENT_R__ID_US__5070F446">
+          <AssociationSet Name="FK__PAYMENT_R__ID_US__52593CB8" Association="Self.FK__PAYMENT_R__ID_US__52593CB8">
             <End Role="USERAPP" EntitySet="USERAPPs" />
             <End Role="PAYMENT_RECEIPT_VOUCHER" EntitySet="PAYMENT_RECEIPT_VOUCHER" />
           </AssociationSet>
@@ -945,7 +972,7 @@
             <End Role="PERSON" EntitySet="People" />
             <End Role="PERSONINFOR" EntitySet="PERSONINFORs" />
           </AssociationSet>
-          <AssociationSet Name="FK__USERAPP__IDPERSO__35BCFE0A" Association="Self.FK__USERAPP__IDPERSO__35BCFE0A">
+          <AssociationSet Name="FK__USERAPP__IDPERSO__37A5467C" Association="Self.FK__USERAPP__IDPERSO__37A5467C">
             <End Role="PERSON" EntitySet="People" />
             <End Role="USERAPP" EntitySet="USERAPPs" />
           </AssociationSet>
@@ -1078,6 +1105,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DOGTYPEs">
+            <EntityTypeMapping TypeName="DMModel.DOGTYPE">
+              <MappingFragment StoreEntitySet="DOGTYPE">
+                <ScalarProperty Name="ID_TYPE" ColumnName="ID_TYPE" />
+                <ScalarProperty Name="NAME_TYPE" ColumnName="NAME_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="PAYMENT_RECEIPT_VOUCHER">
             <EntityTypeMapping TypeName="DMModel.PAYMENT_RECEIPT_VOUCHER">
               <MappingFragment StoreEntitySet="PAYMENT_RECEIPT_VOUCHER">
@@ -1108,17 +1143,6 @@
                 <ScalarProperty Name="PHONE" ColumnName="PHONE" />
                 <ScalarProperty Name="BIRHDAY" ColumnName="BIRHDAY" />
                 <ScalarProperty Name="gender" ColumnName="gender" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DMModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

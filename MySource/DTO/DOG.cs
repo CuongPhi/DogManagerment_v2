@@ -25,7 +25,7 @@ namespace DTO
     
         public Nullable<double> WEIGHT { get; set; }
         public int ID { get; set; }
-        public Nullable<int> TYPE { get; set; }
+        public string TYPE { get; set; }
         public Nullable<System.DateTime> DAYIN { get; set; }
         public Nullable<long> FOODPRICE { get; set; }
         public string IDDOGHOUSE { get; set; }
@@ -37,6 +37,7 @@ namespace DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BILL_OUT> BILL_OUT { get; set; }
         public virtual DOGHOUSE DOGHOUSE { get; set; }
+        public virtual DOGTYPE DOGTYPE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DOG_DESTROY> DOG_DESTROY { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

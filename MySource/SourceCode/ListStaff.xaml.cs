@@ -25,8 +25,6 @@ namespace SourceCode
     public partial class ListStaff : UserControl
     {
         List<Object> _ListStaff = new List<Object>();
-        List<Object> tmp = new List<Object>();
-        internal delegate void SetDataSourceDelegate(List<Object> ls);
 
         public ListStaff()
         {
@@ -45,7 +43,9 @@ namespace SourceCode
             _ListStaff = UserBUS.GetAll();
             SetDataSource(_ListStaff);
         }
-        void SetDataSource(List<Object> t)
+        internal delegate void SetDataSourceDelegate(List<Object> ls);
+
+        void SetDataSource(List<Object> t) 
         {
             if (!this.Dispatcher.CheckAccess())
             {

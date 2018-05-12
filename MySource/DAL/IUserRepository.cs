@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using DTO;
 namespace DAL
 {
-    public interface IUserRepository
+    public interface IRepository<T>
     {
         List< Object> GetAll();
-        USERAPP Insert(USERAPP obj);
+        T Insert(T obj);
     }
 }

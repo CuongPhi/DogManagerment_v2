@@ -149,7 +149,7 @@
       <Name>BUS</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{1a65a37a-20ef-4b28-98b3-adb4c01f0654}</Project>
+      <Project>{9b57e5f6-89ba-435c-93bb-dd8133e0a3cd}</Project>
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>

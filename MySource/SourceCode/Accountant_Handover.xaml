@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SourceCode"
              mc:Ignorable="d" 
-            
+           
              d:DesignHeight="450" d:DesignWidth="770"
           xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
           TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -16,7 +16,7 @@
              Width="auto"
             Background="{DynamicResource MaterialDesignPaper}"
           FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid >
+    <Grid Loaded="Grid_Loaded">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -70,7 +70,7 @@
             <Border Grid.Column="0" Margin="0 0 10 0"  BorderThickness="2"   BorderBrush="Red">
                 <Grid Name="Display_Tag" >
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="180" ></RowDefinition>
+                        <RowDefinition Height="150" ></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
@@ -89,55 +89,47 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                         </Grid>
-                        <Border Grid.Column="0" Margin="10 10 10 10" BorderThickness="2" BorderBrush="Red">
-                            <Grid Margin="10 10 10 10">
+                        <Border Name="SelectedItemMaterialCard" Grid.Column="0" Margin="10 10 10 0" BorderThickness="2" BorderBrush="Red">
+                            <Grid Margin="10 10 10 0">
                                 <Grid.RowDefinitions>
                                     <RowDefinition></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <materialDesign:Card Margin="0 0 0 0" Grid.Row="0" >
-                                    <WrapPanel>
-                                        <TextBox Text="{Binding WEIGHT}" Margin="50 10 35 5" materialDesign:HintAssist.Hint="ID Chó" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Text="{Binding WEIGHT}" Margin="50 10 20 5" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Text="{Binding WEIGHT}" Margin="50 10 32 5" materialDesign:HintAssist.Hint="Loại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Text="{Binding WEIGHT}" Margin="50 10 20 5" materialDesign:HintAssist.Hint="ID Chuồng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                <materialDesign:Card  Margin="0 0 0 0" Grid.Row="0" >
+                                    <WrapPanel >
+                                        <TextBox Text="{Binding ID_DOG,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="ID Chó" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox Text="{Binding TIME,Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Giờ bắt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox Text="{Binding DAYIN, Mode=OneWay, StringFormat='{}{0:dd/MM/yyyy}'}"  Margin="10" materialDesign:HintAssist.Hint="Nhập" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox Text="{Binding WEIGHT,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="Nặng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox Text="{Binding DOG_ADDRESS,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="Nơi bắt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox Text="{Binding NAME_TYPE,Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Loại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox Text="{Binding DESTRIPTION,Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="ID Chuồng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
                                     </WrapPanel>
 
                                 </materialDesign:Card>
                                 <materialDesign:Card Grid.Row="1" >
                                     <WrapPanel>
-                                        <TextBox Text="{Binding WEIGHT}" Margin="50 10 20 5" materialDesign:HintAssist.Hint="Ngày bắt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Text="{Binding WEIGHT}" Margin="50 10 20 5" materialDesign:HintAssist.Hint="Thức ăn" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        
-                                        <TextBox Text="{Binding WEIGHT}" Margin="60 10 30 5" materialDesign:HintAssist.Hint="Tiền phạt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Text="{Binding WEIGHT}" Margin="50 10 30 5" materialDesign:HintAssist.Hint="Tổng tiền" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
+                                        <TextBox Text="{Binding FOOD_PRICE,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="Thức ăn" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox Text="{Binding NumOfDay, Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Số ngày" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox   Margin="10" materialDesign:HintAssist.Hint="Tiền phạt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox  Margin="10" materialDesign:HintAssist.Hint="Tổng tiền" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                     </WrapPanel>
-
                                 </materialDesign:Card>
                             </Grid>
                         </Border>
                     </Grid>
-                    <!--<materialDesign:Card Grid.Row="1" Margin="5">
-                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                            <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
-                                <ListView.View>
-                                    <GridView>
-                                        <GridViewColumn Header="ID chó" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
-                                        <GridViewColumn Header="Loại chó" DisplayMemberBinding="{Binding IDDOGHOUSE}"></GridViewColumn>
-                                        <GridViewColumn Header="Ngày bắt" DisplayMemberBinding="{Binding WEIGHT}"></GridViewColumn>
-                                        <GridViewColumn Header="Giờ bắt" DisplayMemberBinding="{Binding TYPE}"></GridViewColumn>
-                                        <GridViewColumn Header="Thức ăn" DisplayMemberBinding="{Binding DAYIN}"></GridViewColumn>
-                                        <GridViewColumn Header="ID chuồng" DisplayMemberBinding="{Binding TIME}"></GridViewColumn>
-                                        <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding STREET}"></GridViewColumn>
-                                    </GridView>
-                                </ListView.View>
-                            </ListView>
-                        </ScrollViewer>
-                    </materialDesign:Card>-->
-                    <Border  Grid.Row="1" BorderThickness="2" Margin="10 0 10 10" BorderBrush="Blue">
-                        <ListView x:Name="TvBox" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            
+                    <Grid  Grid.Row="1" Margin="10 0 10 10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25" ></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                           <ProgressBar Foreground="Green" Name="prgb_acc_dog" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" IsIndeterminate="True" Width="350" Height="15"/>
+                            <Label Name="lbprgrb_acc_dog" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Đang tải..."></Label>
+                        </Grid> <!--end progressbar-->
+                            <ListView SelectionChanged="dogBox_SelectionChanged" Grid.Row="1" x:Name="dogBox" HorizontalAlignment="Stretch" VerticalAlignment="Top">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="5" HorizontalAlignment="Stretch"/>
@@ -146,13 +138,13 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                                        <Image Source="{Binding ImageData}" HorizontalAlignment="Stretch" Width="100" Height="100" VerticalAlignment="Top" Stretch="UniformToFill" />
-                                        <TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                                        <Image Source="{Binding IMAGES}" HorizontalAlignment="Stretch" Width="100" Height="100" VerticalAlignment="Top" Stretch="UniformToFill" />
+                                        <TextBlock Text="{Binding DOG_ADDRESS}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                    </Border>
+                    </Grid>
                 </Grid>
             </Border>
             <Border Grid.Column="1" BorderThickness="2" BorderBrush="Red">

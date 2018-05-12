@@ -12,24 +12,18 @@ namespace DTO
     using System;
     using System.Collections.Generic;
     
-    public partial class PERSONINFOR
+    public partial class DOGTYPE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PERSONINFOR()
+        public DOGTYPE()
         {
-            this.ADDRESSes = new HashSet<ADDRESS>();
+            this.DOGs = new HashSet<DOG>();
         }
     
-        public string ID_TT { get; set; }
-        public Nullable<int> ID { get; set; }
-        public string NAME { get; set; }
-        public string EMAIL { get; set; }
-        public string PHONE { get; set; }
-        public Nullable<System.DateTime> BIRHDAY { get; set; }
-        public string gender { get; set; }
+        public string ID_TYPE { get; set; }
+        public string NAME_TYPE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ADDRESS> ADDRESSes { get; set; }
-        public virtual PERSON PERSON { get; set; }
+        public virtual ICollection<DOG> DOGs { get; set; }
     }
 }

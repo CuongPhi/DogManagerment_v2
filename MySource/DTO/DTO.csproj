@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1A65A37A-20EF-4B28-98B3-ADB4C01F0654}</ProjectGuid>
+    <ProjectGuid>{9B57E5F6-89BA-435C-93BB-DD8133E0A3CD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DTO</RootNamespace>
@@ -91,6 +91,9 @@
     <Compile Include="DOGHOUSE.cs">
       <DependentUpon>DMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DOGTYPE.cs">
+      <DependentUpon>DMModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DOG_DESTROY.cs">
       <DependentUpon>DMModel.tt</DependentUpon>
     </Compile>
@@ -107,9 +110,6 @@
       <DependentUpon>DMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>DMModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="USERAPP.cs">
       <DependentUpon>DMModel.tt</DependentUpon>
     </Compile>

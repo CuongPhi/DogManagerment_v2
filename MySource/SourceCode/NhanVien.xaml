@@ -54,7 +54,6 @@
                             <GridViewColumn Header="Đường" DisplayMemberBinding="{Binding STREET}"></GridViewColumn>
                             <GridViewColumn Header="Phường" DisplayMemberBinding="{Binding WARD}"></GridViewColumn>
                             <GridViewColumn Header="Quận" DisplayMemberBinding="{Binding DISTRICT}"></GridViewColumn>
-
                             <GridViewColumn Header="Giá thức ăn" DisplayMemberBinding="{Binding FOODPRICE}"></GridViewColumn>
                         </GridView>
                     </ListView.View>

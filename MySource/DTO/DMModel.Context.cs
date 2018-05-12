@@ -36,10 +36,10 @@ namespace DTO
         public virtual DbSet<DOG_DESTROY> DOG_DESTROY { get; set; }
         public virtual DbSet<DOG_INFOR> DOG_INFOR { get; set; }
         public virtual DbSet<DOGHOUSE> DOGHOUSEs { get; set; }
+        public virtual DbSet<DOGTYPE> DOGTYPEs { get; set; }
         public virtual DbSet<PAYMENT_RECEIPT_VOUCHER> PAYMENT_RECEIPT_VOUCHER { get; set; }
         public virtual DbSet<PERSON> People { get; set; }
         public virtual DbSet<PERSONINFOR> PERSONINFORs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<USERAPP> USERAPPs { get; set; }
     }
 }

@@ -1,4 +1,8 @@
-﻿using System;
+﻿using BUS;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
@@ -9,42 +13,54 @@ namespace SourceCode
     /// </summary>
     public partial class Accountant_Handover : UserControl
     {
+        List<Object> _ListDogs = new List<Object>();
+
         public Accountant_Handover()
         {
             InitializeComponent();
-            this.TvBox.ItemsSource = new MovieData[]
+            RunningProgressBar(Visibility.Hidden);
+
+        }
+        public void LoadListDogs()
         {
-            new MovieData{Title="Movie 1", ImageData=LoadImage("home.png")},
-            new MovieData{Title="Movie 2", ImageData=LoadImage("close.png")},
-            new MovieData{Title="Movie 3", ImageData=LoadImage("file.png")},
-            new MovieData{Title="Movie 4", ImageData=LoadImage("info.png")},
-            new MovieData{Title="Movie 5", ImageData=LoadImage("logo.png")},
-            new MovieData{Title="Movie 6", ImageData=LoadImage("excel.png")}
-        };
+            RunningProgressBar(Visibility.Visible);
+            Thread thread = new Thread(new ThreadStart(loadFromData));
+            thread.Start();
+        }
+        void loadFromData()
+        {
+            _ListDogs = DogBUS.GetAll();
+            SetDataSource(_ListDogs);
+        }
+        internal delegate void SetDataSourceDelegate(List<Object> ls);
+
+        void SetDataSource(List<Object> t)
+        {
+            if (!this.Dispatcher.CheckAccess())
+            {
+                this.Dispatcher.Invoke(new SetDataSourceDelegate(SetDataSource), t);
+            }
+            else
+            {
+                dogBox.ItemsSource = t;
+                RunningProgressBar(Visibility.Hidden);
+            }
+        }
+        void RunningProgressBar(Visibility t)
+        {
+            prgb_acc_dog.Visibility = lbprgrb_acc_dog.Visibility = t;
         }
 
-        // for this code image needs to be a project resource
-        private BitmapImage LoadImage(string filename)
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            return  new BitmapImage(new Uri("pack://application:,,,/SourceCode;component/Image/Icon/" + filename));
+            LoadListDogs();
         }
 
-    }
-    public class MovieData
-    {
-        private string _Title;
-        public string Title
+        private void dogBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            get { return this._Title; }
-            set { this._Title = value; }
+            Object t = dogBox.SelectedItem;
+           
+            SelectedItemMaterialCard.DataContext = t;
         }
-
-        private BitmapImage _ImageData;
-        public BitmapImage ImageData
-        {
-            get { return this._ImageData; }
-            set { this._ImageData = value; }
-        }
-
     }
 }
