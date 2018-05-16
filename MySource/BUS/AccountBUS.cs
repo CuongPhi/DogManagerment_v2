@@ -10,9 +10,19 @@ namespace BUS
 {
    public static class AccountBUS
     {
-        static IRepository<ACCOUNT> reps = new AccountRepository();
-        static  AccountRepository acc = new AccountRepository();
+        public static ACCOUNT GetById(string id) { return reps.GetByID(id); }
 
+        static IRepository<ACCOUNT> reps = new AccountRepository();
+        public static  AccountRepository acc = new AccountRepository();
+        public static void Update(ACCOUNT obj)
+        {
+            reps.Update(obj);
+        }
+       
+        public static ACCOUNT Insert(ACCOUNT obj)
+        {
+            return reps.Insert(obj);
+        }
         static AccountBUS()
         {
             reps = new AccountRepository();
@@ -25,9 +35,6 @@ namespace BUS
         {
             return reps.GetAll();
         }
-        public static ACCOUNT Insert(ACCOUNT obj)
-        {
-            return reps.Insert(obj);
-        }
+        
     }
 }

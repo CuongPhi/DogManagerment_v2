@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 using DTO;
 namespace DAL
 {
-    public interface IRepository<T>
+    public interface  IRepository<T>
     {
-        List< Object> GetAll();
+         List<Object> GetAll();
         T Insert(T obj);
+        void Delete(T obj);
+        void Update(T obj);
+        T GetByID(string id);
     }
 }

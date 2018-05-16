@@ -9,14 +9,35 @@ namespace DAL
 {
     public class AccountRepository : IRepository<ACCOUNT>
     {
-        public List<object> GetAll()
+        public ACCOUNT GetByID(string id)
+        {
+            using (DMEntities db = new DMEntities())
+            {
+                return db.ACCOUNTs.Find(id);
+            }
+        }
+        public void Delete(ACCOUNT obj)
+        {
+            using (DMEntities db = new DMEntities())
+            {
+                db.ACCOUNTs.Attach(obj);
+                db.ACCOUNTs.Remove(obj);
+                db.SaveChanges();
+            }
+        }
+            public List<object> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public ACCOUNT Insert(ACCOUNT obj)
+        public  ACCOUNT Insert(ACCOUNT obj)
         {
-            throw new NotImplementedException();
+            using (DMEntities db = new DMEntities())
+            {
+                db.ACCOUNTs.Add(obj);
+                db.SaveChanges();
+                return obj;
+            }
         }
         public List< ACCOUNT> IsLogin(string u, string p)
         {
@@ -30,10 +51,15 @@ namespace DAL
                                USERNAME= acc.USERNAME,
                                TYPE =   acc.TYPE,
                                ID_USER = acc.ID_USER,
-                               PASSWORD="",
-                               PASSWORD2=""                               
-                            }).ToList();
+                               PASSWORD=null,
+                               PASSWORD2= null
+                        }).ToList();
             }
+        }
+
+        public void Update(ACCOUNT obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }

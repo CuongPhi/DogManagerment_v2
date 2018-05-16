@@ -73,6 +73,9 @@
     <Compile Include="Accountant_Handover.xaml.cs">
       <DependentUpon>Accountant_Handover.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddAccountWindow.xaml.cs">
+      <DependentUpon>AddAccountWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ListStaff.xaml.cs">
       <DependentUpon>ListStaff.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,10 @@
     </Compile>
     <Compile Include="UIProcess.cs" />
     <Page Include="Accountant_Handover.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddAccountWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

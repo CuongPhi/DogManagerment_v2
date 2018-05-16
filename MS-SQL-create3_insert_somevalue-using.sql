@@ -76,7 +76,7 @@ GO
 CREATE TABLE USERAPP
 (
 	ID INT IDENTITY PRIMARY KEY,
-	IDPERSON INT FOREIGN KEY REFERENCES dbo.PERSON(ID),
+	 INT FOREIGN KEY REFERENCES dbo.PERSON(ID),
 	SALARY INT, 
 	DAYJOIN DATE,
 	ID_BANK VARCHAR(20),
@@ -184,6 +184,9 @@ go
  INSERT ACCOUNT VALUES (2, 'admin','admin','123',0,0)
  INSERT ACCOUNT VALUES (3, 'hue','hue','456',0,0)
  INSERT ACCOUNT VALUES (4, 'ngoc','ngoc','789',0,0)
+
+ ---======================================================================
+
 go
 insert DOGHOUSE VALUES ('DH01','Chuồng chó 1')
 insert DOGHOUSE VALUES ('DH02','Chuồng chó 2')

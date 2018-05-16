@@ -15,6 +15,10 @@ namespace BUS
         {
             reps = new DogRepository();
         }
+        public static void Update(DOG obj)
+        {
+            reps.Update(obj);
+        }
         public static List<Object> GetAll()
         {
             return reps.GetAll();

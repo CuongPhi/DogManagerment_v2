@@ -81,5 +81,33 @@ namespace SourceCode
            Object t = lvListStaff.SelectedItem;
             SelectedItemWraPnel.DataContext = t;
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //int idPerson = new Random().Next();
+            //PERSON per = new PERSON() {ID= idPerson, NOTE= "Người dùng bình thường"};
+            //PERSONINFOR perinf = new PERSONINFOR() {
+            //};
+            //USERAPP us = new USERAPP() { };
+
+            //ACCOUNT acc = new ACCOUNT() { };
+
+            //UserBUS.Insert(us);
+            //PersonBUS.Insert(per);
+            //PersonInforBUS.Insert(perinf);
+            //AccountBUS.Insert(acc);
+
+            AddAccountWindow newWindow = new AddAccountWindow();
+            newWindow.addAccount += new AddAccountWindow.addAccountHandler(AddNewAccountSuccess);
+            newWindow.ShowDialog();
+            
+
+        }
+        private void AddNewAccountSuccess(bool a)
+        {
+            if (a){
+                LoadListStaff();
+            }
+        }
     }
 }

@@ -10,6 +10,18 @@ namespace DAL
 {
     public class DogRepository : IRepository<DOG>
     {
+        public DOG GetByID(string id)
+        {
+            using (DMEntities db = new DMEntities())
+            {
+                return db.DOGs.Find(id);
+            }
+        }
+        public void Delete(DOG obj)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<object> GetAll()
         {
             using (DMEntities db = new DMEntities())
@@ -35,6 +47,11 @@ namespace DAL
         public DOG Insert(DOG obj)
         {
             return null;
+        }
+
+        public void Update(DOG obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }

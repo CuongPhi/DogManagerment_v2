@@ -79,3 +79,5 @@ I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\DogMa
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\DogManage.csproj.CopyComplete
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\SourceCode.exe
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\SourceCode.pdb
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\AddAccountWindow.g.cs
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\AddAccountWindow.baml

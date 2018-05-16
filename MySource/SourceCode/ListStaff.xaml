@@ -7,8 +7,9 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              Width="auto"
+            Name="uc_ListStaff"
              d:DesignHeight="450" d:DesignWidth="800">
-    
+            
     <Grid x:Name="UCNhanVien" Background="LightBlue" Loaded="UCNhanVien_Loaded">
         
         <Grid.RowDefinitions>
@@ -26,18 +27,18 @@
         </Grid>
         <materialDesign:Card Grid.Row="1" Margin="5">            
             <WrapPanel  HorizontalAlignment="Center" VerticalAlignment="Center"  Height="auto" Name="SelectedItemWraPnel">
-                <TextBox FontSize="14"  Text="{Binding IDPERSON, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Mã NV" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox FontSize="14" Text="{Binding NAME, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox FontSize="14" Text="{Binding USERNAME, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tài khoản" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox FontSize="14" Text="{Binding GENDER, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Giới tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox FontSize="14" Text="{Binding ID, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="CMND" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox FontSize="14" Text="{Binding SALARY, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Lương" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox FontSize="14" Text="{Binding ID_MEDICAL, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="BHYT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox FontSize="14"  Text="{Binding ID_BANK, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="TKNH" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox FontSize="14"  Text="{Binding EMAIL, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox FontSize="14" Text="{Binding PHONE, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="SĐT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <DatePicker VerticalAlignment="Center" SelectedDate="{Binding BIRHDAY, Mode=OneWay}" Width="100" Margin="5 5 5 -5" materialDesign:HintAssist.Hint="Ngày sinh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                <DatePicker VerticalAlignment="Center" SelectedDate="{Binding DAYJOIN, Mode=OneWay}" Width="100" Margin="5 5 5 -5" materialDesign:HintAssist.Hint="Vào C.Ty" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                <TextBox Name="txbID_User" FontSize="14"  Text="{Binding IDPERSON, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Mã NV" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Name="txbName" FontSize="14" Text="{Binding NAME, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Name="txbUserName" FontSize="14" Text="{Binding USERNAME, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tài khoản" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Name="txbGender" FontSize="14" Text="{Binding GENDER, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Giới tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Name="txbIDNum" FontSize="14" Text="{Binding ID_TT, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="CMND" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Name="txbSalary" FontSize="14" Text="{Binding SALARY, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Lương" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Name="txbMedical" FontSize="14" Text="{Binding ID_MEDICAL, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="BHYT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Name="txbBank" FontSize="14"  Text="{Binding ID_BANK, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="TKNH" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Name="txbEmail" FontSize="14"  Text="{Binding EMAIL, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Name="txbPhone" FontSize="14" Text="{Binding PHONE, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="SĐT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <DatePicker Name="dpBirthDay" VerticalAlignment="Center" SelectedDate="{Binding BIRHDAY, Mode=OneWay}" Width="100" Margin="5 5 5 -5" materialDesign:HintAssist.Hint="Ngày sinh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                <DatePicker Name="dpDayJoin" VerticalAlignment="Center" SelectedDate="{Binding DAYJOIN, Mode=OneWay}" Width="100" Margin="5 5 5 -5" materialDesign:HintAssist.Hint="Vào C.Ty" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
 
             </WrapPanel>
         </materialDesign:Card>      
@@ -73,7 +74,7 @@
                     <Label Name="lbprgrb" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Đang tải..."></Label>
                     <Grid Grid.Column="0" Margin="20 0 10 0">
                         <DockPanel>
-                            <Button Command="{Binding AddCommand}" Content="Thêm" Margin="0 0 5 0" Width="100"></Button>
+                            <Button Command="{Binding AddCommand}" Content="Thêm" Margin="0 0 5 0" Width="100" Click="Button_Click_1"></Button>
                             <Button Command="{Binding EditCommand}" Content="Cập nhật" Margin="0 0 5 0" Width="100"></Button>
                             <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="0 0 5 0" Width="100"></Button>
                         </DockPanel>
@@ -89,9 +90,8 @@
                             <GridViewColumn Header="Mã" DisplayMemberBinding="{Binding IDPERSON}"></GridViewColumn>
                             <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding NAME}"></GridViewColumn>
                             <GridViewColumn Header="Tên TK" DisplayMemberBinding="{Binding USERNAME}"></GridViewColumn>
-
-                            <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding gender}" ></GridViewColumn>
-                            <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
+                            <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding GENDER}" ></GridViewColumn>
+                            <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding ID_TT}"></GridViewColumn>
                             <GridViewColumn Header="Lương" DisplayMemberBinding="{Binding SALARY}"></GridViewColumn>
                             <GridViewColumn Header="Vào Cty" DisplayMemberBinding="{Binding DAYJOIN,StringFormat='{}{0:dd/MM/yyyy}'}"></GridViewColumn>
                             <GridViewColumn Header="BHYT" DisplayMemberBinding="{Binding ID_MEDICAL}"></GridViewColumn>

@@ -9,10 +9,20 @@ namespace BUS
 {
     public static class UserBUS
     {
+        public static USERAPP GetById(string id) { return reps.GetByID(id); }
+        static UserRepository usr = new UserRepository();
         static IRepository<USERAPP> reps;
+        public static int GetIdByIDPerson(int id)
+        {
+            return usr.GetIdByIDPerson(id);
+        }
         static UserBUS()
         {
             reps = new UserRepository();
+        }
+        public static void Update(USERAPP obj)
+        {
+            reps.Update(obj);
         }
         public static List< Object> GetAll()
         {
