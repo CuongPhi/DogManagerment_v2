@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="SourceCode.NhanVienNhap"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             
+             mc:Ignorable="d"
+             d:DesignHeight="438" d:DesignWidth="738">
+
+    <Grid x:Name="UCNhanVienNhap" Background="LightBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Grid.Row="0" Margin="5">
+            <WrapPanel>
+                <TextBox Text="{Binding ID_BILL}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã hóa đơn" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding ID_USER}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã nhân viên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding ID_DOG}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã chó" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding FINE}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tiền phạt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                <DatePicker VerticalAlignment="Center" SelectedDate="{Binding DAY_BILL}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Ngày nhập hóa đơn" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="1" Margin="5">
+            <WrapPanel>
+                <TextBox Text="{Binding ID_BILL}" Margin="15 5 15 5" materialDesign:HintAssist.Hint="Mã cần tìm" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="2" Margin="5">
+            <WrapPanel>
+                <Button Command="{Binding AddCommand}" Content="Thêm" Margin="150 5 15 5" Width="120"></Button>
+                <Button Command="{Binding EditCommand}" Content="Cập nhật" Margin="5 5 15 5" Width="120"></Button>
+                <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5 5 15 5" Width="120"></Button>
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="3" Margin="5">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Mã hóa đơn" DisplayMemberBinding="{Binding ID_BILL}"></GridViewColumn>
+                            <GridViewColumn Header="Mã nhân viên" DisplayMemberBinding="{Binding ID_USER}"></GridViewColumn>
+                            <GridViewColumn Header="Mã chó" DisplayMemberBinding="{Binding ID_DOG}"></GridViewColumn>
+                            <GridViewColumn Header="Tiền phạt" DisplayMemberBinding="{Binding FINE}"></GridViewColumn>
+                            <GridViewColumn Header="Ngày nhập hóa đơn" DisplayMemberBinding="{Binding DAY_BILL}"></GridViewColumn>
+
+
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

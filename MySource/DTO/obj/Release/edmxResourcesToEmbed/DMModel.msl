@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DMModelStoreContainer" CdmEntityContainer="DMEntities">
+    <EntitySetMapping Name="ACCOUNTs">
+      <EntityTypeMapping TypeName="DMModel.ACCOUNT">
+        <MappingFragment StoreEntitySet="ACCOUNT">
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="PASSWORD2" ColumnName="PASSWORD2" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="ISBAN" ColumnName="ISBAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACTIVITY_LOG">
+      <EntityTypeMapping TypeName="DMModel.ACTIVITY_LOG">
+        <MappingFragment StoreEntitySet="ACTIVITY_LOG">
+          <ScalarProperty Name="ID_LOG" ColumnName="ID_LOG" />
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="ACTIVITY_TYPE" ColumnName="ACTIVITY_TYPE" />
+          <ScalarProperty Name="DETAIL" ColumnName="DETAIL" />
+          <ScalarProperty Name="DATE_ACTIVITY" ColumnName="DATE_ACTIVITY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ADDRESSes">
+      <EntityTypeMapping TypeName="DMModel.ADDRESS">
+        <MappingFragment StoreEntitySet="ADDRESS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DETAIL" ColumnName="DETAIL" />
+          <ScalarProperty Name="STREET" ColumnName="STREET" />
+          <ScalarProperty Name="WARD" ColumnName="WARD" />
+          <ScalarProperty Name="DISTRICT" ColumnName="DISTRICT" />
+          <ScalarProperty Name="IDPERSON" ColumnName="IDPERSON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BILL_IN">
+      <EntityTypeMapping TypeName="DMModel.BILL_IN">
+        <MappingFragment StoreEntitySet="BILL_IN">
+          <ScalarProperty Name="ID_BILL" ColumnName="ID_BILL" />
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="IDDOG" ColumnName="IDDOG" />
+          <ScalarProperty Name="DAY_BILL" ColumnName="DAY_BILL" />
+          <ScalarProperty Name="FINE" ColumnName="FINE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BILL_OUT">
+      <EntityTypeMapping TypeName="DMModel.BILL_OUT">
+        <MappingFragment StoreEntitySet="BILL_OUT">
+          <ScalarProperty Name="ID_BILL" ColumnName="ID_BILL" />
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="ID_CUSTOMER" ColumnName="ID_CUSTOMER" />
+          <ScalarProperty Name="IDDOG" ColumnName="IDDOG" />
+          <ScalarProperty Name="DAY_BILL" ColumnName="DAY_BILL" />
+          <ScalarProperty Name="FINE" ColumnName="FINE" />
+          <ScalarProperty Name="TOTALPRICE" ColumnName="TOTALPRICE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CASHBOOKs">
+      <EntityTypeMapping TypeName="DMModel.CASHBOOK">
+        <MappingFragment StoreEntitySet="CASHBOOK">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="DESTRIPTION" ColumnName="DESTRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMERs">
+      <EntityTypeMapping TypeName="DMModel.CUSTOMER">
+        <MappingFragment StoreEntitySet="CUSTOMER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDPERSON" ColumnName="IDPERSON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOGs">
+      <EntityTypeMapping TypeName="DMModel.DOG">
+        <MappingFragment StoreEntitySet="DOG">
+          <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="DAYIN" ColumnName="DAYIN" />
+          <ScalarProperty Name="FOODPRICE" ColumnName="FOODPRICE" />
+          <ScalarProperty Name="IDDOGHOUSE" ColumnName="IDDOGHOUSE" />
+          <ScalarProperty Name="DETROYED" ColumnName="DETROYED" />
+          <ScalarProperty Name="IMAGES" ColumnName="IMAGES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOG_DESTROY">
+      <EntityTypeMapping TypeName="DMModel.DOG_DESTROY">
+        <MappingFragment StoreEntitySet="DOG_DESTROY">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDDOG" ColumnName="IDDOG" />
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="DATE_DESTROY" ColumnName="DATE_DESTROY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOG_INFOR">
+      <EntityTypeMapping TypeName="DMModel.DOG_INFOR">
+        <MappingFragment StoreEntitySet="DOG_INFOR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="STREET" ColumnName="STREET" />
+          <ScalarProperty Name="WARD" ColumnName="WARD" />
+          <ScalarProperty Name="DISTRICT" ColumnName="DISTRICT" />
+          <ScalarProperty Name="TIME" ColumnName="TIME" />
+          <ScalarProperty Name="IDDOG" ColumnName="IDDOG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOGHOUSEs">
+      <EntityTypeMapping TypeName="DMModel.DOGHOUSE">
+        <MappingFragment StoreEntitySet="DOGHOUSE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESTRIPTION" ColumnName="DESTRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOGTYPEs">
+      <EntityTypeMapping TypeName="DMModel.DOGTYPE">
+        <MappingFragment StoreEntitySet="DOGTYPE">
+          <ScalarProperty Name="ID_TYPE" ColumnName="ID_TYPE" />
+          <ScalarProperty Name="NAME_TYPE" ColumnName="NAME_TYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAYMENT_RECEIPT_VOUCHER">
+      <EntityTypeMapping TypeName="DMModel.PAYMENT_RECEIPT_VOUCHER">
+        <MappingFragment StoreEntitySet="PAYMENT_RECEIPT_VOUCHER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DATETIME" ColumnName="DATETIME" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+          <ScalarProperty Name="DESTRIPTION" ColumnName="DESTRIPTION" />
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="DMModel.PERSON">
+        <MappingFragment StoreEntitySet="PERSON">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSONINFORs">
+      <EntityTypeMapping TypeName="DMModel.PERSONINFOR">
+        <MappingFragment StoreEntitySet="PERSONINFOR">
+          <ScalarProperty Name="ID_TT" ColumnName="ID_TT" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="BIRHDAY" ColumnName="BIRHDAY" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERAPPs">
+      <EntityTypeMapping TypeName="DMModel.USERAPP">
+        <MappingFragment StoreEntitySet="USERAPP">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDPERSON" ColumnName="IDPERSON" />
+          <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+          <ScalarProperty Name="DAYJOIN" ColumnName="DAYJOIN" />
+          <ScalarProperty Name="ID_BANK" ColumnName="ID_BANK" />
+          <ScalarProperty Name="ID_MEDICAL" ColumnName="ID_MEDICAL" />
+          <ScalarProperty Name="IMAGES" ColumnName="IMAGES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

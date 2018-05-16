@@ -1,0 +1,12 @@
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\bin\Release\DTO.dll.config
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\bin\Release\DTO.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\bin\Release\DTO.pdb
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\bin\Release\EntityFramework.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\bin\Release\EntityFramework.SqlServer.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\bin\Release\EntityFramework.xml
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\bin\Release\EntityFramework.SqlServer.xml
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\obj\Release\DTO.csprojResolveAssemblyReference.cache
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\obj\Release\DTO.csproj.CoreCompileInputs.cache
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\obj\Release\DTO.csproj.CopyComplete
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\obj\Release\DTO.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\obj\Release\DTO.pdb

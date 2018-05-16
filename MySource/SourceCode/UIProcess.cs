@@ -50,7 +50,7 @@ namespace SourceCode
                 }
             }
         }
-        public static BitmapImage LoadImage(byte[] imageData)
+        public  BitmapImage LoadImage(byte[] imageData)
         {
             if (imageData == null || imageData.Length == 0) return null;
             var image = new BitmapImage();

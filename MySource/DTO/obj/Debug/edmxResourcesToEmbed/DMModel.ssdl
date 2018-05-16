@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACCOUNT">
+    <Key>
+      <PropertyRef Name="USERNAME" />
+    </Key>
+    <Property Name="ID_USER" Type="int" />
+    <Property Name="USERNAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="100" />
+    <Property Name="PASSWORD2" Type="varchar" MaxLength="100" />
+    <Property Name="TYPE" Type="int" />
+    <Property Name="ISBAN" Type="bit" />
+  </EntityType>
+  <EntityType Name="ACTIVITY_LOG">
+    <Key>
+      <PropertyRef Name="ID_LOG" />
+    </Key>
+    <Property Name="ID_LOG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_USER" Type="int" />
+    <Property Name="ACTIVITY_TYPE" Type="nvarchar" MaxLength="100" />
+    <Property Name="DETAIL" Type="nvarchar(max)" />
+    <Property Name="DATE_ACTIVITY" Type="date" />
+  </EntityType>
+  <EntityType Name="ADDRESS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DETAIL" Type="nvarchar" MaxLength="20" />
+    <Property Name="STREET" Type="nvarchar" MaxLength="50" />
+    <Property Name="WARD" Type="varchar" MaxLength="50" />
+    <Property Name="DISTRICT" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDPERSON" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="BILL_IN">
+    <Key>
+      <PropertyRef Name="ID_BILL" />
+    </Key>
+    <Property Name="ID_BILL" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ID_USER" Type="int" />
+    <Property Name="IDDOG" Type="int" />
+    <Property Name="DAY_BILL" Type="date" />
+    <Property Name="FINE" Type="bigint" />
+  </EntityType>
+  <EntityType Name="BILL_OUT">
+    <Key>
+      <PropertyRef Name="ID_BILL" />
+    </Key>
+    <Property Name="ID_BILL" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ID_USER" Type="int" />
+    <Property Name="ID_CUSTOMER" Type="int" />
+    <Property Name="IDDOG" Type="int" />
+    <Property Name="DAY_BILL" Type="date" />
+    <Property Name="FINE" Type="bigint" />
+    <Property Name="TOTALPRICE" Type="bigint" />
+  </EntityType>
+  <EntityType Name="CASHBOOK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VALUE" Type="bigint" />
+    <Property Name="DATE" Type="date" />
+    <Property Name="ID_USER" Type="int" />
+    <Property Name="DESTRIPTION" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CUSTOMER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDPERSON" Type="int" />
+  </EntityType>
+  <EntityType Name="DOG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="WEIGHT" Type="float" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TYPE" Type="varchar" MaxLength="10" />
+    <Property Name="DAYIN" Type="date" />
+    <Property Name="FOODPRICE" Type="bigint" />
+    <Property Name="IDDOGHOUSE" Type="nvarchar" MaxLength="10" />
+    <Property Name="DETROYED" Type="bit" />
+    <Property Name="IMAGES" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="DOG_DESTROY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDDOG" Type="int" />
+    <Property Name="ID_USER" Type="int" />
+    <Property Name="DATE_DESTROY" Type="date" />
+  </EntityType>
+  <EntityType Name="DOG_INFOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STREET" Type="nvarchar" MaxLength="50" />
+    <Property Name="WARD" Type="varchar" MaxLength="50" />
+    <Property Name="DISTRICT" Type="nvarchar" MaxLength="50" />
+    <Property Name="TIME" Type="time" Precision="7" />
+    <Property Name="IDDOG" Type="int" />
+  </EntityType>
+  <EntityType Name="DOGHOUSE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="DESTRIPTION" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DOGTYPE">
+    <Key>
+      <PropertyRef Name="ID_TYPE" />
+    </Key>
+    <Property Name="ID_TYPE" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NAME_TYPE" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PAYMENT_RECEIPT_VOUCHER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DATETIME" Type="datetime" />
+    <Property Name="TYPE" Type="bit" />
+    <Property Name="VALUE" Type="bigint" />
+    <Property Name="DESTRIPTION" Type="nvarchar(max)" />
+    <Property Name="ID_USER" Type="int" />
+  </EntityType>
+  <EntityType Name="PERSON">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NOTE" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PERSONINFOR">
+    <Key>
+      <PropertyRef Name="ID_TT" />
+    </Key>
+    <Property Name="ID_TT" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ID" Type="int" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="100" />
+    <Property Name="PHONE" Type="varchar" MaxLength="20" />
+    <Property Name="BIRHDAY" Type="date" />
+    <Property Name="gender" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="USERAPP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDPERSON" Type="int" />
+    <Property Name="SALARY" Type="int" />
+    <Property Name="DAYJOIN" Type="date" />
+    <Property Name="ID_BANK" Type="varchar" MaxLength="20" />
+    <Property Name="ID_MEDICAL" Type="varchar" MaxLength="20" />
+    <Property Name="IMAGES" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__ACCOUNT__ID_USER__3D5E1FD2">
+    <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERAPP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ACCOUNT">
+        <PropertyRef Name="ID_USER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ACTIVITY___ID_US__4AB81AF0">
+    <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
+    <End Role="ACTIVITY_LOG" Type="Self.ACTIVITY_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERAPP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ACTIVITY_LOG">
+        <PropertyRef Name="ID_USER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ADDRESS__IDPERSO__2B3F6F97">
+    <End Role="PERSONINFOR" Type="Self.PERSONINFOR" Multiplicity="0..1" />
+    <End Role="ADDRESS" Type="Self.ADDRESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONINFOR">
+        <PropertyRef Name="ID_TT" />
+      </Principal>
+      <Dependent Role="ADDRESS">
+        <PropertyRef Name="IDPERSON" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BILL_IN__ID_USER__46E78A0C">
+    <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
+    <End Role="BILL_IN" Type="Self.BILL_IN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERAPP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BILL_IN">
+        <PropertyRef Name="ID_USER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BILL_IN__IDDOG__47DBAE45">
+    <End Role="DOG" Type="Self.DOG" Multiplicity="0..1" />
+    <End Role="BILL_IN" Type="Self.BILL_IN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BILL_IN">
+        <PropertyRef Name="IDDOG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BILL_OUT__ID_CUS__4316F928">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+    <End Role="BILL_OUT" Type="Self.BILL_OUT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BILL_OUT">
+        <PropertyRef Name="ID_CUSTOMER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BILL_OUT__ID_USE__4222D4EF">
+    <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
+    <End Role="BILL_OUT" Type="Self.BILL_OUT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERAPP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BILL_OUT">
+        <PropertyRef Name="ID_USER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BILL_OUT__IDDOG__440B1D61">
+    <End Role="DOG" Type="Self.DOG" Multiplicity="0..1" />
+    <End Role="BILL_OUT" Type="Self.BILL_OUT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BILL_OUT">
+        <PropertyRef Name="IDDOG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CASHBOOK__ID_USE__5535A963">
+    <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
+    <End Role="CASHBOOK" Type="Self.CASHBOOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERAPP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CASHBOOK">
+        <PropertyRef Name="ID_USER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CUSTOMER__IDPERS__3A81B327">
+    <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSON">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CUSTOMER">
+        <PropertyRef Name="IDPERSON" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DOG__IDDOGHOUSE__30F848ED">
+    <End Role="DOGHOUSE" Type="Self.DOGHOUSE" Multiplicity="0..1" />
+    <End Role="DOG" Type="Self.DOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOGHOUSE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DOG">
+        <PropertyRef Name="IDDOGHOUSE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DOG__TYPE__300424B4">
+    <End Role="DOGTYPE" Type="Self.DOGTYPE" Multiplicity="0..1" />
+    <End Role="DOG" Type="Self.DOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOGTYPE">
+        <PropertyRef Name="ID_TYPE" />
+      </Principal>
+      <Dependent Role="DOG">
+        <PropertyRef Name="TYPE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DOG_DESTR__ID_US__4E88ABD4">
+    <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
+    <End Role="DOG_DESTROY" Type="Self.DOG_DESTROY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERAPP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DOG_DESTROY">
+        <PropertyRef Name="ID_USER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DOG_DESTR__IDDOG__4D94879B">
+    <End Role="DOG" Type="Self.DOG" Multiplicity="0..1" />
+    <End Role="DOG_DESTROY" Type="Self.DOG_DESTROY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DOG_DESTROY">
+        <PropertyRef Name="IDDOG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DOG_INFOR__IDDOG__34C8D9D1">
+    <End Role="DOG" Type="Self.DOG" Multiplicity="0..1" />
+    <End Role="DOG_INFOR" Type="Self.DOG_INFOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DOG_INFOR">
+        <PropertyRef Name="IDDOG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PAYMENT_R__ID_US__52593CB8">
+    <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="0..1" />
+    <End Role="PAYMENT_RECEIPT_VOUCHER" Type="Self.PAYMENT_RECEIPT_VOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERAPP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PAYMENT_RECEIPT_VOUCHER">
+        <PropertyRef Name="ID_USER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PERSONINFOR__ID__276EDEB3">
+    <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
+    <End Role="PERSONINFOR" Type="Self.PERSONINFOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSON">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PERSONINFOR">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USERAPP__IDPERSO__37A5467C">
+    <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
+    <End Role="USERAPP" Type="Self.USERAPP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSON">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USERAPP">
+        <PropertyRef Name="IDPERSON" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DMModelStoreContainer">
+    <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACTIVITY_LOG" EntityType="Self.ACTIVITY_LOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ADDRESS" EntityType="Self.ADDRESS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BILL_IN" EntityType="Self.BILL_IN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BILL_OUT" EntityType="Self.BILL_OUT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CASHBOOK" EntityType="Self.CASHBOOK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOG" EntityType="Self.DOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOG_DESTROY" EntityType="Self.DOG_DESTROY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOG_INFOR" EntityType="Self.DOG_INFOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOGHOUSE" EntityType="Self.DOGHOUSE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOGTYPE" EntityType="Self.DOGTYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAYMENT_RECEIPT_VOUCHER" EntityType="Self.PAYMENT_RECEIPT_VOUCHER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PERSON" EntityType="Self.PERSON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PERSONINFOR" EntityType="Self.PERSONINFOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERAPP" EntityType="Self.USERAPP" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ACCOUNT__ID_USER__3D5E1FD2" Association="Self.FK__ACCOUNT__ID_USER__3D5E1FD2">
+      <End Role="USERAPP" EntitySet="USERAPP" />
+      <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ACTIVITY___ID_US__4AB81AF0" Association="Self.FK__ACTIVITY___ID_US__4AB81AF0">
+      <End Role="USERAPP" EntitySet="USERAPP" />
+      <End Role="ACTIVITY_LOG" EntitySet="ACTIVITY_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ADDRESS__IDPERSO__2B3F6F97" Association="Self.FK__ADDRESS__IDPERSO__2B3F6F97">
+      <End Role="PERSONINFOR" EntitySet="PERSONINFOR" />
+      <End Role="ADDRESS" EntitySet="ADDRESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BILL_IN__ID_USER__46E78A0C" Association="Self.FK__BILL_IN__ID_USER__46E78A0C">
+      <End Role="USERAPP" EntitySet="USERAPP" />
+      <End Role="BILL_IN" EntitySet="BILL_IN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BILL_IN__IDDOG__47DBAE45" Association="Self.FK__BILL_IN__IDDOG__47DBAE45">
+      <End Role="DOG" EntitySet="DOG" />
+      <End Role="BILL_IN" EntitySet="BILL_IN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BILL_OUT__ID_CUS__4316F928" Association="Self.FK__BILL_OUT__ID_CUS__4316F928">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="BILL_OUT" EntitySet="BILL_OUT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BILL_OUT__ID_USE__4222D4EF" Association="Self.FK__BILL_OUT__ID_USE__4222D4EF">
+      <End Role="USERAPP" EntitySet="USERAPP" />
+      <End Role="BILL_OUT" EntitySet="BILL_OUT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BILL_OUT__IDDOG__440B1D61" Association="Self.FK__BILL_OUT__IDDOG__440B1D61">
+      <End Role="DOG" EntitySet="DOG" />
+      <End Role="BILL_OUT" EntitySet="BILL_OUT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CASHBOOK__ID_USE__5535A963" Association="Self.FK__CASHBOOK__ID_USE__5535A963">
+      <End Role="USERAPP" EntitySet="USERAPP" />
+      <End Role="CASHBOOK" EntitySet="CASHBOOK" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CUSTOMER__IDPERS__3A81B327" Association="Self.FK__CUSTOMER__IDPERS__3A81B327">
+      <End Role="PERSON" EntitySet="PERSON" />
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DOG__IDDOGHOUSE__30F848ED" Association="Self.FK__DOG__IDDOGHOUSE__30F848ED">
+      <End Role="DOGHOUSE" EntitySet="DOGHOUSE" />
+      <End Role="DOG" EntitySet="DOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DOG__TYPE__300424B4" Association="Self.FK__DOG__TYPE__300424B4">
+      <End Role="DOGTYPE" EntitySet="DOGTYPE" />
+      <End Role="DOG" EntitySet="DOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DOG_DESTR__ID_US__4E88ABD4" Association="Self.FK__DOG_DESTR__ID_US__4E88ABD4">
+      <End Role="USERAPP" EntitySet="USERAPP" />
+      <End Role="DOG_DESTROY" EntitySet="DOG_DESTROY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DOG_DESTR__IDDOG__4D94879B" Association="Self.FK__DOG_DESTR__IDDOG__4D94879B">
+      <End Role="DOG" EntitySet="DOG" />
+      <End Role="DOG_DESTROY" EntitySet="DOG_DESTROY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DOG_INFOR__IDDOG__34C8D9D1" Association="Self.FK__DOG_INFOR__IDDOG__34C8D9D1">
+      <End Role="DOG" EntitySet="DOG" />
+      <End Role="DOG_INFOR" EntitySet="DOG_INFOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PAYMENT_R__ID_US__52593CB8" Association="Self.FK__PAYMENT_R__ID_US__52593CB8">
+      <End Role="USERAPP" EntitySet="USERAPP" />
+      <End Role="PAYMENT_RECEIPT_VOUCHER" EntitySet="PAYMENT_RECEIPT_VOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PERSONINFOR__ID__276EDEB3" Association="Self.FK__PERSONINFOR__ID__276EDEB3">
+      <End Role="PERSON" EntitySet="PERSON" />
+      <End Role="PERSONINFOR" EntitySet="PERSONINFOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USERAPP__IDPERSO__37A5467C" Association="Self.FK__USERAPP__IDPERSO__37A5467C">
+      <End Role="PERSON" EntitySet="PERSON" />
+      <End Role="USERAPP" EntitySet="USERAPP" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

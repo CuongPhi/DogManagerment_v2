@@ -85,7 +85,7 @@ namespace MilcanxWpf_SliderMenu
 
         private void TreeViewItem_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
         {
-            TypeUC = TypeUserControl.Staff_List;
+            TypeUC = TypeUserControl.Staff_ListDog;
 
         }
 
@@ -148,13 +148,32 @@ namespace MilcanxWpf_SliderMenu
             UIProcess.Inst.ExpanAllNodesOf(accoutant_satistic, false);
 
         }
+
+        private void TreeViewItem_MouseLeftButtonUp_4(object sender, MouseButtonEventArgs e)
+        {
+            TypeUC = TypeUserControl.Manager_Bill;
+        }
+
+        private void TreeViewItem_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            TypeUC = TypeUserControl.Manger_CashBook;
+        }
+
+        private void TreeViewItem_MouseLeftButtonUp_5(object sender, MouseButtonEventArgs e)
+        {
+            TypeUC = TypeUserControl.Staff_DogIn;
+        }
     }
 
     public enum TypeUserControl
     {
         Accountant_Handover = 0,
         Accountant_Statistic_ThisDay = 1,
-        Staff_List =2,
+        Staff_ListDog = 2,
+        Staff_DogIn=5,
+        Staff_Customer,
+        Manager_Bill =3,
+        Manger_CashBook =4,
         Manager_ListStaff = 11,
     }
 

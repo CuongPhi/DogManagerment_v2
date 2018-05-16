@@ -25,8 +25,8 @@ namespace DAL
                                  type.NAME_TYPE, type.ID_TYPE,
                                  house.DESTRIPTION, ID_HOUSE = house.ID,
                                  DOG_ADDRESS = infor.STREET +" " + infor.WARD +" "+ infor.DISTRICT, infor.TIME,
-                                 NumOfDay = DbFunctions.DiffDays(dog.DAYIN, DateTime.Now )
-
+                                 NumOfDay = DbFunctions.DiffDays(dog.DAYIN, DateTime.Now),
+          
                              });
                 return query.ToList().Cast<Object>().ToList();
             }

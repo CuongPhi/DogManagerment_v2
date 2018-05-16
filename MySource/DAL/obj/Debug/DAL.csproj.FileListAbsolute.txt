@@ -1,0 +1,14 @@
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DAL\bin\Debug\DAL.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DAL\bin\Debug\DAL.pdb
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DAL\bin\Debug\DTO.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DAL\bin\Debug\EntityFramework.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DAL\bin\Debug\EntityFramework.SqlServer.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DAL\bin\Debug\DTO.pdb
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DAL\bin\Debug\DTO.dll.config
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DAL\bin\Debug\EntityFramework.xml
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DAL\bin\Debug\EntityFramework.SqlServer.xml
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DAL\obj\Debug\DAL.csproj.CopyComplete
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DAL\obj\Debug\DAL.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DAL\obj\Debug\DAL.pdb

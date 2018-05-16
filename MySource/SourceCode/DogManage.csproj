@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Dog_SC.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -76,8 +79,17 @@
     <Compile Include="NhanVien.xaml.cs">
       <DependentUpon>NhanVien.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NhanVienNhap.xaml.cs">
+      <DependentUpon>NhanVienNhap.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SliderBar.xaml.cs">
       <DependentUpon>SliderBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SoQuy.xaml.cs">
+      <DependentUpon>SoQuy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKeHoaDon.xaml.cs">
+      <DependentUpon>ThongKeHoaDon.xaml</DependentUpon>
     </Compile>
     <Compile Include="UIProcess.cs" />
     <Page Include="Accountant_Handover.xaml">
@@ -108,7 +120,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="NhanVienNhap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SliderBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SoQuy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ThongKeHoaDon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,6 +186,7 @@
     <Resource Include="Image\Icon\close.png" />
     <Resource Include="Image\Icon\coming_document.png" />
     <Resource Include="Image\Icon\document.png" />
+    <Resource Include="Dog_SC.ico" />
     <Content Include="Image\Icon\document.svg" />
     <Resource Include="Image\Icon\documentx32.png" />
     <Resource Include="Image\Icon\exam.png" />

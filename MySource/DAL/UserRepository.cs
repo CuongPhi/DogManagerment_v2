@@ -18,7 +18,7 @@ namespace DAL
                             join infor in db.PERSONINFORs on user.IDPERSON equals infor.ID
                             join acc in db.ACCOUNTs on user.ID equals acc.ID_USER
                             select new { user.ID,  user.IDPERSON,user.SALARY, user.DAYJOIN, user.ID_BANK, user.ID_MEDICAL,
-                                infor.NAME, infor.gender,  infor.EMAIL,infor.BIRHDAY, infor.PHONE,
+                                infor.NAME,GENDER= infor.gender,  infor.EMAIL,infor.BIRHDAY, infor.PHONE,
                                 acc.USERNAME
                             });
                 return query.ToList().Cast<Object>().ToList();

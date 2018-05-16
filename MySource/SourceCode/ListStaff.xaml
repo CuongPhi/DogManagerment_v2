@@ -29,7 +29,7 @@
                 <TextBox FontSize="14"  Text="{Binding IDPERSON, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Mã NV" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox FontSize="14" Text="{Binding NAME, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox FontSize="14" Text="{Binding USERNAME, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tài khoản" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <CheckBox FontSize="14" Content="Nữ"   Margin="5 0 5 -10"></CheckBox>
+                <TextBox FontSize="14" Text="{Binding GENDER, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Giới tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox FontSize="14" Text="{Binding ID, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="CMND" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox FontSize="14" Text="{Binding SALARY, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Lương" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox FontSize="14" Text="{Binding ID_MEDICAL, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="BHYT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />

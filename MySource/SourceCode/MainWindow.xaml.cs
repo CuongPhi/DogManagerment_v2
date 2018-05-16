@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BUS;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,11 +27,17 @@ namespace SourceCode
             InitializeComponent();
            // UIProcess.Inst.LoadConfigFile();
         }
-
+    
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            managerWindow managerWindow = new managerWindow();
-            managerWindow.ShowDialog();
+            List<ACCOUNT> listAcc=AccountBUS.IsLogin(txbUserName.Text, FloatingPasswordBox.Password);
+            if (listAcc.Count<1)
+            {
+                MessageBox.Show("Tên tài khoản hoặc mật khẩu không đúng");           
+                return;
+            }
+
+            new  managerWindow(listAcc[0]).ShowDialog();
             this.Close();
         }
 
@@ -37,6 +45,10 @@ namespace SourceCode
         {
             this.Close();
         }
-      
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

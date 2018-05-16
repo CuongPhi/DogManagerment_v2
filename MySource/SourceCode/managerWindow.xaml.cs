@@ -1,4 +1,5 @@
-﻿using MilcanxWpf_SliderMenu;
+﻿using DTO;
+using MilcanxWpf_SliderMenu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,14 +21,16 @@ namespace SourceCode
     /// </summary>
     public partial class managerWindow : Window
     {
+        private ACCOUNT _acc = null;
         private SliderBar sliderBar = new SliderBar();
         private ProgressBar progessbar = new ProgressBar();
         private object uC_MainWindow = null;
-        public managerWindow()
+        public managerWindow(ACCOUNT p_acc)
         {
-
+            _acc = p_acc;
             sliderBar.PropertyChanged += SliderBar_PropertyChanged;
             InitializeComponent();
+
         }
 
         private void SliderBar_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -38,15 +41,29 @@ namespace SourceCode
                 case TypeUserControl.Accountant_Handover:
                     uC_MainWindow = new Accountant_Handover();
                     break;
-                case TypeUserControl.Accountant_Statistic_ThisDay:
-                    uC_MainWindow = new SliderBar();
-                    break;
-                case TypeUserControl.Staff_List:
+                //case TypeUserControl.Accountant_Statistic_ThisDay:
+                //    uC_MainWindow = new SliderBar();
+                //    break;
+                case TypeUserControl.Staff_ListDog:
                     uC_MainWindow = new NhanVien();
                     break;
                 case TypeUserControl.Manager_ListStaff:
                     uC_MainWindow = new ListStaff();
                     break;
+                case TypeUserControl.Staff_DogIn:
+                    uC_MainWindow = new NhanVienNhap();
+                    break;
+                case TypeUserControl.Manger_CashBook:
+                    uC_MainWindow = new SoQuy();
+                    break;
+                case TypeUserControl.Manager_Bill:
+                    uC_MainWindow = new ThongKeHoaDon();
+                    break;
+                case TypeUserControl.Staff_Customer:
+                  //  uC_MainWindow = new ThongKeHoaDon();
+                    break;
+                default:
+                    return;                    
             }
             UserControl_MainWindow.Children.Add(uC_MainWindow as UIElement);
 
@@ -88,6 +105,7 @@ namespace SourceCode
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Menu_SliderBar.Children.Add(sliderBar);
+            MenuItemAccount.Header = _acc.USERNAME;
         }
 
         private void ColorZone_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

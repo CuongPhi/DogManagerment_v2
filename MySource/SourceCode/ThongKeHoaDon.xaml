@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="SourceCode.ThongKeHoaDon"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             
+             mc:Ignorable="d"
+             d:DesignHeight="438" d:DesignWidth="738">
+
+    <Grid x:Name="UCThongKeHoaDon" Background="LightBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <materialDesign:Card Grid.Row="0" Background="LightBlue">
+            <TextBlock Width="auto" FontSize="24" FontWeight="Bold" Margin="200 5 5 5">THỐNG KÊ HÓA ĐƠN</TextBlock>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="1" Background="AntiqueWhite">
+            <StackPanel Margin="5">
+                <Label>Xem theo:</Label>
+                <WrapPanel>
+                    <DatePicker SelectedDate="{Binding DAY_BILL}" Margin="5" materialDesign:HintAssist.Hint="Ngày cần xuất hóa đơn" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    <Label>Tháng</Label>
+                    <ComboBox Name="thang" >
+                        <ComboBoxItem>1</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True">2</ComboBoxItem>
+                        <ComboBoxItem>3</ComboBoxItem>
+                        <ComboBoxItem>4</ComboBoxItem>
+                        <ComboBoxItem>5</ComboBoxItem>
+                        <ComboBoxItem>6</ComboBoxItem>
+                        <ComboBoxItem>7</ComboBoxItem>
+                        <ComboBoxItem>8</ComboBoxItem>
+                        <ComboBoxItem>9</ComboBoxItem>
+                        <ComboBoxItem>10</ComboBoxItem>
+                        <ComboBoxItem>11</ComboBoxItem>
+                        <ComboBoxItem>12</ComboBoxItem>
+                    </ComboBox>
+                    <Label>Năm</Label>
+                    <ComboBox Name="nam">
+                        <ComboBoxItem>2016</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True">2017</ComboBoxItem>
+                        <ComboBoxItem>2018</ComboBoxItem>
+
+                    </ComboBox>
+                </WrapPanel>
+            </StackPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="2" Background="AntiqueWhite">
+            <WrapPanel>
+                <Button Command="{Binding BillIn}" Content="Xem hóa đơn nhập" Margin="150 5 15 5" Width="150"></Button>
+                <Button Command="{Binding BillOut}" Content="Xem hóa đơn thu" Margin="5 5 15 5" Width="150"></Button>
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="3">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Mã hóa đơn" DisplayMemberBinding="{Binding ID_BILL}"></GridViewColumn>
+                            <GridViewColumn Header="Mã nhân viên" DisplayMemberBinding="{Binding ID_USER}"></GridViewColumn>
+                            <GridViewColumn Header="Mã chó" DisplayMemberBinding="{Binding ID_DOG}"></GridViewColumn>
+                            <GridViewColumn Header="Tiền phạt" DisplayMemberBinding="{Binding FINE}"></GridViewColumn>
+                            <GridViewColumn Header="Ngày nhập hóa đơn" DisplayMemberBinding="{Binding DAY_BILL}"></GridViewColumn>
+
+
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </materialDesign:Card>
+        <materialDesign:Card  Grid.Row="4" Background="LightBlue">
+            <StackPanel>
+                <WrapPanel Margin="10 10 0 0">
+                    <Label Margin="0 7">Số lượng:</Label>
+                    <TextBox Text="{Binding SoLuong}" Margin="10 0 0 5" materialDesign:HintAssist.Hint="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                </WrapPanel>
+                <WrapPanel  Margin="10 10 0 0">
+                    <Label Margin="0 7">Doanh thu:</Label>
+                    <TextBox Text="{Binding DoanhThu}" Margin="10 0 0 5" materialDesign:HintAssist.Hint="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                </WrapPanel>
+            </StackPanel>
+
+        </materialDesign:Card>
+        <materialDesign:Card BorderBrush="Transparent" BorderThickness="0"  Grid.Row="5"  Background="LightBlue">
+            <Button Command="{Binding ExportBill}" Content="Xuất danh sách hóa đơn"  Width="190"></Button>
+
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

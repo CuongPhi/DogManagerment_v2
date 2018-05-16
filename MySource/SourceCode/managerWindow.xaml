@@ -91,7 +91,7 @@
                      <ColumnDefinition Width="60" ></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                    <Menu Background="#512DA8"  Grid.Column="0" IsMainMenu="True " Foreground="AliceBlue">
+                    <Menu  Background="#512DA8"  Grid.Column="0" IsMainMenu="True " Foreground="AliceBlue">
                         <MenuItem   Template="{DynamicResource MenuItemControlTemplate}" Header="Tệp">
                             <MenuItem Click="MenuItem_Click" Header="Thoát">
                                 <MenuItem.Icon>
@@ -107,8 +107,8 @@
                         <MenuItem    Header="Liên lạc">
 
                         </MenuItem>
-                        <MenuItem  Template="{DynamicResource MenuItemControlTemplate}" Name="Menu_UserName" Header="Cường ...">
-                            
+                        <MenuItem Name="MenuItemAccount"  Template="{DynamicResource MenuItemControlTemplate}" >
+
                             <MenuItem  Padding="15 0 15 0" Header="Tài khoản">
                                 <MenuItem.Icon >
                                     <materialDesign:PackIcon Margin="-10 0 0 0" Kind="HelpBox" />
@@ -163,7 +163,9 @@
                 <ColumnDefinition  Width="55"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Grid Name="UserControl_MainWindow" Grid.Column="0" ></Grid>
+            <Grid Name="UserControl_MainWindow" Grid.Column="0" >
+                
+            </Grid>
             
             
             <Grid Name="Menu_SliderBar" Grid.Column="1">

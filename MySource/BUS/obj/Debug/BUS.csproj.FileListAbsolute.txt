@@ -1,0 +1,14 @@
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\BUS\bin\Debug\BUS.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\BUS\bin\Debug\BUS.pdb
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\BUS\bin\Debug\DAL.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\BUS\bin\Debug\DTO.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\BUS\bin\Debug\EntityFramework.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\BUS\bin\Debug\DAL.pdb
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\BUS\bin\Debug\DTO.pdb
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\BUS\bin\Debug\DTO.dll.config
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\BUS\bin\Debug\EntityFramework.xml
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\BUS\obj\Debug\BUS.csproj.CopyComplete
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\BUS\obj\Debug\BUS.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\BUS\obj\Debug\BUS.pdb

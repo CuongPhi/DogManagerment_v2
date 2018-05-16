@@ -10,7 +10,7 @@
         <StackPanel Panel.ZIndex="2" Style="{StaticResource spSlideLeft}" x:Name="spLeft" Background="#5970a8" Width="220" Margin="0,0,0,0">
             <!--Quản lý-->
             <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" Height="50">
-                <Image Width="25" Stretch="Fill" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,10,10" Source="pack://application:,,,/SourceCode;component/Image/Icon/home.png"/>
+                <Image Width="25" Stretch="Fill" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,10,10" Source="pack://application:,,,/SourceCode;component/Image/Icon/user.png"/>
                 <Label Style="{DynamicResource MenuLabel}" Width="140" Content="Quản lý" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" />
             </DockPanel>
             <TreeView Name="treeView_0" MouseLeave="treeView_0_MouseLeave" MouseEnter="TreeView_MouseEnter" MinWidth="180" MaxHeight="200" Background="White">
@@ -63,7 +63,7 @@
                         </TreeViewItem.Header>                        
                     </TreeViewItem>
 
-                    <TreeViewItem>
+                    <TreeViewItem MouseLeftButtonUp="TreeViewItem_MouseRightButtonUp">
                         <TreeViewItem.Header>
                             <StackPanel
                               Orientation="Horizontal">
@@ -118,9 +118,9 @@
                                 </TextBlock>
                             </StackPanel>
                         </TreeViewItem.Header>
-                    </TreeViewItem>
+                    </TreeViewItem >
 
-                    <TreeViewItem>
+                    <TreeViewItem MouseLeftButtonUp="TreeViewItem_MouseLeftButtonUp_4">
                         <TreeViewItem.Header>
                             <StackPanel
                                             Orientation="Horizontal">
@@ -136,7 +136,7 @@
 
                                     </Canvas>
                                 </Viewbox>
-                                <TextBlock Text="Hóa đơn nhập"
+                                <TextBlock Text="Hóa đơn" 
                                            Margin="8 0 0 0">
 
                                 </TextBlock>
@@ -202,7 +202,7 @@
                             </StackPanel>
                         </TreeViewItem.Header>
                     </TreeViewItem>
-                    <TreeViewItem>
+                    <TreeViewItem MouseLeftButtonUp="TreeViewItem_MouseLeftButtonUp_5">
                         <TreeViewItem.Header>
                             <StackPanel
                               Orientation="Horizontal">
@@ -231,7 +231,7 @@
 
             </TreeView>
             <TreeView  MouseEnter="treeview2_Staff_MouseEnter"  MouseLeave="treeview2_Staff_MouseLeave"  Name="treeview2_Staff" MinWidth="180" MaxHeight="200" Background="White" >
-            <TreeViewItem  Padding="45 10 10 10" Header="Khách hàng" MouseEnter="treeview_Staff_MouseEnter">
+            <TreeViewItem  Padding="45 10 10 10" Header="Khách hàng"  MouseEnter="treeview_Staff_MouseEnter">
                 <TreeViewItem MouseLeftButtonUp="TreeViewItem_MouseLeftButtonUp_2" >
                     <TreeViewItem.Header>
                         <StackPanel
@@ -260,7 +260,7 @@
             </TreeView>
             <!--Ke toan-->            
             <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" Height="50">
-                <Image Width="25" Stretch="Fill" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,10,10" Source="pack://application:,,,/SourceCode;component/Image/Icon/home.png"/>
+                <Image Width="25" Stretch="Fill" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,10,10" Source="pack://application:,,,/SourceCode;component/Image/Icon/statistics.png"/>
                 <Label Style="{DynamicResource MenuLabel}" Width="140" Content="Kế toán" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" />
             </DockPanel>
             <TreeView Name="accountant_Bill_Out" MinWidth="180" MaxHeight="200"  Background="White" MouseLeave="accountant_Bill_Out_MouseLeave" MouseEnter="accountant_Bill_Out_MouseEnter">

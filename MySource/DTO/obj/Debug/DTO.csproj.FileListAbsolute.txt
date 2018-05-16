@@ -1,0 +1,11 @@
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\bin\Debug\DTO.dll.config
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\bin\Debug\DTO.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\bin\Debug\DTO.pdb
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\bin\Debug\EntityFramework.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\bin\Debug\EntityFramework.SqlServer.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\bin\Debug\EntityFramework.xml
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\bin\Debug\EntityFramework.SqlServer.xml
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\obj\Debug\DTO.csproj.CopyComplete
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\obj\Debug\DTO.dll
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\obj\Debug\DTO.pdb
