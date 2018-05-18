@@ -44,7 +44,7 @@ namespace SourceCode
             try
             {
               id= int.Parse("0" + txtMa.Text);
-            } catch { MessageBox.Show("Mã quá dài");  return; }
+            } catch { MessageBox.Show("Mã chỉ gồm số !");  return; }
             string name = " "+ txbName.Text;
             string CMND = "0" + txbCMND.Text;
             try
@@ -82,7 +82,7 @@ namespace SourceCode
             USERAPP userApp = new USERAPP() { IDPERSON = id, SALARY = salar, DAYJOIN = DateTime.Now };
             UserBUS.Insert(userApp);
 
-            ACCOUNT newAcc = new ACCOUNT() {ID_USER = UserBUS.GetIdByIDPerson(id) ,  USERNAME = userName, TYPE = type };
+            ACCOUNT newAcc = new ACCOUNT() {ID_USER = UserBUS.GetIdByIDPerson(id) , ISBAN=true, USERNAME = userName, TYPE = type };
             try
             {
                 AccountBUS.Insert(newAcc);

@@ -44,7 +44,7 @@ namespace DAL
                             join acc in db.ACCOUNTs on user.ID equals acc.ID_USER
                             select new { user.ID, infor.ID_TT,   user.IDPERSON,user.SALARY, user.DAYJOIN, user.ID_BANK, user.ID_MEDICAL,
                                 infor.NAME,GENDER= infor.gender,  infor.EMAIL,infor.BIRHDAY, infor.PHONE,
-                                acc.USERNAME
+                                acc.USERNAME, acc.ISBAN
                             });
                 return query.ToList().Cast<Object>().ToList();
             } 

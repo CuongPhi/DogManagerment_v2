@@ -35,6 +35,23 @@ namespace BUS
         {
             return reps.GetAll();
         }
+        public static void ResetPass(string userName, string newPass)
+        {
+            ACCOUNT obj = reps.GetByID(userName);
+            obj.PASSWORD = newPass;
+            acc.Update(obj);
+        }
+        public static bool BanAccount(string userName, bool isLock)
+        {
+            ACCOUNT obj = reps.GetByID(userName);
+            if(obj.ISBAN != isLock)
+            {
+                obj.ISBAN = isLock;
+                acc.Update(obj);
+                return true; ;
+            }            
+            return false;
+        }
         
     }
 }

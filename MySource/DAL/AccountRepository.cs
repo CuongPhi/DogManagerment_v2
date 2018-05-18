@@ -59,7 +59,12 @@ namespace DAL
 
         public void Update(ACCOUNT obj)
         {
-            throw new NotImplementedException();
-        }
+            using (DMEntities db = new DMEntities())
+            {
+                db.ACCOUNTs.Attach(obj);
+                db.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+        }       
     }
 }

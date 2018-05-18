@@ -30,6 +30,7 @@
                 <TextBox Name="txbID_User" FontSize="14"  Text="{Binding IDPERSON, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Mã NV" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox Name="txbName" FontSize="14" Text="{Binding NAME, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox Name="txbUserName" FontSize="14" Text="{Binding USERNAME, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tài khoản" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <CheckBox Name="txbIsBan" FontSize="14" Content="Khóa" IsChecked="{Binding ISBAN, Mode=OneWay}" Margin="5 5 5 5"/>
                 <TextBox Name="txbGender" FontSize="14" Text="{Binding GENDER, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Giới tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox Name="txbIDNum" FontSize="14" Text="{Binding ID_TT, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="CMND" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox Name="txbSalary" FontSize="14" Text="{Binding SALARY, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Lương" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
@@ -75,8 +76,8 @@
                     <Grid Grid.Column="0" Margin="20 0 10 0">
                         <DockPanel>
                             <Button Command="{Binding AddCommand}" Content="Thêm" Margin="0 0 5 0" Width="100" Click="Button_Click_1"></Button>
-                            <Button Command="{Binding EditCommand}" Content="Cập nhật" Margin="0 0 5 0" Width="100"></Button>
-                            <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="0 0 5 0" Width="100"></Button>
+                            <Button Command="{Binding EditCommand}" Content="Làm mới" Margin="0 0 5 0" Width="100" Click="Button_Click_3"></Button>
+                            <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="0 0 5 0" Width="100" Click="Button_Click_2"></Button>
                         </DockPanel>
                      </Grid>
                 </Grid>
@@ -84,12 +85,27 @@
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="3" Margin="5">
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                <ListView SelectionChanged="lvListStaff_SelectionChanged" Name="lvListStaff" >
-                    <ListView.View>
+                <ListView MouseRightButtonUp="lvListStaff_MouseRightButtonUp" SelectionChanged="lvListStaff_SelectionChanged" Name="lvListStaff" >
+                    <!--context  Menu-->
+                    <ListView.ContextMenu>
+                        <ContextMenu Name="ZoneIformationList" StaysOpen="true" Background="WhiteSmoke">
+                            <ContextMenu.BitmapEffect>
+                                <BitmapEffectGroup/>
+                            </ContextMenu.BitmapEffect>
+                            <MenuItem Header="Reset mật khẩu" Click="ResetPasswordMenuItem_Click" Name="ResetPasswordMenuItem" />
+                            <MenuItem Header="Cập nhật tài khoản" Click="UpdateAccountMenuitem_Click" Name="UpdateAccountMenuitem"/>
+                            <MenuItem Header="Mở tài khoản"  Click="NotBanAccountMenuitem_Click" Name="NotBanAccountMenuitem"  />
+                            <MenuItem Header="Khóa tài khoản"  Click="BanAccountMenuitem_Click" Name="BanAccountMenuitem"  />
+
+                        </ContextMenu>
+                    </ListView.ContextMenu>
+
+                    <ListView.View >
                         <GridView AutomationProperties.IsColumnHeader="True">
                             <GridViewColumn Header="Mã" DisplayMemberBinding="{Binding IDPERSON}"></GridViewColumn>
                             <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding NAME}"></GridViewColumn>
                             <GridViewColumn Header="Tên TK" DisplayMemberBinding="{Binding USERNAME}"></GridViewColumn>
+                            <GridViewColumn Header="Bị khóa" DisplayMemberBinding="{Binding ISBAN}"></GridViewColumn>
                             <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding GENDER}" ></GridViewColumn>
                             <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding ID_TT}"></GridViewColumn>
                             <GridViewColumn Header="Lương" DisplayMemberBinding="{Binding SALARY}"></GridViewColumn>

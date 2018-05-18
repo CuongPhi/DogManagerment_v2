@@ -24,23 +24,37 @@ namespace SourceCode
     {
         public MainWindow()
         {
-            InitializeComponent();
-           // UIProcess.Inst.LoadConfigFile();
+            try
+            {
+                InitializeComponent();
+                // UIProcess.Inst.LoadConfigFile();
+            }
+            catch (Exception ex){ MessageBox.Show(ex.ToString()); }
         }
     
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            List<ACCOUNT> listAcc=AccountBUS.IsLogin(txbUserName.Text, FloatingPasswordBox.Password);
-            if (listAcc.Count<1)
+            ACCOUNT acc = checkUserAccount(txbUserName.Text, FloatingPasswordBox.Password);
+            bool loginOK = acc!=null;
+            if(!loginOK)
             {
-                MessageBox.Show("Tên tài khoản hoặc mật khẩu không đúng");           
+                MessageBox.Show("Tài khoản - mật khẩu không đúng hoặc đang bị khóa!");
                 return;
-            }
+            }            
 
-            new  managerWindow(listAcc[0]).ShowDialog();
+            new  managerWindow(acc).ShowDialog();
             this.Close();
         }
-
+        ACCOUNT checkUserAccount(string u, string p)
+        {            
+            if (u.Length < 5 || p.Length < 5)
+            { //return null;
+            }
+            List<ACCOUNT> ls = AccountBUS.IsLogin(u, p);
+            if (ls==null || ls.Count<1)
+                 return null;
+            return ls[0];
+        }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();

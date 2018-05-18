@@ -24,6 +24,7 @@ namespace SourceCode
         private ACCOUNT _acc = null;
         private SliderBar sliderBar = new SliderBar();
         private ProgressBar progessbar = new ProgressBar();
+      // private object Prev_Window = null;
         private object uC_MainWindow = null;
         public managerWindow(ACCOUNT p_acc)
         {
@@ -48,7 +49,8 @@ namespace SourceCode
                     uC_MainWindow = new NhanVien();
                     break;
                 case TypeUserControl.Manager_ListStaff:
-                    uC_MainWindow = new ListStaff();
+                    //if(_acc.TYPE == 0)
+                        uC_MainWindow = new ListStaff();
                     break;
                 case TypeUserControl.Staff_DogIn:
                     uC_MainWindow = new NhanVienNhap();
@@ -65,7 +67,8 @@ namespace SourceCode
                 default:
                     return;                    
             }
-            UserControl_MainWindow.Children.Add(uC_MainWindow as UIElement);
+            if(uC_MainWindow!=null)
+                UserControl_MainWindow.Children.Add(uC_MainWindow as UIElement);
 
         }
 
