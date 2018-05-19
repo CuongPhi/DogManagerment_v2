@@ -195,5 +195,12 @@ namespace SourceCode
             new MainWindow().Show();
             this.Close();
         }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            new ChangePassWordWindow(_acc.USERNAME).ShowDialog();
+            this.Show();
+        }
     }
 }

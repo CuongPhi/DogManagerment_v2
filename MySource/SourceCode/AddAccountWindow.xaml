@@ -4,30 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SourceCode"
+        WindowStartupLocation="CenterOwner"
         mc:Ignorable="d"
         Name="addNewAccWindw" Closed="addNewAccWindw_Closed"
-        Title="AddAccountWindow" Height="450" Width="950">
+        Title="Thêm mới nhân viên" Height="300" Width="850">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
             
         </Grid.RowDefinitions>
-        <Grid Grid.Row ="0">
-            <Grid Name="AreaText" Height="160" VerticalAlignment="Top">
-                <TextBlock Text="Mã người dùng:" FontSize="15" Margin="34,20,0,0" HorizontalAlignment="Left" Width="100" Height="20" VerticalAlignment="Top"/>
+        <Grid Name="Grid_Text" Grid.Row ="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" ></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row ="0">
+                <Label Name="lbTitle" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="OrangeRed" Content="THÊM MỚI NHÂN VIÊN"></Label>
+            </Grid>
+            <Grid Grid.Row="1" Name="AreaText" Height="160" VerticalAlignment="Top">
+                <TextBlock Text="Mã người dùng:" FontSize="15" Margin="34,20,0,0" HorizontalAlignment="Left" Width="120" Height="20" VerticalAlignment="Top"/>
                 <TextBlock Text="CMND:" Width="100" Height="20" FontSize="15" Margin="34,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <TextBlock Text="Tài khoản:" Width="130" Height="20" FontSize="15" Margin="34,100,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                 <TextBlock Text="Tên:" Width="70" Height="20" FontSize="15" Margin="480,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                 <TextBlock Text="Loai TK:" Width="60" Height="20" FontSize="15" Margin="480,100,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                 <TextBlock Text="Lương:" Width="80" Height="20" FontSize="15" Margin="480,60,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                <TextBox  Name="txtMa" Background="White" BorderBrush="LightGray" BorderThickness="0.6" HorizontalAlignment="Left" Height="30" Margin="183,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="13" VerticalContentAlignment="Stretch"/>
-                <TextBox Name="txbName" Background="White" BorderBrush="LightGray" BorderThickness="0.6" Height="30" Margin="630,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13" HorizontalAlignment="Left" Width="250" VerticalContentAlignment="Stretch"/>
-                <TextBox  Name="txbCMND" Background="White" BorderBrush="LightGray" BorderThickness="0.6" HorizontalAlignment="Left" Height="30" Margin="183,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="13" VerticalContentAlignment="Stretch"/>
-                <TextBox Name="txbUserName"  Background="White" BorderBrush="LightGray" BorderThickness="0.6" HorizontalAlignment="Left" Height="30" Margin="183,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="13" VerticalContentAlignment="Stretch"/>
-                <TextBox Name="txbSalary"  Background="White" BorderBrush="LightGray" BorderThickness="0.6" HorizontalAlignment="Left" Height="30" Margin="630,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="13"  VerticalContentAlignment="Stretch"/>
+                <TextBox Text="{Binding ID, Mode=OneWay}" Name="txtMa" Background="White" BorderBrush="LightGray" BorderThickness="0.6" HorizontalAlignment="Left" Height="30" Margin="183,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="13" VerticalContentAlignment="Stretch"/>
+                <TextBox Text="{Binding NAME, Mode=OneWay}" Name="txbName" Background="White" BorderBrush="LightGray" BorderThickness="0.6" Height="30" Margin="580,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13" HorizontalAlignment="Left" Width="250" VerticalContentAlignment="Stretch"/>
+                <TextBox Text="{Binding ID_TT, Mode=OneWay}"  Name="txbCMND" Background="White" BorderBrush="LightGray" BorderThickness="0.6" HorizontalAlignment="Left" Height="30" Margin="183,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="13" VerticalContentAlignment="Stretch"/>
+                <TextBox Text="{Binding USERNAME, Mode=OneWay}" Name="txbUserName"  Background="White" BorderBrush="LightGray" BorderThickness="0.6" HorizontalAlignment="Left" Height="30" Margin="183,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="13" VerticalContentAlignment="Stretch"/>
+                <TextBox Text="{Binding SALARY, Mode=OneWay}" Name="txbSalary"  Background="White" BorderBrush="LightGray" BorderThickness="0.6" HorizontalAlignment="Left" Height="30" Margin="580,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="13"  VerticalContentAlignment="Stretch"/>
 
-                <ComboBox  Name="cbbTypeAcc" Background="White" BorderBrush="LightGray" BorderThickness="0.6" HorizontalAlignment="Left" Height="30" Margin="630,100,0,0"  VerticalAlignment="Top" Width="250" FontSize="13"  VerticalContentAlignment="Stretch" >
+                <ComboBox  Name="cbbTypeAcc" Background="White" BorderBrush="LightGray" BorderThickness="0.6" HorizontalAlignment="Left" Height="30" Margin="580,100,0,0"  VerticalAlignment="Top" Width="250" FontSize="13"  VerticalContentAlignment="Stretch" >
                     <ComboBoxItem  Content="Quản lý"> </ComboBoxItem>
                     <ComboBoxItem IsSelected="True" Content="Nhân viên"></ComboBoxItem>
                     <ComboBoxItem Content="Kế toán"> </ComboBoxItem>
@@ -36,23 +44,27 @@
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
-            <Button IsTabStop="True" TabIndex="1"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"
+            <Button Name="btnOK" IsTabStop="True" Margin="0 0 400 0" TabIndex="1"  Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
                             Style="{StaticResource MaterialDesignRaisedButton}"
-                            Width="100"                           
+                            Width="150"                           
                             Content="Thêm mới" Click="Button_Click"  >
 
             </Button>
-            <Button Click="Button_Click_1" IsDefault="True" IsTabStop="True" TabIndex="2"  Grid.Column="0" Margin="200 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"
+            <Button Name="btnOkandQuit" Click="Button_Click_1" IsDefault="True"
+                    IsTabStop="True" TabIndex="2"  Grid.Column="0" 
+                    Margin="0 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"
                             Style="{StaticResource MaterialDesignRaisedButton}"
-                            Width="200"                           
+                            Width="150"                           
                             Content="Thêm và Thoát" >
 
             </Button>
-            <Button IsCancel="True" IsTabStop="True" TabIndex="3"  Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"
+            <Button Name="btnExit" Margin="400 0 0 0" IsCancel="True" IsTabStop="True" TabIndex="3"
+                    Grid.Column="1" HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
                             Background="Orange"
                             Style="{StaticResource MaterialDesignRaisedAccentButton}"
-                            Width="100"                            
-                            Content="Thoát">
+                            Width="150"                            
+                            Content="Thoát" Click="Button_Click_2">
             </Button>
         </Grid>
     </Grid>

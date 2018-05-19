@@ -20,16 +20,34 @@ namespace SourceCode
     /// </summary>
     public partial class AddAccountWindow : Window
     {
+        private object _Account = null;
         public delegate void addAccountHandler(bool b);
         public addAccountHandler addAccount;
-
         bool isOKAddNew = false;
-        public AddAccountWindow()
+        public AddAccountWindow(bool isUpdate, object user)
         {
-            var ListStaff_UC = this.DataContext;
             InitializeComponent();
+            if (user != null)
+                _Account = user;
+            setIsUpdate(isUpdate);
+
         }
 
+        void setIsUpdate(bool _isUpdate)
+        {
+            if(_isUpdate && _Account !=null)
+            {
+                lbTitle.Content = "CHỈNH SỬA NHÂN VIÊN";
+                this.Title = "Chỉnh sửa nhân viên: " +
+                    _Account.GetType().GetProperty("USERNAME").GetValue(_Account, null).ToString();
+                btnOK.Content = "Chỉnh sửa";
+                btnOkandQuit.Content = "Sửa và thoát";
+                txbName.IsReadOnly = txbCMND.IsReadOnly =
+                    txbUserName.IsReadOnly = txtMa.IsReadOnly 
+                    =cbbTypeAcc.IsReadOnly=true;
+                Grid_Text.DataContext = _Account;
+            }
+        }
         private void addNewAccWindw_Closed(object sender, EventArgs e)
         {
             if(isOKAddNew)
@@ -58,18 +76,26 @@ namespace SourceCode
             }
             catch { MessageBox.Show("Lương quá lớn"); return; }
             string userName = txbUserName.Text;
+            if (PersonBUS.GetById(id.ToString()) != null)
+            {
+                MessageBox.Show("Mã người dùng đã tồn tại !");
+                return;
+            }
             PERSON newPer = new PERSON() { ID = id };
+
             try
             {
-                PersonBUS.Insert(newPer);
-               
             }
             catch { MessageBox.Show("Mã người dùng đã tồn tại !"); return; }
+            if(PersonInforBUS.GetById(CMND)!= null)
+            {
+                MessageBox.Show("CMND đã tồn tại !");
+                return;
+            }
             
             PERSONINFOR newPerInf = new PERSONINFOR() { NAME = name, ID_TT = CMND, ID = id };
             try
             {
-                PersonInforBUS.Insert(newPerInf);
             }
             catch { MessageBox.Show("CMND đã tồn tại !"); return; }
 
@@ -80,18 +106,29 @@ namespace SourceCode
             else if (strType == "Kế toán") type = 2;
             else { MessageBox.Show("Hãy chọn loại tài khoản !"); return; }
             USERAPP userApp = new USERAPP() { IDPERSON = id, SALARY = salar, DAYJOIN = DateTime.Now };
-            UserBUS.Insert(userApp);
+            if(AccountBUS.GetById(userName) != null)
+            {
+                MessageBox.Show("Tên tài khoản đã tồn tại !");
+                return;
+            }
 
-            ACCOUNT newAcc = new ACCOUNT() {ID_USER = UserBUS.GetIdByIDPerson(id) , ISBAN=true, USERNAME = userName, TYPE = type };
             try
             {
+                PersonBUS.Insert(newPer);
+
+                PersonInforBUS.Insert(newPerInf);
+
+                AddressBUS.Insert(new ADDRESS() { IDPERSON = CMND });
+                 
+                UserBUS.Insert(userApp);
+
+                ACCOUNT newAcc = new ACCOUNT() { ID_USER = UserBUS.GetIdByIDPerson(id), ISBAN = false, USERNAME = userName, TYPE = type };
+
                 AccountBUS.Insert(newAcc);
             }
-            catch { MessageBox.Show("Tài khoản đã tồn tại !"); return; }
+            catch { MessageBox.Show("Kiểm tra kết nối server !","Thêm thất bại"); return; }
             MessageBox.Show("Thêm thành công");
-
             isOKAddNew = true;
-
         }
 
         private void txtSoLuong_TextChanged(object sender, TextChangedEventArgs e)
@@ -102,7 +139,14 @@ namespace SourceCode
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Button_Click(sender, e);
+            if(isOKAddNew)
+                this.Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
             this.Close();
+
         }
     }
 }

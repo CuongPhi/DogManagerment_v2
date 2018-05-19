@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountRepository.cs" />
+    <Compile Include="AddressRepository.cs" />
     <Compile Include="DogHouseRepository.cs" />
     <Compile Include="DogRepository.cs" />
     <Compile Include="DogTypeRepository.cs" />

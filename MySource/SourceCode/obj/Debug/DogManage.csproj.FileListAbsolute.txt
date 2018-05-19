@@ -56,6 +56,7 @@ I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\SoQuy
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\ThongKeHoaDon.baml
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\Accountant_Handover.g.cs
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\AddAccountWindow.g.cs
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\ChangePassWordWindow.g.cs
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\ListStaff.g.cs
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\MainWindow.g.cs
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\managerWindow.g.cs
@@ -71,6 +72,7 @@ I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\Sourc
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\App.baml
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\Accountant_Handover.baml
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\AddAccountWindow.baml
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\ChangePassWordWindow.baml
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\ListStaff.baml
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\MainWindow.baml
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\SliderBar.baml

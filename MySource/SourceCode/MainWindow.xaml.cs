@@ -40,10 +40,9 @@ namespace SourceCode
             {
                 MessageBox.Show("Tài khoản - mật khẩu không đúng hoặc đang bị khóa!");
                 return;
-            }            
+            }
+            new managerWindow(acc).Show(); this.Close();
 
-            new  managerWindow(acc).ShowDialog();
-            this.Close();
         }
         ACCOUNT checkUserAccount(string u, string p)
         {            

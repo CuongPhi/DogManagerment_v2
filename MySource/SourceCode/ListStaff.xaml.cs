@@ -77,20 +77,16 @@ namespace SourceCode
         }
 
         private void lvListStaff_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-           Object t = lvListStaff.SelectedItem;
+        { 
+            Object t = lvListStaff.SelectedItem;
             SelectedItemWraPnel.DataContext = t;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
-
-            AddAccountWindow newWindow = new AddAccountWindow();
+            AddAccountWindow newWindow = new AddAccountWindow(false, null);
             newWindow.addAccount += new AddAccountWindow.addAccountHandler(AddNewAccountSuccess);
             newWindow.ShowDialog();
-            
-
         }
         private void AddNewAccountSuccess(bool a)
         {
@@ -106,12 +102,10 @@ namespace SourceCode
 
         private void lvListStaff_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
-           
         }
 
         private void UpdateAccountMenuitem_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void BanAccountMenuitem_Click(object sender, RoutedEventArgs e)
@@ -119,7 +113,6 @@ namespace SourceCode
             var t = lvListStaff.SelectedItem;
             if (t == null)
             {
-
                 MessageBox.Show("Chọn tài khoản muốn khóa !");
                 return;
             }
@@ -193,6 +186,20 @@ namespace SourceCode
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             LoadListStaff();
+        }
+
+        private void SetSalaryMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Object t = lvListStaff.SelectedItem;
+            if(t==null)
+            {
+                MessageBox.Show("Chọn tài khoản muốn cập nhật !");
+                return;
+            }
+            AddAccountWindow newAddWind = new AddAccountWindow(true,  t);
+            
+            newAddWind.ShowDialog();         
+            
         }
     }
 }

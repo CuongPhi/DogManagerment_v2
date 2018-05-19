@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountBUS.cs" />
+    <Compile Include="AddressBUS.cs" />
     <Compile Include="DogBUS.cs" />
     <Compile Include="DogHouseBUS.cs" />
     <Compile Include="DogTypeBUS.cs" />

@@ -114,7 +114,7 @@
                                     <materialDesign:PackIcon Margin="-10 0 0 0" Kind="HelpBox" />
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Padding="15 0 15 0" Header="Mật khẩu">
+                            <MenuItem Click="MenuItem_Click_3" Padding="15 0 15 0" Header="Mật khẩu">
                                 <MenuItem.Icon >
                                     <materialDesign:PackIcon Margin="-10 0 0 0" Kind="AccountConvert" />
                                 </MenuItem.Icon>
