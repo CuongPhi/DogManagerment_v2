@@ -4,9 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SourceCode"
-             mc:Ignorable="d" 
-           
-             
+             mc:Ignorable="d"          
           xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
           TextElement.Foreground="{DynamicResource MaterialDesignBody}"
           TextElement.FontWeight="Regular"
@@ -78,10 +76,10 @@
                             <ColumnDefinition MinWidth="650"></ColumnDefinition>
                             <ColumnDefinition MinWidth="300"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                            <Button  Grid.Column="1" Background="LightBlue" Margin="20 10 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="150" Width="150" Click="Button_Click">
-                                <Image  Margin="-17 -3 0 0" Width="130" Height="130" MouseDown="ImageDogBinding_MouseDown" Name="ImageDogBinding" Source="{Binding IMAGES}"></Image>
-                            </Button>
-                        
+                        <Button  Grid.Column="1" Background="LightBlue" Margin="20 10 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="150" Width="150" Click="Button_Click">
+                            <Image  Margin="-17 -3 0 0" Width="130" Height="130" MouseDown="ImageDogBinding_MouseDown" Name="ImageDogBinding" Source="{Binding IMAGES}"></Image>
+                        </Button>
+
                         <Border Loaded="Border_Loaded" Grid.Column="0" Margin="10 10 0 0" BorderThickness="2" BorderBrush="Red">
                             <Grid Margin="10 10 10 0">
                                 <Grid.RowDefinitions>
@@ -90,11 +88,11 @@
                                 </Grid.RowDefinitions>
                                 <materialDesign:Card  Margin="0 0 0 0" Grid.Row="0" >
                                     <WrapPanel >
-                                        <TextBox Text="{Binding ID_DOG,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="ID Chó" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Text="{Binding TIME,Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Giờ bắt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Text="{Binding DAYIN, Mode=OneWay, StringFormat='{}{0:dd/MM/yyyy}'}"  Margin="10" materialDesign:HintAssist.Hint="Nhập" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Name="txbWeight" Text="{Binding WEIGHT,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="Nặng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Text="{Binding DOG_ADDRESS,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="Nơi bắt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox Name="txbIDDog" IsReadOnly="True" Text="{Binding ID_DOG,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="ID Chó" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox IsReadOnly="True"  Text="{Binding TIME,Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Giờ bắt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox IsReadOnly="True" Text="{Binding DAYIN, Mode=OneWay, StringFormat='{}{0:dd/MM/yyyy}'}"  Margin="10" materialDesign:HintAssist.Hint="Nhập" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox IsReadOnly="True" Name="txbWeight" Text="{Binding WEIGHT,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="Nặng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox IsReadOnly="True" Text="{Binding DOG_ADDRESS,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="Nơi bắt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
                                         <TextBox Visibility="Hidden" Name="txbIDTypeDog" Text="{Binding ID_TYPE,Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Mã Loại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                         <TextBox Visibility="Hidden" Name="txbIDHouseDog" Text="{Binding ID_HOUSE,Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Mã Chuồng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
@@ -104,12 +102,12 @@
                                 </materialDesign:Card>
                                 <materialDesign:Card Grid.Row="1" >
                                     <WrapPanel>
-                                        <TextBox Name="txbNameTypeDog" Text="{Binding NAME_TYPE,Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Loại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Text="{Binding DESTRIPTION,Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Chuồng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Name="txbFoodPrice" Text="{Binding FOOD_PRICE,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="Thức ăn" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TextBox_TextChanged" />
-                                        <TextBox Name="txbNumofDay" Text="{Binding NumOfDay, Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Số ngày" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Text="500000" Name="txbFine"  Margin="10" materialDesign:HintAssist.Hint="Tiền phạt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox Name="txbTotalPrice" Margin="10" materialDesign:HintAssist.Hint="Tổng tiền" FontWeight="Bold" FontSize="14" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox IsReadOnly="True" Name="txbNameTypeDog" Text="{Binding NAME_TYPE,Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Loại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox IsReadOnly="True" Text="{Binding DESTRIPTION,Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Chuồng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox  IsReadOnly="True" Name="txbFoodPrice" Text="{Binding FOOD_PRICE,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="Thức ăn" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TextBox_TextChanged" />
+                                        <TextBox IsReadOnly="True" Name="txbNumofDay" Text="{Binding NumOfDay, Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Số ngày" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox IsReadOnly="True" Text="500000" Name="txbFine"  Margin="10" materialDesign:HintAssist.Hint="Tiền phạt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox  IsReadOnly="True"  Name="txbTotalPrice" Margin="10" materialDesign:HintAssist.Hint="Tổng tiền" FontWeight="Bold" FontSize="14" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="txbTotalPrice_TextChanged" />
                                     </WrapPanel>
                                 </materialDesign:Card>
                             </Grid>
@@ -145,25 +143,140 @@
                 </Grid>
             </Border>
             <Border Grid.Column="1" BorderThickness="2" BorderBrush="Red">
-                <Grid  ShowGridLines="True" Name="Bill_Tag"  Background="GhostWhite" >
+                <Grid  Name="Bill_Tag"  Background="GhostWhite" >
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="25" ></RowDefinition>
+                        <RowDefinition Height="40" ></RowDefinition>
+                        <RowDefinition Height="40" ></RowDefinition>
+                        <RowDefinition Height="40" ></RowDefinition>
+                        <RowDefinition Height="40" ></RowDefinition>
+                        <RowDefinition Height="40" ></RowDefinition>
+                        <RowDefinition ></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Name="StaffName" Text="Cường"></TextBlock>
-                        <TextBlock Grid.Column="1" Name="DateTime" Text="04/05/2018 20:18"></TextBlock>
+                        <TextBlock Margin="50 0 0 0" Grid.Column="0" Name="StaffName" Text="Nhân viên: "></TextBlock>
 
+                    </Grid>
+                    <Grid Margin="7"  Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock VerticalAlignment="Center" Text="Mã KH:" HorizontalAlignment="Left" ></TextBlock>
+                            <TextBox MinWidth="50" Name="txbBill_ID" Margin="50 0 0 0"  HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBox>
+                        </Grid>
+
+                        <Grid  Grid.Column="1">
+                            <TextBlock VerticalAlignment="Center" Text="Tên KH:" HorizontalAlignment="Left" ></TextBlock>
+                            <TextBox MinWidth="100" Name="txbBill_Name" VerticalAlignment="Center" Margin="50 0 0 0"  HorizontalAlignment="Left" ></TextBox>
+                        </Grid>
+
+                    </Grid>
+                    <Grid Margin="7"  Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="140"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock Text="CMND:" VerticalAlignment="Center" HorizontalAlignment="Left" ></TextBlock>
+                            <TextBox MinWidth="50" Name="txbBill_CMND" Margin="50 0 0 0" VerticalAlignment="Center"  HorizontalAlignment="Left"></TextBox>
+                        </Grid>
+
+                        <Grid Grid.Column="1" Grid.ColumnSpan="2">
+                            <TextBlock Text="SĐT:" VerticalAlignment="Center" HorizontalAlignment="Left" ></TextBlock>
+                            <TextBox MinWidth="90" Name="txbBill_SĐT"  Margin="50 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" ></TextBox>
+                        </Grid>
+
+                    </Grid>
+                    <Grid Margin="7"  Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Width="250" Grid.Column="0">
+                            <TextBlock Text="Email:" VerticalAlignment="Center" HorizontalAlignment="Left" ></TextBlock>
+                            <TextBox Name="txbBill_Mail" Width="200" VerticalAlignment="Center" Margin="50 0 0 0"  HorizontalAlignment="Left" ></TextBox>
+                        </Grid>
+
+                        <Grid Width="100" Grid.Column="1">
+                            <TextBlock Text="Giới tính:" VerticalAlignment="Center" HorizontalAlignment="Left" ></TextBlock>
+                            <ComboBox Name="cbbBill_gender" Width="50" Margin="70 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                                <ComboBoxItem>Nam</ComboBoxItem>
+                                <ComboBoxItem IsSelected="True">Nữ</ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+
+                    </Grid>
+                    <Grid Margin="7"  Grid.Row="4">
+                        <Grid Grid.Column="0">
+                            <TextBlock Text="Đường:" VerticalAlignment="Center" HorizontalAlignment="Left" ></TextBlock>
+                            <TextBox Name="txbBill_Streets" Width="250" VerticalAlignment="Center" Margin="50 0 0 0"  HorizontalAlignment="Left" ></TextBox>
+                        </Grid>
+                    </Grid>
+                    <Grid Margin="7"  Grid.Row="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock VerticalAlignment="Center" Text="Phường:" HorizontalAlignment="Left" ></TextBlock>
+                            <TextBox MinWidth="50" Name="txbBill_Ward" VerticalAlignment="Center" Margin="50 0 0 0"  HorizontalAlignment="Left"></TextBox>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <TextBlock VerticalAlignment="Center" Text="Quận:" HorizontalAlignment="Left" ></TextBlock>
+                            <TextBox MinWidth="50" Name="txbBill_District" VerticalAlignment="Center" Margin="50 0 0 0"  HorizontalAlignment="Left"></TextBox>
+                        </Grid>
+
+                    </Grid>
+                    <Grid Margin="7"  ShowGridLines="True" Height="50" Background="LightBlue" Grid.Row="6">
+                        <Label VerticalAlignment="Center" HorizontalAlignment="Center">HÓA ĐƠN</Label>
+                      
+                    </Grid>
+                    <Grid Grid.Row="7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                              <TextBlock Margin="7" VerticalAlignment="Center" Text="Mã HĐ:" HorizontalAlignment="Left" Grid.ColumnSpan="2" ></TextBlock>
+                             <TextBox MinWidth="50" Name="txbIDBill" FontWeight="Bold" VerticalAlignment="Center"  HorizontalAlignment="Center"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBlock Margin="50 0 0 0" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Name="DateInput" Text="04/05/2018 20:18"></TextBlock>
+                        </Grid>
+                    </Grid>
+                    <Grid Margin="7"  Grid.Row="8">
+                        <TextBlock VerticalAlignment="Center" Text="Tồng tiền phạt (vnđ):" HorizontalAlignment="Left" Grid.ColumnSpan="2" ></TextBlock>
+                        <TextBox IsReadOnly="True" Text="0" Name="txbBill_TotalPr" FontWeight="Bold" VerticalAlignment="Center"  HorizontalAlignment="Center" TextChanged="txbBill_TotalPr_TextChanged" ></TextBox>
+                    </Grid>
+                    <Grid Margin="7"  Grid.Row="9">
+                        <TextBlock VerticalAlignment="Center" Text="Khách trả (vnđ):" HorizontalAlignment="Left" ></TextBlock>
+                        <TextBox  Text="0" Name="txbBill_Cus_Pay" VerticalAlignment="Center"  HorizontalAlignment="Center" TextChanged="txbBill_Cus_Pay_TextChanged" ></TextBox>
+                    </Grid>
+                    <Grid Margin="7"  Grid.Row="10">
+                        <TextBlock VerticalAlignment="Center" Text="Tiền thừa (vnđ):" HorizontalAlignment="Left" ></TextBlock>
+                        <TextBox IsReadOnly="True" Text="0" Name="txbBill_Cus_Rec" VerticalAlignment="Center"  HorizontalAlignment="Center" ></TextBox>
+                    </Grid>
+                    <Grid Margin="7"  Grid.Row="11">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" > Ghi chú</TextBlock>
+                        <TextBox Name="txbBill_Note" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Width="250" BorderThickness="1" BorderBrush="Red" Margin="80 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
+                    </Grid>
+                    <Grid Margin="7"  Grid.Row="12">
+                        <Button Height="75" Content="THANH TOÁN " Click="Button_Click_1">
+
+                        </Button>
                     </Grid>
                 </Grid>
             </Border>

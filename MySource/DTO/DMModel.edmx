@@ -88,6 +88,7 @@
           <Property Name="IDDOGHOUSE" Type="nvarchar" MaxLength="10" />
           <Property Name="DETROYED" Type="bit" />
           <Property Name="IMAGES" Type="varbinary(max)" />
+          <Property Name="STATUS" Type="int" />
         </EntityType>
         <EntityType Name="DOG_DESTROY">
           <Key>
@@ -575,6 +576,7 @@
           <NavigationProperty Name="DOGTYPE" Relationship="Self.FK__DOG__TYPE__300424B4" FromRole="DOG" ToRole="DOGTYPE" />
           <NavigationProperty Name="DOG_DESTROY" Relationship="Self.FK__DOG_DESTR__IDDOG__4D94879B" FromRole="DOG" ToRole="DOG_DESTROY" />
           <NavigationProperty Name="DOG_INFOR" Relationship="Self.FK__DOG_INFOR__IDDOG__34C8D9D1" FromRole="DOG" ToRole="DOG_INFOR" />
+          <Property Name="STATUS" Type="Int32" />
         </EntityType>
         <EntityType Name="DOG_DESTROY">
           <Key>
@@ -1064,6 +1066,7 @@
           <EntitySetMapping Name="DOGs">
             <EntityTypeMapping TypeName="DMModel.DOG">
               <MappingFragment StoreEntitySet="DOG">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
                 <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TYPE" ColumnName="TYPE" />

@@ -31,5 +31,9 @@ namespace BUS
         {
            return  reps.GetByID(id);
         }
+        public static void Delete(ADDRESS obj)
+        {
+            reps.Delete(obj);
+        }
     }
 }

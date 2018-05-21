@@ -48,10 +48,13 @@
   <ItemGroup>
     <Compile Include="AccountRepository.cs" />
     <Compile Include="AddressRepository.cs" />
+    <Compile Include="BillOutRepository.cs" />
+    <Compile Include="CustomerRepository.cs" />
     <Compile Include="DogHouseRepository.cs" />
     <Compile Include="DogRepository.cs" />
     <Compile Include="DogTypeRepository.cs" />
     <Compile Include="IUserRepository.cs" />
+    <Compile Include="Pay_ReceiptRepository.cs" />
     <Compile Include="PersonInforRepository.cs" />
     <Compile Include="PersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

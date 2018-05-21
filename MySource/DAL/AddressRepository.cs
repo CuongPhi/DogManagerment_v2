@@ -18,7 +18,12 @@ namespace DAL
         }
         public void Delete(ADDRESS obj)
         {
-            throw new NotImplementedException();
+            using (DMEntities db = new DMEntities())
+            {
+                db.ADDRESSes.Attach(obj);
+                db.ADDRESSes.Remove(obj);
+                db.SaveChanges();
+            }
         }
 
         public List<object> GetAll()

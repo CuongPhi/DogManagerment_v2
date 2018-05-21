@@ -31,6 +31,7 @@ namespace DTO
         public string IDDOGHOUSE { get; set; }
         public Nullable<bool> DETROYED { get; set; }
         public byte[] IMAGES { get; set; }
+        public Nullable<int> STATUS { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BILL_IN> BILL_IN { get; set; }

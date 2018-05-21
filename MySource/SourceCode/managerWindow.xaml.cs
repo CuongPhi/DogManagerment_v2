@@ -40,7 +40,7 @@ namespace SourceCode
             switch (sliderBar.TypeUC)
             {
                 case TypeUserControl.Accountant_Handover:
-                    uC_MainWindow = new Accountant_Handover();
+                    uC_MainWindow = new Accountant_Handover(_acc);
                     break;
                 //case TypeUserControl.Accountant_Statistic_ThisDay:
                 //    uC_MainWindow = new SliderBar();

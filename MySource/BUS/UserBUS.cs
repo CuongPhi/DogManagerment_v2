@@ -32,5 +32,9 @@ namespace BUS
         {
             return reps.Insert(obj);
         }
+        public static void Delete(USERAPP obj)
+        {
+            reps.Delete(obj);
+        }
     }
 }

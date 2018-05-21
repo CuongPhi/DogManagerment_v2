@@ -21,5 +21,9 @@ namespace BUS
         {
             reps.Update(obj);
         }
+        public static void Delete(PERSONINFOR obj)
+        {
+            reps.Delete(obj);
+        }
     }
 }

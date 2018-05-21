@@ -18,7 +18,11 @@ namespace BUS
         {
             reps.Update(obj);
         }
-       
+       public static void ChangePassword(ACCOUNT obj, string newPass)
+        {
+            obj.PASSWORD = newPass;
+            reps.Update(obj);
+        }
         public static ACCOUNT Insert(ACCOUNT obj)
         {
             return reps.Insert(obj);
@@ -39,7 +43,7 @@ namespace BUS
         {
             ACCOUNT obj = reps.GetByID(userName);
             obj.PASSWORD = newPass;
-            acc.Update(obj);
+            reps.Update(obj);
         }
         public static bool BanAccount(string userName, bool isLock)
         {

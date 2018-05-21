@@ -42,9 +42,12 @@
   <ItemGroup>
     <Compile Include="AccountBUS.cs" />
     <Compile Include="AddressBUS.cs" />
+    <Compile Include="BillOutBUS.cs" />
+    <Compile Include="CustomerBUS.cs" />
     <Compile Include="DogBUS.cs" />
     <Compile Include="DogHouseBUS.cs" />
     <Compile Include="DogTypeBUS.cs" />
+    <Compile Include="Pay_ReceiptBUS.cs" />
     <Compile Include="PersonBUS.cs" />
     <Compile Include="PersonInforBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

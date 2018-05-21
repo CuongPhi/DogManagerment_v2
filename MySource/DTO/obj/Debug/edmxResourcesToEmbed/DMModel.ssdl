@@ -83,6 +83,7 @@
     <Property Name="IDDOGHOUSE" Type="nvarchar" MaxLength="10" />
     <Property Name="DETROYED" Type="bit" />
     <Property Name="IMAGES" Type="varbinary(max)" />
+    <Property Name="STATUS" Type="int" />
   </EntityType>
   <EntityType Name="DOG_DESTROY">
     <Key>

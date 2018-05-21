@@ -14,7 +14,7 @@ namespace DAL
         {
             using (DMEntities db = new DMEntities())
             {
-                return db.DOGs.Find(id);
+                return db.DOGs.Find(int.Parse(id));
             }
         }
         public void Delete(DOG obj)
@@ -30,7 +30,7 @@ namespace DAL
                              join infor in db.DOG_INFOR on dog.ID equals infor.IDDOG
                              join type in db.DOGTYPEs on dog.TYPE equals type.ID_TYPE
                              join house in db.DOGHOUSEs on dog.IDDOGHOUSE equals house.ID
-                             where dog.DETROYED == false
+                             where dog.DETROYED == false && dog.STATUS == 0
                              select new
                              {
                                  ID_DOG = dog.ID, dog.WEIGHT, FOOD_PRICE = dog.FOODPRICE, dog.DAYIN, dog.IMAGES,
@@ -43,7 +43,7 @@ namespace DAL
                 return query.ToList().Cast<Object>().ToList();
             }
         }
-
+     
         public DOG Insert(DOG obj)
         {
             return null;
@@ -51,7 +51,12 @@ namespace DAL
 
         public void Update(DOG obj)
         {
-            throw new NotImplementedException();
+            using (DMEntities db = new DMEntities())
+            {
+                db.DOGs.Attach(obj);
+                db.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
         }
     }
 }

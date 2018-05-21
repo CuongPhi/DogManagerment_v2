@@ -82,6 +82,7 @@
     <EntitySetMapping Name="DOGs">
       <EntityTypeMapping TypeName="DMModel.DOG">
         <MappingFragment StoreEntitySet="DOG">
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
           <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="TYPE" ColumnName="TYPE" />

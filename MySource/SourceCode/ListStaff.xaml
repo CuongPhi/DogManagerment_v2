@@ -39,7 +39,6 @@
                 <TextBox Name="txbEmail" FontSize="14"  Text="{Binding EMAIL, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox Name="txbPhone" FontSize="14" Text="{Binding PHONE, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="SĐT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox Name="txbAddress" FontSize="14" Text="{Binding ADDRESS, Mode=OneWay}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="SĐT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
                 <DatePicker Name="dpBirthDay" VerticalAlignment="Center" SelectedDate="{Binding BIRHDAY, Mode=OneWay}" Width="100" Margin="5 5 5 -5" materialDesign:HintAssist.Hint="Ngày sinh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                 <DatePicker Name="dpDayJoin" VerticalAlignment="Center" SelectedDate="{Binding DAYJOIN, Mode=OneWay}" Width="100" Margin="5 5 5 -5" materialDesign:HintAssist.Hint="Vào C.Ty" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
 
@@ -123,7 +122,6 @@
                             <!--<GridViewColumn  Header="BHYT" DisplayMemberBinding="{Binding ID_MEDICAL}"></GridViewColumn>-->
                             <!--<GridViewColumn Header="TKNH" DisplayMemberBinding="{Binding ID_BANK}"></GridViewColumn>-->
                             <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding ADDRESS}"></GridViewColumn>
-
                             <GridViewColumn Header="Email" DisplayMemberBinding="{Binding EMAIL}" ></GridViewColumn>
                             <GridViewColumn Header="SĐT" DisplayMemberBinding="{Binding PHONE}"></GridViewColumn>
                             <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding BIRHDAY, StringFormat='{}{0:dd/MM/yyyy}'}"></GridViewColumn>

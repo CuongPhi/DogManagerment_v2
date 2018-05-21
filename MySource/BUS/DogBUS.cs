@@ -11,6 +11,7 @@ namespace BUS
    public class DogBUS
     {
         static IRepository<DOG> reps;
+        static DogRepository dog = new DogRepository();
         static DogBUS()
         {
             reps = new DogRepository();
@@ -27,6 +28,10 @@ namespace BUS
         {
             return reps.Insert(obj);
         }
-
+        public static DOG GetById(string id) { return dog.GetByID(id); }
+        public static void Delete(DOG obj)
+        {
+            reps.Delete(obj);
+        }
     }
 }
