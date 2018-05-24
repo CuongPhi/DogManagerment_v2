@@ -59,11 +59,24 @@ namespace DAL
                                  infor.BIRHDAY,
                                  infor.PHONE,
                                  ADDRESS = /*add.STREET + " " +*/ add.WARD + " " + add.DISTRICT,
+                                 add.WARD, add.DISTRICT, add.STREET,
+                                 acc.TYPE,
                                  acc.USERNAME,
                                  acc.ISBAN
                              });
                 return query.ToList().Cast<Object>().ToList();
             }
+        }
+        public Object GetAllFromUserName(string userName)
+        {
+            foreach (object item in GetAll())
+            {
+                if (item.GetType().GetProperty("USERNAME").GetValue(item, null).ToString() == userName)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
         public USERAPP Insert(USERAPP obj)
         {
@@ -77,7 +90,12 @@ namespace DAL
 
         public void Update(USERAPP obj)
         {
-            throw new NotImplementedException();
+            using (DMEntities db = new DMEntities())
+            {
+                db.USERAPPs.Attach(obj);
+                db.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
         }
     }
 }

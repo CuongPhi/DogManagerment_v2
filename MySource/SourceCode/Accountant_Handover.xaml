@@ -133,7 +133,7 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                                        <Image Name="ImageDogInListView" HorizontalAlignment="Stretch" Width="100" Height="100" VerticalAlignment="Top" Stretch="UniformToFill" />
+                                        <Image Source="{Binding DOG_IMAGE}" Name="ImageDogInListView" HorizontalAlignment="Stretch" Width="100" Height="100" VerticalAlignment="Top" Stretch="UniformToFill" />
                                         <TextBlock Text="{Binding DOG_ADDRESS}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
                                     </StackPanel>
                                 </DataTemplate>

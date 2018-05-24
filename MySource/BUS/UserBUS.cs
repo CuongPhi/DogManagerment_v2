@@ -28,6 +28,10 @@ namespace BUS
         {
             return reps.GetAll();
         }
+        public static Object GetAllByUserName(string u)
+        {
+            return usr.GetAllFromUserName(u);
+        }
         public static USERAPP Insert(USERAPP obj)
         {
             return reps.Insert(obj);

@@ -202,5 +202,12 @@ namespace SourceCode
             new ChangePassWordWindow(_acc.USERNAME).ShowDialog();
             this.Show();
         }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            new UserInfor(_acc).ShowDialog();
+            this.Show();
+        }
     }
 }

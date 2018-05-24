@@ -1,0 +1,150 @@
+﻿<Window x:Class="SourceCode.UserInfor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SourceCode"
+        mc:Ignorable="d"
+        Title="THÔNG TIN CÁ NHÂN" Height="500" Width="500">
+    <Grid Name="UserFullBinding" Loaded="UserFullBinding_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" ></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="45" ></RowDefinition>
+            <RowDefinition Height="45" ></RowDefinition>
+            <RowDefinition Height="45" ></RowDefinition>
+            <RowDefinition Height="45" ></RowDefinition>
+            <RowDefinition Height="45" ></RowDefinition>
+            <RowDefinition Height="45" ></RowDefinition>
+            <RowDefinition Height="45" ></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Red">QUẢN LÝ THÔNG TIN CÁ NHÂN</Label>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Margin="20 0 0 0"  VerticalAlignment="Center" HorizontalAlignment="Left" Text="Họ Tên:"></TextBlock>
+                <TextBox Text="{Binding NAME, Mode=OneWay}"  Name="txbName" Margin="100 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="50"></TextBox>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Ngày vào"></TextBlock>
+                <TextBox  Background="LightGray" Text="{Binding DAYJOIN, Mode=OneWay, StringFormat={}{0:MM/dd/yyyy}}"  Name="txbDayJoin" Margin="100 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="50" ></TextBox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Margin="20 0 0 0"  VerticalAlignment="Center" HorizontalAlignment="Left" Text="CMND:"></TextBlock>
+                <TextBox Text="{Binding ID_TT, Mode=OneWay}"  Name="txbCMND" Margin="100 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="50" ></TextBox>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="SĐT:"></TextBlock>
+                <TextBox  Text="{Binding PHONE, Mode=OneWay}"  Name="txbPhone" Margin="100 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="50" ></TextBox>
+            </Grid>
+            
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Margin="20 0 0 0"  VerticalAlignment="Center" HorizontalAlignment="Left" Text="Số TKNH:"></TextBlock>
+                <TextBox Text="{Binding ID_BANK, Mode=OneWay}"  Name="txbBank" Margin="100 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="50" ></TextBox>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Số BHYT:"></TextBlock>
+                <TextBox Text="{Binding ID_MEDICAL, Mode=OneWay}"  Name="txbMedical" Margin="100 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="50" ></TextBox>
+            </Grid>
+        </Grid>        
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Margin="20 0 0 0"  VerticalAlignment="Center" HorizontalAlignment="Left" Text="Ngày sinh:"></TextBlock>
+                <TextBox Text="{Binding BIRHDAY, Mode=OneWay, StringFormat={}{0:MM/dd/yyyy}}"  Name="txbBirthday" Margin="100 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="50" ></TextBox>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Giới tính:"></TextBlock>
+                <ComboBox Text="{Binding GENDER, Mode=OneWay}" Width="75" Margin="20 0 0 0" Name="cbbGender">
+                    <ComboBoxItem Name="cbbMale">Nam</ComboBoxItem>
+                    <ComboBoxItem Name="cbbFemale">Nữ</ComboBoxItem>
+                    <ComboBoxItem Name="cbbOther">Khác</ComboBoxItem>
+
+                </ComboBox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+
+                    <TextBlock Margin="20 0 0 0"  VerticalAlignment="Center" HorizontalAlignment="Left" Text="Tên TK:"></TextBlock>
+                    <TextBox Background="LightGray" Text="{Binding USERNAME, Mode=OneWay}" Name="txbUserName" Margin="100 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="50" IsReadOnly="True"></TextBox>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <TextBlock Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Loại TK:"></TextBlock>
+                    <TextBox  Background="LightGray" Text="{Binding TYPE, Mode=OneWay}"  Name="txbTypeAcc" Margin="100 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="50" IsReadOnly="True"></TextBox>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <TextBlock Margin="20,0,0,13" VerticalAlignment="Bottom" HorizontalAlignment="Left" Text="Lương:"></TextBlock>
+                    <TextBox  Background="LightGray" Text="{Binding SALARY, Mode=OneWay}"  Name="txbSalary" Margin="100 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="50" IsReadOnly="True"></TextBox>
+
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Margin="20 0 0 0"  VerticalAlignment="Center" HorizontalAlignment="Left" Text="Đường:"></TextBlock>
+                <TextBox Text="{Binding STREET, Mode=OneWay}"   Margin="100 0 0 0" VerticalAlignment="Center" Name="txbStreet" HorizontalAlignment="Left" MinWidth="50" ></TextBox>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Phường:"></TextBlock>
+                <TextBox Text="{Binding WARD, Mode=OneWay}"  Margin="100 0 0 0" VerticalAlignment="Center" Name="txbWard" HorizontalAlignment="Left" MinWidth="50" ></TextBox>
+            </Grid>
+
+        </Grid>
+    <Grid Grid.Row="7">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <TextBlock Margin="20 0 0 0"  VerticalAlignment="Center" HorizontalAlignment="Left" Text="Quận:"></TextBlock>
+            <TextBox Text="{Binding DISTRICT, Mode=OneWay}"   Margin="100 0 0 0" VerticalAlignment="Center" Name="txbDistrict" HorizontalAlignment="Left" MinWidth="50" ></TextBox>
+        </Grid>
+        <Grid Grid.Column="1">
+            <TextBlock Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Email:"></TextBlock>
+            <TextBox Text="{Binding EMAIL, Mode=OneWay}"  Margin="100 0 0 0" VerticalAlignment="Center" Name="txbEmail" HorizontalAlignment="Left" MinWidth="50" ></TextBox>
+        </Grid>
+    </Grid>
+    <Grid Grid.Row="8">
+            <Button Click="Button_Click">Sửa</Button>
+     </Grid>
+    </Grid>
+</Window>

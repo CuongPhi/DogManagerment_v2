@@ -43,7 +43,12 @@ namespace DAL
 
         public void Update(PERSONINFOR obj)
         {
-            throw new NotImplementedException();
+            using (DMEntities db = new DMEntities())
+            {
+                db.PERSONINFORs.Attach(obj);
+                db.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
         }
     }
 }

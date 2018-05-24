@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\App.xaml
-111889211033
+121831083075
 1-201560600
-20-434482903
+21-444066395
 19-135428562
-Accountant_Handover.xaml;AddAccountWindow.xaml;ChangePassWordWindow.xaml;ListStaff.xaml;MainWindow.xaml;managerWindow.xaml;NhanVien.xaml;NhanVienNhap.xaml;SliderBar.xaml;SoQuy.xaml;ThongKeHoaDon.xaml;
+Accountant_Handover.xaml;AddAccountWindow.xaml;ChangePassWordWindow.xaml;ListStaff.xaml;MainWindow.xaml;managerWindow.xaml;NhanVien.xaml;NhanVienNhap.xaml;SliderBar.xaml;SoQuy.xaml;ThongKeHoaDon.xaml;UserInfor.xaml;
 
-False
+True
 

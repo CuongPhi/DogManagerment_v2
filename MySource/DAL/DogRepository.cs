@@ -31,7 +31,7 @@ namespace DAL
                              join type in db.DOGTYPEs on dog.TYPE equals type.ID_TYPE
                              join house in db.DOGHOUSEs on dog.IDDOGHOUSE equals house.ID
                              where dog.DETROYED == false && dog.STATUS == 0
-                             select new
+                             select new 
                              {
                                  ID_DOG = dog.ID, dog.WEIGHT, FOOD_PRICE = dog.FOODPRICE, dog.DAYIN, dog.IMAGES,
                                  type.NAME_TYPE, type.ID_TYPE,

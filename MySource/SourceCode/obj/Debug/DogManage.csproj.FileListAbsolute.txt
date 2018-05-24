@@ -65,6 +65,7 @@ I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\NhanV
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\SliderBar.g.cs
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\SoQuy.g.cs
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\ThongKeHoaDon.g.cs
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\UserInfor.g.cs
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\App.g.cs
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\SourceCode_Content.g.cs
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\SourceCode_MarkupCompile.cache
@@ -76,6 +77,7 @@ I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\Chang
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\ListStaff.baml
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\MainWindow.baml
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\SliderBar.baml
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\UserInfor.baml
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\SourceCode.g.resources
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\SourceCode.Properties.Resources.resources
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\SourceCode\obj\Debug\DogManage.csproj.GenerateResource.cache

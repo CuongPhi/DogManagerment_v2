@@ -53,8 +53,8 @@
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="2" Background="AntiqueWhite">
             <WrapPanel>
-                <Button Command="{Binding BillIn}" Content="Xem hóa đơn nhập" Margin="150 5 15 5" Width="150"></Button>
-                <Button Command="{Binding BillOut}" Content="Xem hóa đơn thu" Margin="5 5 15 5" Width="150"></Button>
+                <Button  Content="Xem hóa đơn thu" Margin="150 5 15 5" Width="150"></Button>
+                <Button Content="Xem hóa đơn chi" Margin="5 5 15 5" Width="150"></Button>
             </WrapPanel>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="3">

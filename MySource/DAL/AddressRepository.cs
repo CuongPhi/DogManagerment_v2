@@ -16,6 +16,14 @@ namespace DAL
                 return db.ADDRESSes.Find(int.Parse(id));
             }
         }
+        public ADDRESS GetByIDPerson(string idPerinf)
+        {
+            using (DMEntities db = new DMEntities())
+            {
+                var query = (from a in db.ADDRESSes where a.IDPERSON == idPerinf select new { a.ID }).ToList();
+                return GetByID(query[0].ID.ToString());
+            }
+        }
         public void Delete(ADDRESS obj)
         {
             using (DMEntities db = new DMEntities())
@@ -42,7 +50,12 @@ namespace DAL
 
         public void Update(ADDRESS obj)
         {
-            throw new NotImplementedException();
+            using (DMEntities db = new DMEntities())
+            {
+                db.ADDRESSes.Attach(obj);
+                db.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
         }
     }
 }

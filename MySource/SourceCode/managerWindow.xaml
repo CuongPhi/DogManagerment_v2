@@ -109,7 +109,7 @@
                         </MenuItem>
                         <MenuItem Name="MenuItemAccount"  Template="{DynamicResource MenuItemControlTemplate}" >
 
-                            <MenuItem  Padding="15 0 15 0" Header="Tài khoản">
+                            <MenuItem  Click="MenuItem_Click_4" Padding="15 0 15 0" Header="Tài khoản">
                                 <MenuItem.Icon >
                                     <materialDesign:PackIcon Margin="-10 0 0 0" Kind="HelpBox" />
                                 </MenuItem.Icon>

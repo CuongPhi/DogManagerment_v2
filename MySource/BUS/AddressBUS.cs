@@ -11,6 +11,7 @@ namespace BUS
     public class AddressBUS
     {
         static IRepository<ADDRESS> reps;
+        static AddressRepository add = new AddressRepository();
         static AddressBUS()
         {
             reps = new AddressRepository();
@@ -22,6 +23,10 @@ namespace BUS
         public static List<Object> GetAll()
         {
             return reps.GetAll();
+        }
+        public static ADDRESS GetByIDPersonInfor(string idperinf)
+        {
+            return add.GetByIDPerson(idperinf);
         }
         public static ADDRESS Insert(ADDRESS obj)
         {
