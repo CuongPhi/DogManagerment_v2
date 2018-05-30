@@ -11,6 +11,7 @@ namespace BUS
     public static class PersonInforBUS
     {
         static IRepository<PERSONINFOR> reps = new PersonInforRepository();
+        static PersonInforRepository perinf = new PersonInforRepository();
         public static PERSONINFOR Insert(PERSONINFOR obj)
         {
             return reps.Insert(obj);
@@ -25,5 +26,6 @@ namespace BUS
         {
             reps.Delete(obj);
         }
+      
     }
 }

@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="SourceCode.Customer"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             
+             mc:Ignorable="d"
+             d:DesignHeight="438" d:DesignWidth="738">
+
+    <Grid x:Name="UCNhanVienNhap" Background="LightBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Name="binding_data" Grid.Row="0" Margin="5">
+            <WrapPanel>
+                <TextBox Text="{Binding ID, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã khách" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding NAME, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding GENDER, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Giói tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding ID_TT, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="CMND" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding ADDRESS, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding EMAIL, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding PHONE, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="SĐT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                <DatePicker VerticalAlignment="Center" SelectedDate="{Binding BIRHDAY, Mode=OneWay}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Ngày sinh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="1" Margin="5">
+            <WrapPanel>
+                <TextBox Text="{Binding ID_BILL}" Margin="15 5 15 5" materialDesign:HintAssist.Hint="Gõ để tìm" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="3" Margin="5">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <ListView ItemContainerStyle="{StaticResource alternatingStyle}" AlternationCount="2" SelectionChanged="listCustomer_SelectionChanged" Name="listCustomer">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Mã" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
+                            <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding NAME}"></GridViewColumn>
+                            <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding GENDER}" ></GridViewColumn>
+                            <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding ID_TT}"></GridViewColumn>
+                            <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding ADDRESS}"></GridViewColumn>
+                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding EMAIL}" ></GridViewColumn>
+                            <GridViewColumn Header="SĐT" DisplayMemberBinding="{Binding PHONE}"></GridViewColumn>
+                            <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding BIRHDAY, StringFormat='{}{0:dd/MM/yyyy}'}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

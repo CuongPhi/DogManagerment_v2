@@ -40,7 +40,7 @@
                                 <Button Style="{DynamicResource MaterialDesignToolButton}">
                                     <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
                                 </Button>
-                                <TextBox Grid.Column="1" Margin="8 0 0 0" materialDesign:HintAssist.Hint="Build a search bar" 
+                                <TextBox Name="txbSearchDog" TextChanged="TextBox_TextChanged_1" Grid.Column="1" Margin="8 0 0 0" materialDesign:HintAssist.Hint="Build a search bar" 
                                      materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0"
                                      MinWidth="470" VerticalAlignment="Center" />
                                 <Button Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="2">
@@ -48,7 +48,7 @@
                                 </Button>
                             </Grid>
                         </materialDesign:ColorZone>
-                        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="8 0 0 0" Panel.ZIndex="0">
+                        <Button IsDefault="True" Click="Button_Click_2" Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="8 0 0 0" Panel.ZIndex="0">
                             <materialDesign:PackIcon Kind="Send" />
                         </Button>
                         <TextBlock Padding="5" Margin="120 0 0 0" Style="{StaticResource MaterialDesignDisplay1TextBlock}">
@@ -132,8 +132,8 @@
                             </ItemsControl.ItemsPanel>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                                        <Image Source="{Binding DOG_IMAGE}" Name="ImageDogInListView" HorizontalAlignment="Stretch" Width="100" Height="100" VerticalAlignment="Top" Stretch="UniformToFill" />
+                                    <StackPanel Width="120" Height="130" Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                        <Image Source="{Binding IMAGES}" Name="ImageDogInListView" HorizontalAlignment="Stretch" Width="120" Height="110" VerticalAlignment="Top" Stretch="UniformToFill" />
                                         <TextBlock Text="{Binding DOG_ADDRESS}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
                                     </StackPanel>
                                 </DataTemplate>

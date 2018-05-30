@@ -12,7 +12,21 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
+            <!--listview style-->
+            <Style x:Key="alternatingStyle" TargetType="{x:Type ListViewItem}">
+                <Style.Triggers>
+                    <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                        <Setter Property="Background" Value="#ced5e0"></Setter>
+                    </Trigger>
+                    <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                        <Setter Property="Background" Value="#ffffff"></Setter>
+                    </Trigger>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="#ffec8b"/>
+                    </Trigger>                    
+                </Style.Triggers>
+                <Setter Property="Height" Value="30"></Setter>
+            </Style>
             <!--Kayarak Açılma-->
             <Style x:Key="spSlideLeft" TargetType="StackPanel">
 

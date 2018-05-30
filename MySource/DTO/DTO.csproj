@@ -110,6 +110,7 @@
       <DependentUpon>DMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoQuy.cs" />
     <Compile Include="USERAPP.cs">
       <DependentUpon>DMModel.tt</DependentUpon>
     </Compile>

@@ -16,7 +16,7 @@ namespace DAL
                 return db.USERAPPs.Find(int.Parse(id));
             }
         }
-        
+
         public int GetIdByIDPerson(int idPerson)
         {
             using (DMEntities db = new DMEntities())
@@ -37,7 +37,6 @@ namespace DAL
 
         public List<Object> GetAll()
         {
-
             using (DMEntities db = new DMEntities())
             {
                 var query = (from user in db.USERAPPs
@@ -59,7 +58,9 @@ namespace DAL
                                  infor.BIRHDAY,
                                  infor.PHONE,
                                  ADDRESS = /*add.STREET + " " +*/ add.WARD + " " + add.DISTRICT,
-                                 add.WARD, add.DISTRICT, add.STREET,
+                                 add.WARD,
+                                 add.DISTRICT,
+                                 add.STREET,
                                  acc.TYPE,
                                  acc.USERNAME,
                                  acc.ISBAN
@@ -87,7 +88,42 @@ namespace DAL
                 return obj;
             }
         }
-
+        public List<object> search(string name)
+        {
+            if (name == "") return this.GetAll();
+            using (DMEntities db = new DMEntities())
+            {
+                var query = (from user in db.USERAPPs
+                             join infor in db.PERSONINFORs on user.IDPERSON equals infor.ID
+                             join add in db.ADDRESSes on infor.ID_TT equals add.IDPERSON
+                             join acc in db.ACCOUNTs on user.ID equals acc.ID_USER
+                             where infor.NAME.Contains(name) || infor.ID_TT.Contains(name)
+                             || infor.PHONE.Contains(name) || infor.EMAIL.Contains(name)
+                             select new
+                             {
+                                 user.ID,
+                                 user.IDPERSON,
+                                 user.SALARY,
+                                 user.DAYJOIN,
+                                 user.ID_BANK,
+                                 user.ID_MEDICAL,
+                                 infor.ID_TT,
+                                 infor.NAME,
+                                 GENDER = infor.gender,
+                                 infor.EMAIL,
+                                 infor.BIRHDAY,
+                                 infor.PHONE,
+                                 ADDRESS = /*add.STREET + " " +*/ add.WARD + " " + add.DISTRICT,
+                                 add.WARD,
+                                 add.DISTRICT,
+                                 add.STREET,
+                                 acc.TYPE,
+                                 acc.USERNAME,
+                                 acc.ISBAN
+                             });
+                return query.ToList().Cast<Object>().ToList();
+            }
+        }
         public void Update(USERAPP obj)
         {
             using (DMEntities db = new DMEntities())

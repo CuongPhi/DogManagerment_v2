@@ -9,8 +9,8 @@
              Width="auto"
             Name="uc_ListStaff"
              d:DesignHeight="450" d:DesignWidth="800">
-            
-    <Grid x:Name="UCNhanVien" Background="LightBlue" Loaded="UCNhanVien_Loaded">
+
+    <Grid x:Name="UCNhanVien" Background="#ced5e0" Loaded="UCNhanVien_Loaded">
         
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -64,9 +64,9 @@
                         <Button Style="{DynamicResource MaterialDesignToolButton}">
                             <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
                         </Button>
-                        <TextBox Width="auto" Grid.Column="1" Margin="8 0 0 0" materialDesign:HintAssist.Hint="Tìm kiếm.." 
+                        <TextBox Name="txbSearch" Width="auto" Grid.Column="1" Margin="8 0 0 0" materialDesign:HintAssist.Hint="Tìm kiếm.." 
                                      materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0"
-                                     MinWidth="200" VerticalAlignment="Center" />
+                                     MinWidth="200" VerticalAlignment="Center" TextChanged="TextBox_TextChanged" />
                         <Button Click="Button_Click" Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="2">
                             <materialDesign:PackIcon Kind="Microphone" Opacity=".56" Margin="8 0 0 0" />
                         </Button>
@@ -86,7 +86,7 @@
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="3" Margin="5">
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                <ListView MouseRightButtonUp="lvListStaff_MouseRightButtonUp" SelectionChanged="lvListStaff_SelectionChanged" Name="lvListStaff" >
+                <ListView ItemContainerStyle="{StaticResource alternatingStyle}" AlternationCount="2" MouseRightButtonUp="lvListStaff_MouseRightButtonUp" SelectionChanged="lvListStaff_SelectionChanged" Name="lvListStaff" >
                     <!--context  Menu-->
                     <ListView.ContextMenu>
                         <ContextMenu Name="ZoneIformationList" StaysOpen="true" Background="WhiteSmoke">

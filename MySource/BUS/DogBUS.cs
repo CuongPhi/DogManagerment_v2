@@ -24,6 +24,10 @@ namespace BUS
         {
             return reps.GetAll();
         }
+        public static List<object> search(string name)
+        {
+            return dog.Search(name);
+        }
         public static DOG Insert(DOG obj)
         {
             return reps.Insert(obj);
@@ -32,6 +36,14 @@ namespace BUS
         public static void Delete(DOG obj)
         {
             reps.Delete(obj);
+        }
+        public static int getID()
+        {
+            return dog.getID();
+        }
+        public static DOG getByID(string id)
+        {
+            return reps.GetByID(id);
         }
     }
 }

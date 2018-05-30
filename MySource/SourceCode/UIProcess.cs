@@ -67,6 +67,19 @@ namespace SourceCode
             image.Freeze();
             return image;
         }
+        public byte[] ImageToByteArray(BitmapImage bitmapImage)
+        {
+            if (bitmapImage == null) return null;
+            byte[] data;
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(bitmapImage));
+            using (MemoryStream ms = new MemoryStream())
+            {
+                encoder.Save(ms);
+                data= ms.ToArray();
+                return data;
+            }
+        }
         public string LoadConfigFile()
         {
             //if (!System.IO.File.Exists(fileConfig))

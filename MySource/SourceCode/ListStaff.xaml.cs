@@ -40,8 +40,17 @@ namespace SourceCode
         }
         void loadFromData()
         {
-            _ListStaff = UserBUS.GetAll();
+            loadFullList(UserBUS.GetAll());
             SetDataSource(_ListStaff);
+        }
+        void searhFromData(string name)
+        {
+            _ListStaff =  UserBUS.search(name);
+            lvListStaff.ItemsSource = _ListStaff;
+        }
+        void loadFullList(List<object> list)
+        {
+            _ListStaff = list;
         }
         internal delegate void SetDataSourceDelegate(List<Object> ls);
 
@@ -200,6 +209,11 @@ namespace SourceCode
             
             newAddWind.ShowDialog();         
             
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            searhFromData(txbSearch.Text);
         }
     }
 }

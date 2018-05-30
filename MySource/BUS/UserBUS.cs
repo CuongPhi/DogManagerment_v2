@@ -40,5 +40,9 @@ namespace BUS
         {
             reps.Delete(obj);
         }
+        public static List<object> search(string name)
+        {
+            return usr.search(name);
+        }
     }
 }

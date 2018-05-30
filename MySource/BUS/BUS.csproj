@@ -43,15 +43,19 @@
   <ItemGroup>
     <Compile Include="AccountBUS.cs" />
     <Compile Include="AddressBUS.cs" />
+    <Compile Include="BillinBUS.cs" />
     <Compile Include="BillOutBUS.cs" />
     <Compile Include="CustomerBUS.cs" />
     <Compile Include="DogBUS.cs" />
     <Compile Include="DogHouseBUS.cs" />
+    <Compile Include="DogInforBUS.cs" />
     <Compile Include="DogTypeBUS.cs" />
+    <Compile Include="PaymentBUS.cs" />
     <Compile Include="Pay_ReceiptBUS.cs" />
     <Compile Include="PersonBUS.cs" />
     <Compile Include="PersonInforBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatisticBillBUS.cs" />
     <Compile Include="UserBUS.cs" />
   </ItemGroup>
   <ItemGroup>

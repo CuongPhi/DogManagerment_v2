@@ -35,16 +35,16 @@ namespace SourceCode
         void loadFromData()
         {
             _ListDogs = DogBUS.GetAll();
-            try
-            {
-                foreach (var dog in _ListDogs)
-                {
-                    var getProp = dog.GetType().GetProperty("IMAGES");
-                    var newValue = Convert.ChangeType(UIProcess.Inst.LoadImage((byte[])getProp.GetValue(dog, null)), getProp.PropertyType);
-                    getProp.SetValue(dog, newValue, null);
-                }
-            }
-            catch { }
+            //try
+            //{
+            //    foreach (var dog in _ListDogs)
+            //    {
+            //        var getProp = dog.GetType().GetProperty("IMAGES");
+            //        var newValue = Convert.ChangeType(UIProcess.Inst.LoadImage((byte[])getProp.GetValue(dog, null)), getProp.PropertyType);
+            //        getProp.SetValue(dog, newValue, null);
+            //    }
+            //}
+            //catch { }
             SetDataSource(_ListDogs);
         }
 
@@ -61,6 +61,12 @@ namespace SourceCode
                 dogBox.ItemsSource = t;
                 RunningProgressBar(Visibility.Hidden);
             }
+        }
+        void Search(string key)
+        {
+            _ListDogs = DogBUS.search(key);
+            dogBox.ItemsSource = _ListDogs;
+
         }
         void RunningProgressBar(Visibility t)
         {
@@ -117,12 +123,7 @@ namespace SourceCode
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog op = new OpenFileDialog();
-            op.ShowDialog();
-            string fileName = op.FileName;
-            if (string.IsNullOrEmpty(fileName))
-                return;
-            ImageDogBinding.Source = new BitmapImage(new Uri(fileName));
+ 
         }
 
         private void txbTotalPrice_TextChanged(object sender, TextChangedEventArgs e)
@@ -331,6 +332,16 @@ namespace SourceCode
                 txbBill_TotalPr.Text = txbBill_Ward.Text = txbIDBill.Text= "";
         }
 
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            if (txbSearchDog.Text == "")
+                LoadListDogs();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Search(txbSearchDog.Text);
+        }
     }
 }
 

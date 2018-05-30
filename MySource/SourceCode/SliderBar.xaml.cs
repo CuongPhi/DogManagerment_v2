@@ -85,7 +85,7 @@ namespace MilcanxWpf_SliderMenu
 
         private void TreeViewItem_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
         {
-            TypeUC = TypeUserControl.Staff_ListDog;
+            TypeUC = TypeUserControl.Staff_Customer;
 
         }
 
@@ -161,7 +161,7 @@ namespace MilcanxWpf_SliderMenu
 
         private void TreeViewItem_MouseLeftButtonUp_5(object sender, MouseButtonEventArgs e)
         {
-            TypeUC = TypeUserControl.Staff_DogIn;
+            TypeUC = TypeUserControl.Staff_Input;
         }
     }
 
@@ -172,6 +172,7 @@ namespace MilcanxWpf_SliderMenu
         Staff_ListDog = 2,
         Staff_DogIn=5,
         Staff_Customer,
+        Staff_Input,
         Manager_Bill =3,
         Manger_CashBook =4,
         Manager_ListStaff = 11,

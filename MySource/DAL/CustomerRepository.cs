@@ -28,7 +28,27 @@ namespace DAL
 
         public List<object> GetAll()
         {
-            throw new NotImplementedException();
+            using (DMEntities db= new DMEntities())
+            {
+                var query = (from infor in db.PERSONINFORs
+                             join add in db.ADDRESSes on infor.ID_TT equals add.IDPERSON
+                             join cus in db.CUSTOMERs on infor.ID equals cus.IDPERSON
+                             select new
+                             {
+                                 infor.ID,
+                                 infor.ID_TT,
+                                 infor.NAME,
+                                 GENDER = infor.gender,
+                                 infor.EMAIL,
+                                 infor.BIRHDAY,
+                                 infor.PHONE,
+                                 ADDRESS = add.STREET + " P." + add.WARD + " Q." + add.DISTRICT,
+                                 add.WARD,
+                                 add.DISTRICT,
+                                 add.STREET                             
+                             });
+                return query.ToList().Cast<Object>().ToList();
+            }
         }
 
         public CUSTOMER Insert(CUSTOMER obj)
@@ -50,7 +70,12 @@ namespace DAL
         }
         public void Update(CUSTOMER obj)
         {
-            throw new NotImplementedException();
+            using (DMEntities db = new DMEntities())
+            {
+                db.CUSTOMERs.Attach(obj);
+                db.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
         }
     }
 }

@@ -39,22 +39,23 @@ namespace SourceCode
             UIProcess.Inst.RemoveAllChild(UserControl_MainWindow);
             switch (sliderBar.TypeUC)
             {
+                case TypeUserControl.Staff_DogIn:
+                    uC_MainWindow = new NhanVien();
+                    break;
                 case TypeUserControl.Accountant_Handover:
                     uC_MainWindow = new Accountant_Handover(_acc);
                     break;
                 //case TypeUserControl.Accountant_Statistic_ThisDay:
                 //    uC_MainWindow = new SliderBar();
                 //    break;
-                case TypeUserControl.Staff_ListDog:
-                    uC_MainWindow = new NhanVien();
+                case TypeUserControl.Staff_Input:
+                    uC_MainWindow = new NhanVienNhap(_acc);
                     break;
                 case TypeUserControl.Manager_ListStaff:
                     //if(_acc.TYPE == 0)
                         uC_MainWindow = new ListStaff();
                     break;
-                case TypeUserControl.Staff_DogIn:
-                    uC_MainWindow = new NhanVienNhap();
-                    break;
+           
                 case TypeUserControl.Manger_CashBook:
                     uC_MainWindow = new SoQuy();
                     break;
@@ -62,8 +63,9 @@ namespace SourceCode
                     uC_MainWindow = new ThongKeHoaDon();
                     break;
                 case TypeUserControl.Staff_Customer:
-                  //  uC_MainWindow = new ThongKeHoaDon();
+                     uC_MainWindow = new Customer();
                     break;
+                
                 default:
                     return;                    
             }
