@@ -9,3 +9,4 @@ I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\obj\Debug\DTO.csproj.C
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\obj\Debug\DTO.csproj.CopyComplete
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\obj\Debug\DTO.dll
 I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\obj\Debug\DTO.pdb
+I:\HKII 17-18\TKPM\Project\DogManagerment_v2\MySource\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache

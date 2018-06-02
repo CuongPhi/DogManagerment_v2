@@ -267,6 +267,17 @@ namespace SourceCode
             imagedogin.Source = ImageDog;
 
         }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            object SelectedDog = dogBox.SelectedItem;
+            string id = SelectedDog.GetType().GetProperty("ID_DOG").GetValue(SelectedDog, null).ToString();
+            DOG getDog = DogBUS.getByID(id);
+            getDog.WEIGHT = float.Parse(txbWeight.Text);
+
+            DogBUS.Update(getDog);
+
+        }
     }
 }
 

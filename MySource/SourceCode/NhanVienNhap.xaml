@@ -93,9 +93,12 @@
                                         <TextBox Name="txbIDDog" IsReadOnly="True" Text="{Binding ID_DOG,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="ID Chó" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                         <TextBox IsReadOnly="True"  Text="{Binding TIME,Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Giờ bắt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                         <TextBox IsReadOnly="True" Text="{Binding DAYIN, Mode=OneWay, StringFormat='{}{0:dd/MM/yyyy}'}"  Margin="10" materialDesign:HintAssist.Hint="Nhập" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox IsReadOnly="True" Name="txbWeight" Text="{Binding WEIGHT,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="Nặng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox IsReadOnly="True" Text="{Binding DOG_ADDRESS,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="Nơi bắt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox  Name="txbWeight" Text="{Binding WEIGHT,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="Nặng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox  Text="{Binding DOG_ADDRESS,Mode=OneWay}"  Margin="10" materialDesign:HintAssist.Hint="Nơi bắt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
+                                       <Button FontSize="16" Margin="0" Click="btnEdit_Click" ToolTip="Chỉnh sửa" Width="60" Height="40" Name="btnEdit"> 
+                                            Sửa
+                                            </Button>
                                         <TextBox Visibility="Hidden" Name="txbIDTypeDog" Text="{Binding ID_TYPE,Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Mã Loại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                         <TextBox Visibility="Hidden" Name="txbIDHouseDog" Text="{Binding ID_HOUSE,Mode=OneWay}" Margin="10" materialDesign:HintAssist.Hint="Mã Chuồng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
