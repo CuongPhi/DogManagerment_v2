@@ -172,6 +172,11 @@ namespace SourceCode
                 MessageBox.Show("Mã hóa đơn không đúng !");
                 return;
             }
+            if(txbIDBill.Text == "" || txbIDBill.Text == " ")
+            {
+                MessageBox.Show("Mã hóa đơn không được rỗng !");
+                return;
+            }
             BILL_IN bill = BillinBUS.GetById(txbIDBill.Text);
 
             if (bill != null)
@@ -267,17 +272,73 @@ namespace SourceCode
             imagedogin.Source = ImageDog;
 
         }
-
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        private void btnEdit_Click(object sender, RoutedEventArgs e)//Cập nhật thông tin
         {
-            object SelectedDog = dogBox.SelectedItem;
-            string id = SelectedDog.GetType().GetProperty("ID_DOG").GetValue(SelectedDog, null).ToString();
-            DOG getDog = DogBUS.getByID(id);
-            getDog.WEIGHT = float.Parse(txbWeight.Text);
+            int macho = int.Parse(this.txbIDDog.Text);
+            string loai = this.txbIDTypeDog.Text.ToString();
+            //bool thieuhuy = false;
+           
+            float cannang = float.Parse(this.txbWeight.Text);
+            if (cannang <= 0 && cannang >= 30)
+            {
+                MessageBox.Show("Cân nặng không chính xác");
+                this.txbWeight.Focus();
+            }
+            cannang = float.Parse(this.txbWeight.Text);
+            DateTime ngay = DateTime.Parse(this.txtday.Text);
+           
 
-            DogBUS.Update(getDog);
+
+            string chuog = this.txbIDHouseDog.Text.ToString();
+           
+            int tienthucan = int.Parse(this.txbFoodPrice.Text);
+            if (tienthucan < 1 && tienthucan > 200000)
+            {
+                MessageBox.Show("Tiền thức ăn phải hợp lệ");
+                this.txbFoodPrice.Focus();
+            }
+            tienthucan = int.Parse(this.txbFoodPrice.Text);
+            string tg = this.txttime.Text.ToString();
+            //string[] a = tg.Split(' ');
+            //TimeSpan time = TimeSpan.Parse(a[0]);
+            //if (ngay == null)
+            //{
+            //    MessageBox.Show("Nhập giờ!");
+            //    this.tgian.Focus();
+            //}
+
+            //tg = this.tgian.Text.ToString();
+            //a = tg.Split(' ');
+            //time = TimeSpan.Parse(a[0]);
+
+            
+            string idms = this.txbIDDog.Text.ToString();
+            DOG dog = DogBUS.getByID(idms);
+            dog.WEIGHT = cannang;
+            dog.TYPE = loai;
+            dog.DAYIN = ngay;
+            dog.FOODPRICE = tienthucan;
+            dog.IDDOGHOUSE = chuog;
+            try
+            {
+                DogBUS.Update(dog);
+            }
+            catch { MessageBox.Show("Cập nhật bảng chó không thành công!"); return; }
+           
+            loadFromData();
+           
 
         }
+        //private void btnEdit_Click(object sender, RoutedEventArgs e)
+        //{
+        //    object SelectedDog = dogBox.SelectedItem;
+        //    string id = SelectedDog.GetType().GetProperty("ID_DOG").GetValue(SelectedDog, null).ToString();
+        //    DOG getDog = DogBUS.getByID(id);
+        //    getDog.WEIGHT = float.Parse(txbWeight.Text);
+
+        //    DogBUS.Update(getDog);
+
+        //}
     }
 }
 

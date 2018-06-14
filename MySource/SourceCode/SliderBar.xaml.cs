@@ -163,6 +163,12 @@ namespace MilcanxWpf_SliderMenu
         {
             TypeUC = TypeUserControl.Staff_Input;
         }
+
+        private void TreeViewItem_MouseLeftButtonUp_6(object sender, MouseButtonEventArgs e)
+        {
+            TypeUC = TypeUserControl.Accountant_DogDetroy;
+
+        }
     }
 
     public enum TypeUserControl
@@ -176,6 +182,7 @@ namespace MilcanxWpf_SliderMenu
         Manager_Bill =3,
         Manger_CashBook =4,
         Manager_ListStaff = 11,
+        Accountant_DogDetroy,
     }
 
 }

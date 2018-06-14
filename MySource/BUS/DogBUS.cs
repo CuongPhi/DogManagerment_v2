@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-   public class DogBUS
+    public class DogBUS
     {
         static IRepository<DOG> reps;
         static DogRepository dog = new DogRepository();
@@ -16,6 +16,12 @@ namespace BUS
         {
             reps = new DogRepository();
         }
+        public static List<Object> getAllDogDetroy()
+        {
+           return dog.GetAllDogDestroy();
+        
+        }
+
         public static void Update(DOG obj)
         {
             reps.Update(obj);

@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="SourceCode.End_Day"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             
+             mc:Ignorable="d"
+             d:DesignHeight="438" d:DesignWidth="738">
+
+    <Grid x:Name="UCEnd_Day" Background="LightBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <materialDesign:Card Grid.Row="0" Background="LightBlue">
+            <TextBlock Width="auto" FontSize="24" FontWeight="Bold" Margin="200 5 5 5">THỐNG KÊ HÓA ĐƠN CUỐI NGÀY</TextBlock>
+        </materialDesign:Card>
+       
+        <materialDesign:Card Grid.Row="2" Background="AntiqueWhite">
+            <WrapPanel>
+                <Button  Content="Xem hóa đơn thu" Margin="150 5 15 5" Width="150" Click="Button_Click"></Button>
+                <Button Content="Xem hóa đơn chi" Margin="5 5 15 5" Width="150" Click="Button_Click_1"></Button>
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="3">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <ListView Name="dshd" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Mã hóa đơn" DisplayMemberBinding="{Binding ID_BILL}"></GridViewColumn>
+                            <GridViewColumn Header="Tên nhân viên" DisplayMemberBinding="{Binding NAME}"></GridViewColumn>
+                            <GridViewColumn Header="Loại" DisplayMemberBinding="{Binding TYPE}"></GridViewColumn>
+                            <GridViewColumn Header="Tiền phạt" DisplayMemberBinding="{Binding VALUE}"></GridViewColumn>
+                            <GridViewColumn Header="Ngày nhập hóa đơn" DisplayMemberBinding="{Binding DAY_BILL}"></GridViewColumn>
+
+
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </materialDesign:Card>
+        <materialDesign:Card  Grid.Row="4" Background="LightBlue">
+            <StackPanel>
+                <WrapPanel Margin="10 10 0 0">
+                    <Label Margin="0 7">Số lượng:</Label>
+                    <TextBox Text="" Name="sl" Margin="10 0 0 5" materialDesign:HintAssist.Hint="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                </WrapPanel>
+                <WrapPanel  Margin="10 10 0 0">
+                    <Label Margin="0 7">Doanh thu:</Label>
+                    <TextBox Name="dthu" Margin="10 0 0 5" materialDesign:HintAssist.Hint="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                </WrapPanel>
+            </StackPanel>
+
+        </materialDesign:Card>
+        <materialDesign:Card BorderBrush="Transparent" BorderThickness="0"  Grid.Row="5"  Background="LightBlue">
+            <Button Command="{Binding ExportBill}" Content="Xuất danh sách hóa đơn"  Width="190" Click="Button_Click_2"></Button>
+
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

@@ -28,6 +28,8 @@ namespace SourceCode
         {
 
             InitializeComponent();
+            this.dthu.Text = StatisticBillBUS.DoanhThu().ToString();
+            this.chi.Text = StatisticBillBUS.TongChi().ToString();
 
         }
         private void UCSoQuy_Loaded(object sender, RoutedEventArgs e)

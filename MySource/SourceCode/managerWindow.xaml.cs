@@ -68,7 +68,14 @@ namespace SourceCode
                     if (_acc.TYPE == 1)
                         uC_MainWindow = new Customer();
                     break;
-                
+                case TypeUserControl.Accountant_Statistic_ThisDay:
+                    if(_acc.TYPE == 2)                    
+                        uC_MainWindow = new End_Day();
+                    break;
+                case TypeUserControl.Accountant_DogDetroy:
+                    if (_acc.TYPE == 2)
+                        uC_MainWindow = new Dog_Destroyed();
+                    break;
                 default:
                     return;                    
             }
@@ -213,6 +220,22 @@ namespace SourceCode
             this.Hide();
             new UserInfor(_acc).ShowDialog();
             this.Show();
+        }
+
+        private void MenuItem_Click_5(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.facebook.com/ficuong");
+
+        }
+
+        private void MenuItem_Click_6(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Thuộc về nhóm SRTeam - © Copyright 2018, All rights reserved","Bản quyền",MessageBoxButton.OKCancel,MessageBoxImage.Information);
+        }
+
+        private void MenuItem_Click_7(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(@"Danh sách trợ giúp: \1.Quản lý\n2.Nhân viên\n3.Kế toán");
         }
     }
 }

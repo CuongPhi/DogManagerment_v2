@@ -38,5 +38,29 @@ namespace BUS
         {
             return reps.LoaiPhieuChi(start, end);
         }
+        public static long DoanhThu()
+        {
+            return reps.DoanhThu();
+        }
+        public static long TongChi()
+        {
+            return reps.Chi();
+        }
+        public static List<SoQuy>LoaiThuCuoiNgay(DateTime day)
+        {
+            return reps.LoaiPhieuThuCuoiNgay(day);
+        }
+        public static List<SoQuy>LoaiChiCuoiNgay(DateTime day)
+        {
+            return reps.LoaiPhieuChiCuoiNgay(day);
+        }
+        public static long DoanhThuCuoiNgay(DateTime day)
+        {
+            return reps.ThuCuoiNgay(day);
+        }
+        public static long ChiCuoiNgay(DateTime day)
+        {
+            return reps.ChiCuoiNgay(day);
+        }
     }
 }

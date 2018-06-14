@@ -105,6 +105,37 @@ namespace DAL
             }
 
         }
+        public long DoanhThu()
+        {
+            long kq=0;
+            using (DMEntities db = new DMEntities()) {
+
+                var query = (from bill_out in db.BILL_OUT
+                             join personinf in db.PERSONINFORs on bill_out.ID_USER equals personinf.ID
+                             select new SoQuy { TYPE = "Thu", ID_BILL = bill_out.ID_BILL, DAY_BILL = (DateTime)bill_out.DAY_BILL,
+                                 NAME = personinf.NAME, VALUE = (long)(bill_out.TOTALPRICE) });
+                var ls = query.ToList();
+                foreach (var item in ls)    {
+                    kq += item.VALUE;
+                }
+
+            }
+            
+            return kq;
+        }
+        public long Chi()
+        {
+            long kq = 0;
+           
+                var ls = trangThaiDaHuy();
+                foreach(var item in ls)
+                {
+                    kq += item.VALUE;
+                }
+          
+            return kq;
+        }
+
         public List<SoQuy> LoaiPhieuThu(DateTime start, DateTime end)
         {
             using (DMEntities db = new DMEntities())
@@ -125,11 +156,60 @@ namespace DAL
                             join dog in db.DOGs on bill_in.IDDOG equals dog.ID
                             where (DateTime)(bill_in.DAY_BILL) >= start && (DateTime)(bill_in.DAY_BILL) <= end
                           
-                            select new SoQuy { TYPE = "Thu", ID_BILL = bill_in.ID_BILL, DAY_BILL = (DateTime)bill_in.DAY_BILL, NAME = personinf.NAME, VALUE = (long)(bill_in.FINE + dog.FOODPRICE) });
+                            select new SoQuy { TYPE = " Chi", ID_BILL = bill_in.ID_BILL, DAY_BILL = (DateTime)bill_in.DAY_BILL, NAME = personinf.NAME, VALUE = (long)(bill_in.FINE + dog.FOODPRICE) });
                 return query.ToList();
                             
             }
         }
-        
+        public List<SoQuy> LoaiPhieuChiCuoiNgay(DateTime day)
+        {
+            using (DMEntities db = new DMEntities())
+            {
+                var query = (from bill_in in db.BILL_IN
+                             join personinf in db.PERSONINFORs on bill_in.ID_USER equals personinf.ID
+                             join dog in db.DOGs on bill_in.IDDOG equals dog.ID
+                             where (DateTime)(bill_in.DAY_BILL) == day
+                             select new SoQuy { TYPE = "Chi", ID_BILL = bill_in.ID_BILL, DAY_BILL = (DateTime)bill_in.DAY_BILL, NAME = personinf.NAME, VALUE = (long)(bill_in.FINE + dog.FOODPRICE) });
+                return query.ToList();
+            }
+        }
+        public List<SoQuy>LoaiPhieuThuCuoiNgay(DateTime day)
+        {
+            using (DMEntities db = new DMEntities())
+            {
+               
+                    var query = (from bill_out in db.BILL_OUT
+                                 join personinf in db.PERSONINFORs on bill_out.ID_USER equals personinf.ID
+                                 where (DateTime)(bill_out.DAY_BILL) == day
+                                 select new SoQuy { TYPE = "Thu", ID_BILL = bill_out.ID_BILL, DAY_BILL = (DateTime)bill_out.DAY_BILL, NAME = personinf.NAME, VALUE = (long)(bill_out.TOTALPRICE) });
+                    return query.ToList();
+                
+            }
+        }
+        public long ChiCuoiNgay(DateTime day)
+        {
+            long kq = 0;
+
+            var ls = LoaiPhieuChiCuoiNgay(day);
+            foreach (var item in ls)
+            {
+                kq += item.VALUE;
+            }
+
+            return kq;
+        }
+        public long ThuCuoiNgay(DateTime day)
+        {
+            long kq = 0;
+
+            var ls = LoaiPhieuThuCuoiNgay(day);
+            foreach (var item in ls)
+            {
+                kq += item.VALUE;
+            }
+
+            return kq;
+        }
+
     }
 }

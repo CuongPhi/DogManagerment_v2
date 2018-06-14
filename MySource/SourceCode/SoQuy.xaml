@@ -23,7 +23,7 @@
         </Grid.ColumnDefinitions>
         <materialDesign:Card Grid.Row="0" Grid.ColumnSpan="2" Background="LightBlue" Height="42">
             <WrapPanel>
-                <Label Margin="400 0 0 0" FontSize="24" FontWeight="Bold" Width="333" Content="SỔ QUỸ TIỀN MẶT"/>
+                <Label Margin="400 0 0 0" FontSize="24" FontWeight="Bold" Width="333" Content="THỐNG KÊ HÓA ĐƠN"/>
             </WrapPanel>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="1" Grid.Column="0" Height="42">
@@ -35,8 +35,8 @@
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="2" Grid.Column="0" Height="35">
 
-            <StackPanel>
-                <TextBox Name="timkiem" Background="White" Text="{Binding ID_BILL}" Margin="-8,5,2,5" materialDesign:HintAssist.Hint="Theo mã phiếu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="140" TextChanged="timKiem" />
+            <StackPanel> 
+                <TextBox Name="timkiem" Background="White" Text="{Binding NAME}" Margin="-8,5,2,5" materialDesign:HintAssist.Hint="Tim theo tên nhân viên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="140" TextChanged="timKiem" />
             </StackPanel>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="3" Grid.Column="0" Height="35">
@@ -81,16 +81,16 @@
         <materialDesign:Card Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Height="73">
             <StackPanel HorizontalAlignment="Right">
                 <WrapPanel>
-                    <Label >Quỹ đầu kì</Label>
+                   
                     <Label >Tống thu</Label>
                     <Label >Tổng chi</Label>
-                    <Label >Tồn quỹ</Label>
+                    <!--<Label >Tồn quỹ</Label>-->
                 </WrapPanel>
                 <WrapPanel>
-                    <TextBox Background="White" Text="{Binding QuyDauKi}" Margin="-8,5,2,5" materialDesign:HintAssist.Hint="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="80" />
-                    <TextBox Background="White" Text="{Binding TongThu}" Margin="-8,5,2,5" materialDesign:HintAssist.Hint="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="80" />
-                    <TextBox Background="White" Text="{Binding TongChi}" Margin="-8,5,2,5" materialDesign:HintAssist.Hint="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="80" />
-                    <TextBox Background="White" Text="{Binding TonQuy}" Margin="-8,5,2,5" materialDesign:HintAssist.Hint="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="80" />
+                    <!--<TextBox Background="White" Text="{Binding QuyDauKi}" Margin="-8,5,2,5" materialDesign:HintAssist.Hint="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="80" />-->
+                    <TextBox Background="White" Name="dthu" Text="" Margin="-8,5,2,5" materialDesign:HintAssist.Hint="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="80" />
+                    <TextBox Background="White" Name="chi" Text="" Margin="-8,5,2,5" materialDesign:HintAssist.Hint="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="80" />
+                    <!--<TextBox Background="White" Text="{Binding TonQuy}" Margin="-8,5,2,5" materialDesign:HintAssist.Hint="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="80" />-->
                 </WrapPanel>
             </StackPanel>
 

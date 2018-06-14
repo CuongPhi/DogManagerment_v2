@@ -48,6 +48,34 @@ namespace DAL
                 return query.ToList().Cast<Object>().ToList();
             }
         }
+        public List<object> GetAllDogDestroy()
+        {
+            using (DMEntities db = new DMEntities())
+            {
+                var query = (from dog in db.DOGs
+                             join infor in db.DOG_INFOR on dog.ID equals infor.IDDOG
+                             join type in db.DOGTYPEs on dog.TYPE equals type.ID_TYPE
+                             join house in db.DOGHOUSEs on dog.IDDOGHOUSE equals house.ID
+                             where DbFunctions.DiffDays(dog.DAYIN, DateTime.Now) > 3 && dog.STATUS == 0
+                             select new
+                             {
+                                 ID_DOG = dog.ID,
+                                  dog.WEIGHT,
+                                  dog.FOODPRICE,
+                                  dog.DAYIN,
+                                 TYPE = type.NAME_TYPE,
+                                 NUMOFDAY = DbFunctions.DiffDays(dog.DAYIN, DateTime.Now),
+
+                                 IDDOGHOUSE = house.ID,
+                                  infor.STREET,
+                                   infor.WARD,
+                                   infor.DISTRICT,
+                                 infor.TIME,
+                             }
+                             );
+                return query.ToList().Cast<Object>().ToList();
+            }
+        }
         public List<object> Search(string key)
         {
             if (key == "") return GetAll();

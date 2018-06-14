@@ -100,11 +100,11 @@
                             </MenuItem>
                         </MenuItem>
 
-                        <MenuItem Header="Trợ giúp">
+                        <MenuItem Header="Trợ giúp" Click="MenuItem_Click_7">
                         </MenuItem>
-                        <MenuItem    Header="Bản quyền">
+                        <MenuItem    Header="Bản quyền" Click="MenuItem_Click_6">
                         </MenuItem>
-                        <MenuItem    Header="Liên lạc">
+                        <MenuItem  Click="MenuItem_Click_5"  Header="Liên lạc">
 
                         </MenuItem>
                         <MenuItem Name="MenuItemAccount"  Template="{DynamicResource MenuItemControlTemplate}" >
